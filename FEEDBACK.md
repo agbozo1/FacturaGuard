@@ -12,3 +12,7 @@ Dated notes for the hackathon submission feedback fields.
   (`nvidia/Nemotron-3_5-Lightning`, `nvidia/nemotron-3-super-120b-a12b`,
   `nvidia/Nemotron-3-Ultra-550b-a55b`).
 - Not yet verified: structured output and function calling per model.
+
+## 2026-09-30 (later)
+- Environment note: `saxonche` has no wheel for Python 3.14 on Intel macOS older than
+  macOS 11, so `pip` reports "no matching distribution". Pinned Python to 3.11-3.13.

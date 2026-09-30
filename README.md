@@ -34,5 +34,10 @@ Python. On those, use Python 3.12 or run via Docker.
 - Nemotron (reasoning tier) for error explanations, XML repair proposals and chat.
 - Roles map to model IDs in `.env` (`MODEL_FAST`, `MODEL_REASONING`, ...).
 
+## Synthetic data
+`data/synthetic/` holds 100 labelled invoices (36 designed valid, 54 with one planted error,
+10 with two). Labels are in `manifest.json`. Regenerate with
+`python -m facturaguard.synthetic.generate --seed 2026`. Synthetic only, no real client data.
+
 ## Status
-Milestone 1 done (scaffold, config, client, smoke script). See `FEEDBACK.md` for platform notes.
+Milestones 1 (scaffold, client, smoke script) and 2 (synthetic set) done. See `FEEDBACK.md` for platform notes.

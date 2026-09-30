@@ -1,0 +1,1527 @@
+{
+  "seed": 2026,
+  "count": 100,
+  "notes": [
+    "All data is synthetic. Company names are fictional. CIFs are random numbers with a valid control digit and could coincide with real CUIs by chance.",
+    "designed_valid means 'built to be valid'. It is only confirmed once the official RO_CIUS Schematron and UBL XSDs run against it (Milestone 3).",
+    "expected_rules must all fire. Validators may report additional cascading rules.",
+    "needs_rule_mapping: no EN 16931 rule ID is known yet; fill from the CIUS-RO Schematron.",
+    "VAT rates used: 21 and 11 (Romania since 1 Aug 2025). Verify against ANAF guidance."
+  ],
+  "invoices": [
+    {
+      "id": "SYN-001",
+      "file": "xml/SYN-001.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-002",
+      "file": "xml/SYN-002.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-003",
+      "file": "xml/SYN-003.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-004",
+      "file": "xml/SYN-004.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-005",
+      "file": "xml/SYN-005.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-006",
+      "file": "xml/SYN-006.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-007",
+      "file": "xml/SYN-007.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-008",
+      "file": "xml/SYN-008.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-009",
+      "file": "xml/SYN-009.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-010",
+      "file": "xml/SYN-010.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-011",
+      "file": "xml/SYN-011.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-012",
+      "file": "xml/SYN-012.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-013",
+      "file": "xml/SYN-013.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-014",
+      "file": "xml/SYN-014.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-015",
+      "file": "xml/SYN-015.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-016",
+      "file": "xml/SYN-016.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-017",
+      "file": "xml/SYN-017.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-018",
+      "file": "xml/SYN-018.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-019",
+      "file": "xml/SYN-019.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-020",
+      "file": "xml/SYN-020.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-021",
+      "file": "xml/SYN-021.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-022",
+      "file": "xml/SYN-022.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-023",
+      "file": "xml/SYN-023.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-024",
+      "file": "xml/SYN-024.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-025",
+      "file": "xml/SYN-025.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-026",
+      "file": "xml/SYN-026.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-027",
+      "file": "xml/SYN-027.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-028",
+      "file": "xml/SYN-028.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-029",
+      "file": "xml/SYN-029.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-030",
+      "file": "xml/SYN-030.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-031",
+      "file": "xml/SYN-031.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-032",
+      "file": "xml/SYN-032.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-033",
+      "file": "xml/SYN-033.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-034",
+      "file": "xml/SYN-034.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-035",
+      "file": "xml/SYN-035.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-036",
+      "file": "xml/SYN-036.xml",
+      "designed_valid": true,
+      "mutations": [],
+      "layers": [],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": []
+    },
+    {
+      "id": "SYN-037",
+      "file": "xml/SYN-037.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_payable"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-16"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Payable amount does not match tax-inclusive total."
+      ]
+    },
+    {
+      "id": "SYN-038",
+      "file": "xml/SYN-038.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_payable"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-16"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Payable amount does not match tax-inclusive total."
+      ]
+    },
+    {
+      "id": "SYN-039",
+      "file": "xml/SYN-039.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-15"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Tax-inclusive total is not tax-exclusive plus VAT."
+      ]
+    },
+    {
+      "id": "SYN-040",
+      "file": "xml/SYN-040.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-15"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Tax-inclusive total is not tax-exclusive plus VAT."
+      ]
+    },
+    {
+      "id": "SYN-041",
+      "file": "xml/SYN-041.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-13"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Tax-exclusive total does not match line sum."
+      ]
+    },
+    {
+      "id": "SYN-042",
+      "file": "xml/SYN-042.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-13"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Tax-exclusive total does not match line sum."
+      ]
+    },
+    {
+      "id": "SYN-043",
+      "file": "xml/SYN-043.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-10"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Sum of lines in totals differs from the actual lines."
+      ]
+    },
+    {
+      "id": "SYN-044",
+      "file": "xml/SYN-044.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-10"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Sum of lines in totals differs from the actual lines."
+      ]
+    },
+    {
+      "id": "SYN-045",
+      "file": "xml/SYN-045.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Invoice VAT total differs from sum of VAT subtotals."
+      ]
+    },
+    {
+      "id": "SYN-046",
+      "file": "xml/SYN-046.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Invoice VAT total differs from sum of VAT subtotals."
+      ]
+    },
+    {
+      "id": "SYN-047",
+      "file": "xml/SYN-047.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-17"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "VAT subtotal amount is not taxable amount x rate."
+      ]
+    },
+    {
+      "id": "SYN-048",
+      "file": "xml/SYN-048.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-17"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "VAT subtotal amount is not taxable amount x rate."
+      ]
+    },
+    {
+      "id": "SYN-049",
+      "file": "xml/SYN-049.xml",
+      "designed_valid": false,
+      "mutations": [
+        "vat_no_country_prefix"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-09"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller VAT id has no ISO country prefix."
+      ]
+    },
+    {
+      "id": "SYN-050",
+      "file": "xml/SYN-050.xml",
+      "designed_valid": false,
+      "mutations": [
+        "vat_no_country_prefix"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-09"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller VAT id has no ISO country prefix."
+      ]
+    },
+    {
+      "id": "SYN-051",
+      "file": "xml/SYN-051.xml",
+      "designed_valid": false,
+      "mutations": [
+        "wrong_country_seller"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
+      ]
+    },
+    {
+      "id": "SYN-052",
+      "file": "xml/SYN-052.xml",
+      "designed_valid": false,
+      "mutations": [
+        "wrong_country_seller"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
+      ]
+    },
+    {
+      "id": "SYN-053",
+      "file": "xml/SYN-053.xml",
+      "designed_valid": false,
+      "mutations": [
+        "wrong_country_buyer"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Buyer country is 'GER' instead of ISO alpha-2."
+      ]
+    },
+    {
+      "id": "SYN-054",
+      "file": "xml/SYN-054.xml",
+      "designed_valid": false,
+      "mutations": [
+        "wrong_country_buyer"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Buyer country is 'GER' instead of ISO alpha-2."
+      ]
+    },
+    {
+      "id": "SYN-055",
+      "file": "xml/SYN-055.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_currency_code"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-04"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Document currency is 'LEI' instead of ISO 4217 'RON'."
+      ]
+    },
+    {
+      "id": "SYN-056",
+      "file": "xml/SYN-056.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_currency_code"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-04"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Document currency is 'LEI' instead of ISO 4217 'RON'."
+      ]
+    },
+    {
+      "id": "SYN-057",
+      "file": "xml/SYN-057.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_customization_id"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-01"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing CustomizationID."
+      ]
+    },
+    {
+      "id": "SYN-058",
+      "file": "xml/SYN-058.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_customization_id"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-01"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing CustomizationID."
+      ]
+    },
+    {
+      "id": "SYN-059",
+      "file": "xml/SYN-059.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_invoice_number"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-02"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing invoice number."
+      ]
+    },
+    {
+      "id": "SYN-060",
+      "file": "xml/SYN-060.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_invoice_number"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-02"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing invoice number."
+      ]
+    },
+    {
+      "id": "SYN-061",
+      "file": "xml/SYN-061.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_issue_date"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-03"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing issue date."
+      ]
+    },
+    {
+      "id": "SYN-062",
+      "file": "xml/SYN-062.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_issue_date"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-03"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing issue date."
+      ]
+    },
+    {
+      "id": "SYN-063",
+      "file": "xml/SYN-063.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_type_code"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-04"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing invoice type code."
+      ]
+    },
+    {
+      "id": "SYN-064",
+      "file": "xml/SYN-064.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_type_code"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-04"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing invoice type code."
+      ]
+    },
+    {
+      "id": "SYN-065",
+      "file": "xml/SYN-065.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_currency"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-05"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing document currency code."
+      ]
+    },
+    {
+      "id": "SYN-066",
+      "file": "xml/SYN-066.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_currency"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-05"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing document currency code."
+      ]
+    },
+    {
+      "id": "SYN-067",
+      "file": "xml/SYN-067.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_seller_name"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-06"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing seller legal name."
+      ]
+    },
+    {
+      "id": "SYN-068",
+      "file": "xml/SYN-068.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_seller_name"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-06"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing seller legal name."
+      ]
+    },
+    {
+      "id": "SYN-069",
+      "file": "xml/SYN-069.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_buyer_name"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-07"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing buyer legal name."
+      ]
+    },
+    {
+      "id": "SYN-070",
+      "file": "xml/SYN-070.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_buyer_name"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-07"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing buyer legal name."
+      ]
+    },
+    {
+      "id": "SYN-071",
+      "file": "xml/SYN-071.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_seller_country"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-09"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing seller country code."
+      ]
+    },
+    {
+      "id": "SYN-072",
+      "file": "xml/SYN-072.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_seller_country"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-09"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing seller country code."
+      ]
+    },
+    {
+      "id": "SYN-073",
+      "file": "xml/SYN-073.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_buyer_country"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-11"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing buyer country code."
+      ]
+    },
+    {
+      "id": "SYN-074",
+      "file": "xml/SYN-074.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_buyer_country"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-11"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing buyer country code."
+      ]
+    },
+    {
+      "id": "SYN-075",
+      "file": "xml/SYN-075.xml",
+      "designed_valid": false,
+      "mutations": [
+        "no_invoice_lines"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-16"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Invoice has no lines."
+      ]
+    },
+    {
+      "id": "SYN-076",
+      "file": "xml/SYN-076.xml",
+      "designed_valid": false,
+      "mutations": [
+        "no_invoice_lines"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-16"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Invoice has no lines."
+      ]
+    },
+    {
+      "id": "SYN-077",
+      "file": "xml/SYN-077.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "layers": [
+        "anaf_identifier"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller CIF fails the CUI control-digit checksum (checked outside Schematron)."
+      ]
+    },
+    {
+      "id": "SYN-078",
+      "file": "xml/SYN-078.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "layers": [
+        "anaf_identifier"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller CIF fails the CUI control-digit checksum (checked outside Schematron)."
+      ]
+    },
+    {
+      "id": "SYN-079",
+      "file": "xml/SYN-079.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": true,
+      "descriptions": [
+        "Romanian seller address lacks the RO-XX county code (CIUS-RO rule)."
+      ]
+    },
+    {
+      "id": "SYN-080",
+      "file": "xml/SYN-080.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": true,
+      "descriptions": [
+        "Romanian seller address lacks the RO-XX county code (CIUS-RO rule)."
+      ]
+    },
+    {
+      "id": "SYN-081",
+      "file": "xml/SYN-081.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_ro_subdivision"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": true,
+      "descriptions": [
+        "Romanian seller county is free text, not an RO-XX code (CIUS-RO rule)."
+      ]
+    },
+    {
+      "id": "SYN-082",
+      "file": "xml/SYN-082.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_ro_subdivision"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": true,
+      "descriptions": [
+        "Romanian seller county is free text, not an RO-XX code (CIUS-RO rule)."
+      ]
+    },
+    {
+      "id": "SYN-083",
+      "file": "xml/SYN-083.xml",
+      "designed_valid": false,
+      "mutations": [
+        "xsd_wrong_element_order"
+      ],
+      "layers": [
+        "xsd"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "cbc:ID placed after cbc:IssueDate."
+      ]
+    },
+    {
+      "id": "SYN-084",
+      "file": "xml/SYN-084.xml",
+      "designed_valid": false,
+      "mutations": [
+        "xsd_wrong_element_order"
+      ],
+      "layers": [
+        "xsd"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "cbc:ID placed after cbc:IssueDate."
+      ]
+    },
+    {
+      "id": "SYN-085",
+      "file": "xml/SYN-085.xml",
+      "designed_valid": false,
+      "mutations": [
+        "xsd_unknown_element"
+      ],
+      "layers": [
+        "xsd"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Unknown element cbc:Foo inserted."
+      ]
+    },
+    {
+      "id": "SYN-086",
+      "file": "xml/SYN-086.xml",
+      "designed_valid": false,
+      "mutations": [
+        "xsd_unknown_element"
+      ],
+      "layers": [
+        "xsd"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Unknown element cbc:Foo inserted."
+      ]
+    },
+    {
+      "id": "SYN-087",
+      "file": "xml/SYN-087.xml",
+      "designed_valid": false,
+      "mutations": [
+        "xsd_bad_date"
+      ],
+      "layers": [
+        "xsd"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Issue date is '31/02/2026', not an xs:date."
+      ]
+    },
+    {
+      "id": "SYN-088",
+      "file": "xml/SYN-088.xml",
+      "designed_valid": false,
+      "mutations": [
+        "xsd_bad_date"
+      ],
+      "layers": [
+        "xsd"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Issue date is '31/02/2026', not an xs:date."
+      ]
+    },
+    {
+      "id": "SYN-089",
+      "file": "xml/SYN-089.xml",
+      "designed_valid": false,
+      "mutations": [
+        "malformed_xml"
+      ],
+      "layers": [
+        "parse"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "File truncated, not well-formed XML."
+      ]
+    },
+    {
+      "id": "SYN-090",
+      "file": "xml/SYN-090.xml",
+      "designed_valid": false,
+      "mutations": [
+        "malformed_xml"
+      ],
+      "layers": [
+        "parse"
+      ],
+      "expected_rules": [],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "File truncated, not well-formed XML."
+      ]
+    },
+    {
+      "id": "SYN-091",
+      "file": "xml/SYN-091.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_vat_amount",
+        "wrong_country_seller"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-14",
+        "BR-CO-17"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "VAT subtotal amount is not taxable amount x rate.",
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
+      ]
+    },
+    {
+      "id": "SYN-092",
+      "file": "xml/SYN-092.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_currency_code",
+        "bad_line_sum"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-04",
+        "BR-CO-10"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Document currency is 'LEI' instead of ISO 4217 'RON'.",
+        "Sum of lines in totals differs from the actual lines."
+      ]
+    },
+    {
+      "id": "SYN-093",
+      "file": "xml/SYN-093.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_payable",
+        "missing_seller_name"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-06",
+        "BR-CO-16"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Payable amount does not match tax-inclusive total.",
+        "Missing seller legal name."
+      ]
+    },
+    {
+      "id": "SYN-094",
+      "file": "xml/SYN-094.xml",
+      "designed_valid": false,
+      "mutations": [
+        "wrong_country_seller",
+        "bad_vat_amount"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CL-14",
+        "BR-CO-17"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'.",
+        "VAT subtotal amount is not taxable amount x rate."
+      ]
+    },
+    {
+      "id": "SYN-095",
+      "file": "xml/SYN-095.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_invoice_number",
+        "bad_vat_amount"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-02",
+        "BR-CO-17"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing invoice number.",
+        "VAT subtotal amount is not taxable amount x rate."
+      ]
+    },
+    {
+      "id": "SYN-096",
+      "file": "xml/SYN-096.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_inclusive",
+        "missing_customization_id"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-01",
+        "BR-CO-15"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Tax-inclusive total is not tax-exclusive plus VAT.",
+        "Missing CustomizationID."
+      ]
+    },
+    {
+      "id": "SYN-097",
+      "file": "xml/SYN-097.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_invoice_number",
+        "bad_tax_exclusive"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-02",
+        "BR-CO-13"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing invoice number.",
+        "Tax-exclusive total does not match line sum."
+      ]
+    },
+    {
+      "id": "SYN-098",
+      "file": "xml/SYN-098.xml",
+      "designed_valid": false,
+      "mutations": [
+        "wrong_country_seller",
+        "missing_seller_name"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-06",
+        "BR-CL-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'.",
+        "Missing seller legal name."
+      ]
+    },
+    {
+      "id": "SYN-099",
+      "file": "xml/SYN-099.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_customization_id",
+        "bad_currency_code"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-01",
+        "BR-CL-04"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing CustomizationID.",
+        "Document currency is 'LEI' instead of ISO 4217 'RON'."
+      ]
+    },
+    {
+      "id": "SYN-100",
+      "file": "xml/SYN-100.xml",
+      "designed_valid": false,
+      "mutations": [
+        "missing_buyer_country",
+        "bad_tax_total"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-11",
+        "BR-CO-14"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Missing buyer country code.",
+        "Invoice VAT total differs from sum of VAT subtotals."
+      ]
+    }
+  ]
+}
