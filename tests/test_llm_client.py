@@ -45,7 +45,7 @@ def test_think_tags_stripped_and_extra_body_forwarded():
         )
     )
     c = LLMClient(Settings(nebius_api_key="x"), sdk=sdk)
-    r = c.chat("fast", [], extra_body={"a": 1})
+    r = c.chat("reasoning", [], extra_body={"a": 1})
     assert r.text == "answer" and r.reasoning == "<think>hmm</think>"
     assert sdk.calls[0]["extra_body"] == {"a": 1}
 
