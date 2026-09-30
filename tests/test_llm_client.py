@@ -50,6 +50,15 @@ def test_think_tags_stripped_and_extra_body_forwarded():
     assert sdk.calls[0]["extra_body"] == {"a": 1}
 
 
+def test_fast_role_disables_thinking_by_default_and_others_do_not():
+    sdk = FakeSDK()
+    c = LLMClient(Settings(nebius_api_key="x"), sdk=sdk)
+    c.chat("fast", [])
+    c.chat("reasoning", [])
+    assert sdk.calls[0]["extra_body"] == {"chat_template_kwargs": {"enable_thinking": False}}
+    assert "extra_body" not in sdk.calls[1]
+
+
 def test_list_models_sorted():
     assert LLMClient(Settings(nebius_api_key="x"), sdk=FakeSDK()).list_models() == ["a", "b"]
 

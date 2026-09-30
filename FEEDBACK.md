@@ -27,3 +27,12 @@ Dated notes for the hackathon submission feedback fields.
 - Ultra answered a simple e-Factura question quickly (0.47s, 61 tokens) but WRONGLY: claimed the
   invoice must be digitally signed and get an ANAF-assigned UID. This confirms that model memory
   of Romanian tax rules is unreliable, so explanations must be grounded in validator output.
+- `extra_body={"chat_template_kwargs": {"enable_thinking": false}}` works on Lightning through the
+  OpenAI-compatible endpoint: 1.30s and 29 tokens, no reasoning text. Without it: 4.19s and all 800
+  tokens spent thinking with no final answer. Docs gap: this switch is not documented for Token
+  Factory (found by trying the vLLM-style parameter).
+- Same prompt, three models: Ultra (0.70s) and Super (0.84s) both wrongly said the invoice needs a
+  qualified digital signature. Ultra also invented "CIUS-PT" (a Portuguese profile) and an "ANAF
+  acceptance stamp". Romanian e-invoicing knowledge is unreliable at every size, so explanations
+  stay grounded in validator output and official rule text.
+- Ultra and Super return reasoning in a separate field (109 and 413 chars), not in the answer.

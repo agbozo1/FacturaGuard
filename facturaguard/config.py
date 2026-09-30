@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     llm_timeout_seconds: float = 60.0
     # Optional JSON merged into every request body, e.g. to switch off thinking.
     llm_extra_body: str = ""
+    # Lightning is a reasoning model. Verified on Token Factory 2026-09-30: this switches thinking off.
+    llm_extra_body_fast: str = '{"chat_template_kwargs": {"enable_thinking": false}}'
 
 
 @lru_cache
