@@ -2,7 +2,7 @@
 name = "facturaguard"
 version = "0.1.0"
 description = "AI copilot that checks Romanian e-Factura invoices before ANAF rejects them"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.14"
 dependencies = [
   "fastapi>=0.115",
   "uvicorn>=0.30",

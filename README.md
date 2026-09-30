@@ -24,9 +24,9 @@ python scripts/smoke_nebius.py --list   # model IDs your key can use
 python scripts/smoke_nebius.py          # one real call per role
 ```
 
-If `saxonche` fails with "no matching distribution", your platform has no wheel
-(musl/Alpine, Windows on ARM, 32-bit Python, or Python outside 3.9-3.14). Use Python 3.12
-on a supported platform, or run via Docker.
+Use Python 3.11 to 3.13 (3.12 recommended). `saxonche` has no wheel for Python 3.14 on
+Intel Macs older than macOS 11 (Catalina), nor for musl/Alpine, Windows on ARM or 32-bit
+Python. On those, use Python 3.12 or run via Docker.
 
 ## How Nebius and Nemotron are used
 - Nebius Token Factory, OpenAI-compatible API, through the `openai` SDK.
