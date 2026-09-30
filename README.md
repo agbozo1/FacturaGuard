@@ -16,12 +16,17 @@ Synthetic data only.
 ## Setup
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[dev]"            # core
+pip install -e ".[schematron]"      # needed for validation (Milestone 3), see note below
 cp .env.example .env     # add your NEBIUS_API_KEY
 pytest
 python scripts/smoke_nebius.py --list   # model IDs your key can use
 python scripts/smoke_nebius.py          # one real call per role
 ```
+
+If `saxonche` fails with "no matching distribution", your platform has no wheel
+(musl/Alpine, Windows on ARM, 32-bit Python, or Python outside 3.9-3.14). Use Python 3.12
+on a supported platform, or run via Docker.
 
 ## How Nebius and Nemotron are used
 - Nebius Token Factory, OpenAI-compatible API, through the `openai` SDK.

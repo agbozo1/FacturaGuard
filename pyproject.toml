@@ -9,11 +9,13 @@ dependencies = [
   "openai>=1.50",
   "pydantic-settings>=2.4",
   "lxml>=5.2",
-  "saxonche>=12.5",
   "python-multipart>=0.0.9",
 ]
 
 [project.optional-dependencies]
+# Schematron runtime (XSLT 2.0). Needed from Milestone 3. Wheels: CPython 3.9-3.14,
+# Linux glibc x86_64/aarch64, macOS, Windows x64. Docker/Render use this.
+schematron = ["saxonche>=12.5"]
 dev = ["pytest>=8", "ruff>=0.6", "httpx>=0.27"]
 
 [tool.setuptools.packages.find]
