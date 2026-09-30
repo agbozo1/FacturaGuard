@@ -24,11 +24,10 @@ NOTES = [
         " valid control digit and could coincide with real CUIs by chance."
     ),
     (
-        "designed_valid means 'built to be valid'. It is only confirmed once the official"
-        " RO_CIUS Schematron and UBL XSDs run against it (Milestone 3)."
+        "designed_valid invoices pass the official ro16931-ubl-1.0.9 Schematron and UBL 2.1 XSD"
+        " (checked by tests/test_validator.py)."
     ),
     "expected_rules must all fire. Validators may report additional cascading rules.",
-    "needs_rule_mapping: no EN 16931 rule ID is known yet; fill from the CIUS-RO Schematron.",
     "VAT rates used: 21 and 11 (Romania since 1 Aug 2025). Verify against ANAF guidance.",
 ]
 

@@ -36,3 +36,8 @@ Dated notes for the hackathon submission feedback fields.
   acceptance stamp". Romanian e-invoicing knowledge is unreliable at every size, so explanations
   stay grounded in validator output and official rule text.
 - Ultra and Super return reasoning in a separate field (109 and 413 chars), not in the answer.
+
+## 2026-09-30 (validator)
+- Not a Token Factory note: the ANAF CIUS-RO package (ro16931-ubl-1.0.9) ships only Schematron
+  source, no compiled XSLT, so the rules are compiled locally with the ISO Schematron XSLT and
+  saxonche. Full run over 100 invoices takes about 1.4s including compile.

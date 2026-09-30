@@ -40,4 +40,10 @@ Python. On those, use Python 3.12 or run via Docker.
 `python -m facturaguard.synthetic.generate --seed 2026`. Synthetic only, no real client data.
 
 ## Status
-Milestones 1 (scaffold, client, smoke script) and 2 (synthetic set) done. See `FEEDBACK.md` for platform notes.
+Milestones 1 (scaffold, client), 2 (synthetic set) and 3 (validator) done. See `FEEDBACK.md` for platform notes.
+
+## Validation
+`facturaguard/validation/` runs three layers: UBL 2.1 XSD, the ANAF CIUS-RO 1.0.9 Schematron
+(compiled with `scripts/build_schematron.py`, output committed) and a CUI checksum.
+Rule sources and versions are in `vendor/SOURCES.md`. Check the synthetic set with
+`python scripts/validate_set.py`. Installing the Schematron runtime: `pip install -e ".[schematron]"`.

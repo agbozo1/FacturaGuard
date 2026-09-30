@@ -1,9 +1,9 @@
 """Planted errors. Each mutation declares the rules that MUST fire (expected_rules).
 
 Validators may report extra cascading findings; tests check recall on expected_rules.
-Rule IDs are EN 16931 IDs. Mutations with no EN 16931 rule have expected_rules == [] and
-are flagged needs_rule_mapping until reconciled with the official CIUS-RO Schematron
-(Milestone 3).
+Rule IDs are EN 16931 / CIUS-RO IDs, confirmed against ro16931-ubl-1.0.9 in Milestone 3.
+FG-CUI-CHECKSUM is our own identifier check. XSD and parse mutations have no rule ID and are
+identified by layer.
 """
 
 import re
@@ -111,15 +111,15 @@ MUTATIONS: list[Mutation] = [
              _set(("buyer", "country"), None), group="buyer_country"),
     Mutation("no_invoice_lines", "schematron", ("BR-16",), "Invoice has no lines.", "lines",
              _set(("lines",), []), combinable=False),
-    Mutation("bad_cif_checksum", "anaf_identifier", (),
+    Mutation("bad_cif_checksum", "anaf_identifier", ("FG-CUI-CHECKSUM",),
              "Seller CIF fails the CUI control-digit checksum (checked outside Schematron).",
              "cif", _bad_cif),
-    Mutation("missing_ro_subdivision", "schematron", (),
+    Mutation("missing_ro_subdivision", "schematron", ("BR-RO-110",),
              "Romanian seller address lacks the RO-XX county code (CIUS-RO rule).",
-             "subdivision", _set(("seller", "subdivision"), None), needs_rule_mapping=True),
-    Mutation("bad_ro_subdivision", "schematron", (),
+             "subdivision", _set(("seller", "subdivision"), None)),
+    Mutation("bad_ro_subdivision", "schematron", ("BR-RO-110",),
              "Romanian seller county is free text, not an RO-XX code (CIUS-RO rule).",
-             "subdivision", _set(("seller", "subdivision"), "Cluj"), needs_rule_mapping=True),
+             "subdivision", _set(("seller", "subdivision"), "Cluj")),
     Mutation("xsd_wrong_element_order", "xsd", (), "cbc:ID placed after cbc:IssueDate.",
              "xml", xml_fn=_xml_wrong_order, combinable=False),
     Mutation("xsd_unknown_element", "xsd", (), "Unknown element cbc:Foo inserted.", "xml",
