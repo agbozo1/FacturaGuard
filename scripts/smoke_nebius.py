@@ -36,7 +36,7 @@ def main() -> int:
             r = client.chat(role, [{"role": "user", "content": PROMPT}], max_tokens=200)
             print(f"[{role}] {r.model} {r.latency_s:.2f}s tokens={r.completion_tokens}")
             print(f"  {r.text.strip()}\n")
-        except Exception as e:  # report every role, then exit non-zero
+        except Exception as e:  # noqa: BLE001  report every role, then exit non-zero
             failed = True
             msg = f"[{role}] {client.model_for(role)} FAILED: {type(e).__name__}: {e}\n"
             print(msg, file=sys.stderr)
