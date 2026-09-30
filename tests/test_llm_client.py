@@ -35,6 +35,21 @@ def test_chat_passes_model_and_json_mode():
     assert sdk.calls[0]["response_format"] == {"type": "json_object"}
 
 
+def test_think_tags_stripped_and_extra_body_forwarded():
+    sdk = FakeSDK()
+    sdk.chat.completions.create = lambda **kw: (
+        sdk.calls.append(kw)
+        or SimpleNamespace(
+            choices=[SimpleNamespace(message=SimpleNamespace(content="<think>hmm</think>answer"))],
+            usage=None,
+        )
+    )
+    c = LLMClient(Settings(nebius_api_key="x"), sdk=sdk)
+    r = c.chat("fast", [], extra_body={"a": 1})
+    assert r.text == "answer" and r.reasoning == "<think>hmm</think>"
+    assert sdk.calls[0]["extra_body"] == {"a": 1}
+
+
 def test_list_models_sorted():
     assert LLMClient(Settings(nebius_api_key="x"), sdk=FakeSDK()).list_models() == ["a", "b"]
 

@@ -4,6 +4,8 @@ Callers ask for a model role ("fast", "reasoning", "balanced", "vision"),
 never a model ID. Roles map to IDs in config, so models swap via env vars.
 """
 
+import json
+import re
 import time
 from dataclasses import dataclass
 from typing import Literal
@@ -15,6 +17,9 @@ from facturaguard.config import Settings, get_settings
 Role = Literal["fast", "reasoning", "balanced", "vision"]
 
 
+_THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL)
+
+
 class LLMNotConfigured(RuntimeError):
     pass
 
@@ -23,6 +28,7 @@ class LLMNotConfigured(RuntimeError):
 class LLMResult:
     text: str
     model: str
+    reasoning: str | None
     latency_s: float
     prompt_tokens: int | None
     completion_tokens: int | None
@@ -55,6 +61,7 @@ class LLMClient:
         temperature: float = 0.2,
         max_tokens: int | None = None,
         json_mode: bool = False,
+        extra_body: dict | None = None,
     ) -> LLMResult:
         model = self.model_for(role)
         kwargs: dict = {"model": model, "messages": messages, "temperature": temperature}
@@ -62,12 +69,24 @@ class LLMClient:
             kwargs["max_tokens"] = max_tokens
         if json_mode:
             kwargs["response_format"] = {"type": "json_object"}
+        body = json.loads(self.settings.llm_extra_body) if self.settings.llm_extra_body else {}
+        body.update(extra_body or {})
+        if body:
+            kwargs["extra_body"] = body
         start = time.perf_counter()
         resp = self._sdk.chat.completions.create(**kwargs)
         latency = time.perf_counter() - start
         usage = resp.usage
+        msg = resp.choices[0].message
+        content = msg.content or ""
+        # Reasoning models may return thinking separately or inline in <think> tags.
+        reasoning = getattr(msg, "reasoning_content", None) or getattr(msg, "reasoning", None)
+        if "<think>" in content:
+            reasoning = reasoning or "".join(_THINK_RE.findall(content))
+            content = _THINK_RE.sub("", content)
         return LLMResult(
-            text=resp.choices[0].message.content or "",
+            text=content.strip(),
+            reasoning=reasoning,
             model=model,
             latency_s=latency,
             prompt_tokens=getattr(usage, "prompt_tokens", None),
