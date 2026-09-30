@@ -50,6 +50,10 @@ class LLMClient:
     def model_for(self, role: Role) -> str:
         return getattr(self.settings, f"model_{role}")
 
+    @staticmethod
+    def _load_body(raw: str) -> dict:
+        return json.loads(raw) if raw else {}
+
     def list_models(self) -> list[str]:
         return sorted(m.id for m in self._sdk.models.list())
 
@@ -69,7 +73,8 @@ class LLMClient:
             kwargs["max_tokens"] = max_tokens
         if json_mode:
             kwargs["response_format"] = {"type": "json_object"}
-        body = json.loads(self.settings.llm_extra_body) if self.settings.llm_extra_body else {}
+        body = self._load_body(self.settings.llm_extra_body)
+        body.update(self._load_body(getattr(self.settings, f"llm_extra_body_{role}", "")))
         body.update(extra_body or {})
         if body:
             kwargs["extra_body"] = body
