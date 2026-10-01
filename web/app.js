@@ -43,6 +43,12 @@ const I18N = {
     chips: ["Why would ANAF reject this?", "What should I ask my accountant?", "Which fields do I need to fill in?"],
     errNoAi: "AI features are not configured on this server. Validation still works.",
     thinking: "Thinking...", mockNote: "Simulation only. Nothing was sent to ANAF.",
+    rulesVersion: "Rules: ANAF CIUS-RO 1.0.9", checkUpdates: "Check ANAF for updates",
+    checkingRules: "Searching official sources...",
+    newerFound: (v) => `ANAF sources mention CIUS-RO ${v}, newer than the 1.0.9 rules used here. Results may be out of date; check before relying on them.`,
+    noNewer: (when) => `No newer CIUS-RO version found in official sources (checked ${when}).`,
+    officialSources: "Search official sources (ANAF, MF, legislatie.just.ro)",
+    sourcesTitle: "Official sources", searchUnavailable: "Official-source search was unavailable for this answer.",
     productOf: "© 2026 Product of Nova Analytica S.R.L.", license: "Source code (AGPL-3.0)",
   },
   ro: {
@@ -85,11 +91,17 @@ const I18N = {
     chips: ["De ce ar respinge ANAF factura?", "Ce să-l întreb pe contabil?", "Ce câmpuri trebuie să completez?"],
     errNoAi: "Funcțiile AI nu sunt configurate pe acest server. Validarea funcționează.",
     thinking: "Mă gândesc...", mockNote: "Doar simulare. Nimic nu a fost trimis la ANAF.",
+    rulesVersion: "Reguli: ANAF CIUS-RO 1.0.9", checkUpdates: "Verifică actualizări ANAF",
+    checkingRules: "Se caută în surse oficiale...",
+    newerFound: (v) => `Sursele ANAF menționează CIUS-RO ${v}, mai nou decât regulile 1.0.9 folosite aici. Rezultatele pot fi depășite; verificați înainte de a vă baza pe ele.`,
+    noNewer: (when) => `Nu s-a găsit o versiune CIUS-RO mai nouă în sursele oficiale (verificat ${when}).`,
+    officialSources: "Caută în surse oficiale (ANAF, MF, legislatie.just.ro)",
+    sourcesTitle: "Surse oficiale", searchUnavailable: "Căutarea în surse oficiale nu a fost disponibilă pentru acest răspuns.",
     productOf: "© 2026 Un produs Nova Analytica S.R.L.", license: "Cod sursă (AGPL-3.0)",
   },
 };
 
-const state = { lang: "en", ai: false, check: null, explain: null, repair: null, busy: false };
+const state = { lang: "en", ai: false, search: false, check: null, explain: null, repair: null, busy: false };
 const $ = (sel) => document.querySelector(sel);
 const t = (key, ...args) => {
   const v = I18N[state.lang][key];
@@ -245,8 +257,9 @@ function renderResults() {
   const v = $("#verdict");
   v.className = `verdict ${valid ? "ok" : "bad"}`;
   const fixed = !valid && state.repair?.final?.valid;
-  v.replaceChildren(el("span", { class: "pill" }, valid ? t("valid") : t("invalid")),
-    fixed ? el("span", { class: "pill fixed" }, `✓ ${t("correctedValid")}`) : null);
+  // replaceChildren would print "null", so only pass real nodes.
+  v.replaceChildren(...[el("span", { class: "pill" }, valid ? t("valid") : t("invalid")),
+    fixed ? el("span", { class: "pill fixed" }, `✓ ${t("correctedValid")}`) : null].filter(Boolean));
   $("#verdict-sub").textContent = (valid ? t("validSub") : t("invalidSub", n)) + (warn ? " " + t("warnings", warn) : "");
   renderPdf();
   renderErrors();
@@ -371,11 +384,11 @@ async function doSubmit() {
     const r = await post("/api/submit", { session_id: state.check.session_id });
     $("#submit-panel").hidden = false;
     const ok = r.status === "ok";
-    $("#submit-body").replaceChildren(
+    $("#submit-body").replaceChildren(...[
       el("p", { class: `note ${ok ? "ok" : "bad"}` }, `${r.status}: ${ok ? t("submitOk") : t("submitNok")}`),
       el("p", {}, r.message),
       r.errors?.length ? el("p", { class: "muted" }, r.errors.join(", ")) : null,
-      el("p", { class: "muted" }, `Index: ${r.upload_index}. ${t("mockNote")}`));
+      el("p", { class: "muted" }, `Index: ${r.upload_index}. ${t("mockNote")}`)].filter(Boolean));
   });
 }
 
@@ -445,13 +458,50 @@ async function sendChat(text) {
   log.append(pending);
   log.scrollTop = log.scrollHeight;
   try {
-    const r = await post("/api/chat", { session_id: state.check.session_id, message, lang: state.lang });
+    const web = state.search && $("#web-search").checked;
+    const r = await post("/api/chat", { session_id: state.check.session_id, message, lang: state.lang, web });
     pending.textContent = r.answer;
+    if (r.sources?.length) pending.append(renderSources(r.sources));
+    else if (web && r.search_error) pending.append(el("p", { class: "sources meta" }, t("searchUnavailable")));
   } catch (e) {
     pending.textContent = e.message;
   }
   pending.classList.remove("thinking");
   log.scrollTop = log.scrollHeight;
+}
+
+/* ---------- official sources (Tavily) ---------- */
+function sourceLink(s, n) {
+  const host = (() => { try { return new URL(s.url).hostname; } catch { return ""; } })();
+  const safe = /^https:\/\//.test(s.url) ? s.url : "#";
+  return el("li", {},
+    n ? `[${n}] ` : "",
+    el("a", { href: safe, target: "_blank", rel: "noopener noreferrer" }, s.title || host),
+    el("span", { class: "meta" }, ` ${host}${s.published_date ? ", " + s.published_date.slice(0, 10) : ""}`));
+}
+
+function renderSources(sources) {
+  return el("ul", { class: "sources", "aria-label": t("sourcesTitle") },
+    sources.map((s, i) => sourceLink(s, i + 1)));
+}
+
+async function checkRuleUpdates() {
+  const box = $("#rules-result");
+  const btn = $("#btn-rules");
+  btn.disabled = true;
+  box.replaceChildren(el("p", { class: "muted" }, t("checkingRules")));
+  try {
+    const r = await api("/api/rules/updates");
+    box.replaceChildren(
+      r.newer_version
+        ? el("p", { class: "note bad" }, t("newerFound", r.newer_version))
+        : el("p", { class: "note ok" }, t("noNewer", r.checked_at)),
+      el("ul", { class: "sources" }, (r.sources || []).slice(0, 3).map((s) => sourceLink(s))));
+  } catch (e) {
+    box.replaceChildren(el("p", { class: "note bad" }, e.message));
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 /* ---------- wiring ---------- */
@@ -475,6 +525,7 @@ function wire() {
   $("#btn-fix").addEventListener("click", () => doRepair(null));
   $("#btn-summary").addEventListener("click", openSummary);
   $("#btn-submit").addEventListener("click", doSubmit);
+  $("#btn-rules").addEventListener("click", checkRuleUpdates);
   $("#chat-form").addEventListener("submit", (e) => { e.preventDefault(); sendChat(); });
 
   const dialog = $("#summary-dialog");
@@ -493,6 +544,9 @@ async function init() {
   try {
     const h = await api("/api/health");
     state.ai = !!h.ai;
+    state.search = !!h.search;
+    $("#rules-box").hidden = !state.search;
+    $("#web-toggle").hidden = !(state.search && state.ai);
   } catch { state.ai = false; }
   try { SAMPLES = await api("/api/samples"); } catch { SAMPLES = []; }
   renderAiStatus();

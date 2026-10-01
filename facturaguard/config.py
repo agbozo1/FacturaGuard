@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     # Lightning is a reasoning model. Verified on Token Factory 2026-09-30: this switches thinking off.
     llm_extra_body_fast: str = '{"chat_template_kwargs": {"enable_thinking": false}}'
 
+    # Tavily web search, restricted to official Romanian sources. Empty = feature off.
+    tavily_api_key: str = ""
+    tavily_timeout_seconds: float = 20.0
+
 
 @lru_cache
 def get_settings() -> Settings:

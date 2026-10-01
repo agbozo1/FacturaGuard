@@ -55,6 +55,8 @@ flowchart LR
     PATCH -- "re-validate; keep only if better" --> VAL
     VAL --> OUT["Verdict, diff, corrected XML,<br/>accountant summary, mock ANAF submit"]
     VAL -- "context" --> CHAT["Nemotron 3 Ultra<br/>chat about this invoice"]
+    CHAT -- "question only, identifiers removed" --> TAV["Tavily search<br/>anaf.ro, mfinante.gov.ro,<br/>legislatie.just.ro only"]
+    TAV -- "cited official sources" --> CHAT
 ```
 
 All model calls go through one module, `facturaguard/llm/client.py`, using the OpenAI-compatible
@@ -77,6 +79,24 @@ model IDs, so models can be swapped without code changes.
   persistent web process with a native XSLT engine. The Docker image runs unchanged on a
   Nebius AI Cloud VM.
 - Detailed, dated notes (latency, Romanian quality, docs gaps, feature wishes): [FEEDBACK.md](FEEDBACK.md).
+
+## Official sources with Tavily
+
+Optional (`TAVILY_API_KEY`). The same grounding principle, extended to the web:
+
+- **Assistant with citations.** Questions beyond the rule texts (deadlines, penalties, VAT
+  treatment) are searched on `anaf.ro`, `mfinante.gov.ro` and `legislatie.just.ro` only.
+  Nemotron answers from those pages and cites them as [1], [2], with links under the answer.
+  Results from any other site are dropped in code. If the sources do not answer, the assistant
+  says so instead of answering from memory. A toggle turns search off per question.
+- **Privacy.** Only the user's question is sent to Tavily, after CIFs, CNPs, IBANs and emails
+  are removed. Invoice data is never sent.
+- **Rule-update check.** "Check ANAF for updates" searches official pages for a CIUS-RO
+  Schematron newer than the 1.0.9 used here. Code (not the model) looks for the
+  `ro16931-ubl-x.y.z` package name and shows a warning if a newer one is mentioned. Results are
+  cached for 12 hours. It never changes validation.
+
+Code: `facturaguard/search/`. Without a key both features are hidden.
 
 ## Results so far
 

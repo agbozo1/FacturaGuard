@@ -12,6 +12,8 @@ services:
     envVars:
       - key: NEBIUS_API_KEY
         sync: false
+      - key: TAVILY_API_KEY   # optional: official-source search in the assistant
+        sync: false
       - key: NEBIUS_BASE_URL
         value: https://api.tokenfactory.us-central1.nebius.com/v1/
       - key: MODEL_FAST

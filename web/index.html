@@ -41,6 +41,11 @@
     <p class="side-label" data-i18n="trySample">Try a sample invoice</p>
     <ul class="samples" id="samples"></ul>
     <div class="side-foot">
+      <section class="rules-box" id="rules-box" hidden>
+        <p class="rules-line"><span data-i18n="rulesVersion">Rules: ANAF CIUS-RO 1.0.9</span></p>
+        <button class="side-check" id="btn-rules" data-i18n="checkUpdates">Check ANAF for updates</button>
+        <div id="rules-result" class="rules-result" aria-live="polite"></div>
+      </section>
       <p id="ai-status" class="ai-status"><span class="dot"></span><span></span></p>
       <p class="fineprint" data-i18n="synthetic">Synthetic demo data only. Do not upload real client invoices.</p>
     </div>
@@ -119,6 +124,10 @@
       <p class="chat-empty" data-i18n="chatEmpty">Check an invoice, then ask me anything about its errors.</p>
     </div>
     <div class="chips" id="chips"></div>
+    <label class="web-toggle" id="web-toggle" hidden>
+      <input type="checkbox" id="web-search" checked>
+      <span data-i18n="officialSources">Search official sources (ANAF, MF, legislatie.just.ro)</span>
+    </label>
     <form class="chat-form" id="chat-form">
       <input id="chat-input" autocomplete="off" maxlength="2000" data-i18n-placeholder="ask" placeholder="Ask about this invoice">
       <button class="send" aria-label="Send">

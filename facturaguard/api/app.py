@@ -26,6 +26,8 @@ from facturaguard.extraction.pipeline import pdf_to_invoice
 from facturaguard.llm.client import LLMClient, LLMNotConfigured
 from facturaguard.repair.engine import repair
 from facturaguard.repair.patch import unified_diff
+from facturaguard.search.rule_watch import RuleWatch
+from facturaguard.search.tavily import SearchNotConfigured, TavilyClient
 from facturaguard.submission.mock import MockAnafAdapter
 from facturaguard.summary import accountant_summary
 from facturaguard.validation.models import Issue, ValidationResult
@@ -42,6 +44,8 @@ app = FastAPI(title="FacturaGuard", version="0.1.0")
 app.state.sessions = SessionStore()
 app.state.submission = MockAnafAdapter()
 app.state.llm = None  # created lazily; tests may set a fake
+app.state.search = None  # Tavily client, created lazily; None when TAVILY_API_KEY is unset
+app.state.rule_watch = RuleWatch()
 
 
 # --- helpers -----------------------------------------------------------------------------
@@ -53,6 +57,15 @@ def get_llm() -> LLMClient | None:
         except LLMNotConfigured:
             return None
     return app.state.llm
+
+
+def get_search() -> TavilyClient | None:
+    if app.state.search is None:
+        try:
+            app.state.search = TavilyClient()
+        except SearchNotConfigured:
+            return None
+    return app.state.search
 
 
 def require_llm() -> LLMClient:
@@ -159,8 +172,22 @@ def sample_file(key: str):
 @app.get("/api/health")
 def health() -> dict:
     s = get_settings()
-    return {"ok": True, "ai": get_llm() is not None, "rules": "CIUS-RO 1.0.9 / UBL 2.1",
+    return {"ok": True, "ai": get_llm() is not None, "search": get_search() is not None,
+            "rules": "CIUS-RO 1.0.9 / UBL 2.1",
             "models": {"fast": s.model_fast, "reasoning": s.model_reasoning}}
+
+
+@app.get("/api/rules/updates")
+def rule_updates(request: Request, refresh: bool = False):
+    """Search official sources for a CIUS-RO version newer than ours (cached for 12 hours)."""
+    search = get_search()
+    if search is None:
+        raise HTTPException(503, "Official-source search is not configured (TAVILY_API_KEY).")
+    app.state.ai_limit.check(request)
+    try:
+        return app.state.rule_watch.check(search, force=refresh).to_dict()
+    except Exception as e:  # report search outages without failing the page
+        raise HTTPException(502, f"The search service did not answer: {type(e).__name__}") from e
 
 
 @app.post("/api/check")
@@ -248,6 +275,7 @@ def repair_endpoint(body: RepairBody, request: Request):
 
 class ChatBody(SessionLang):
     message: str = Field(min_length=1, max_length=2000)
+    web: bool = True  # search official sources first, when TAVILY_API_KEY is configured
 
 
 @app.post("/api/chat")
@@ -255,11 +283,14 @@ def chat_endpoint(body: ChatBody, request: Request):
     s = get_session(body.session_id)
     llm = require_llm()
     app.state.ai_limit.check(request)
+    search = get_search() if body.web else None
     try:
-        answer, record = chat_reply(s, body.message, llm, lang=body.lang)
+        r = chat_reply(s, body.message, llm, lang=body.lang, search=search)
     except Exception as e:  # surface model errors as a friendly 502
         raise HTTPException(502, f"The AI model did not answer: {type(e).__name__}") from e
-    return {"answer": answer, "call": record.to_dict()}
+    return {"answer": r.answer, "call": r.call.to_dict(),
+            "sources": [x.to_dict() for x in r.sources], "search_s": r.search_s,
+            "search_error": r.search_error}
 
 
 @app.get("/api/summary/{sid}")

@@ -149,6 +149,16 @@ def test_pdf_flow_and_chat(client):
     assert "BR-CO-16" in chat["answer"]
 
 
+def test_search_features_off_without_tavily_key(client, monkeypatch):
+    monkeypatch.setattr(app_module, "get_search", lambda: None)
+    assert client.get("/api/health").json()["search"] is False
+    assert client.get("/api/rules/updates").status_code == 503
+    app_module.app.state.llm = RoutingLLM()
+    sid = upload(client, xml_for(["bad_payable"]))["session_id"]
+    chat = client.post("/api/chat", json={"session_id": sid, "message": "Deadline?"}).json()
+    assert chat["answer"] and chat["sources"] == []
+
+
 def test_unknown_session_and_rate_limit(client):
     assert client.post("/api/submit", json={"session_id": "nope"}).status_code == 404
     app_module.app.state.llm = RoutingLLM()

@@ -36,9 +36,10 @@ Deadline Oct 30, 2026. Our target: submit by Oct 27.
 
 ## Other prizes worth a look
 - **Most Valuable Feedback** ($100, 10 winners): keep `FEEDBACK.md` specific and dated.
-- **Best Use of Tavily** ($3,000): optional. Possible use: search current ANAF announcements
-  so explanations can flag recent rule or VAT changes. Needs a decision before we add a
-  dependency.
+- **Best Use of Tavily** ($3,000): built. The assistant answers beyond-the-rules questions
+  from official Romanian sources only (anaf.ro, mfinante.gov.ro, legislatie.just.ro) with
+  citations, and a rule-update check looks for a newer CIUS-RO Schematron. Needs
+  `TAVILY_API_KEY` locally and on Render, then a real-call check. Confirm the prize rules.
 
 ## Rules to keep
 - Synthetic data only, no real client data.
