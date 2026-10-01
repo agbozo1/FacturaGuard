@@ -1,116 +1,204 @@
 # FacturaGuard
 
-AI copilot that checks Romanian e-Factura invoices before ANAF rejects them,
-explains errors in plain English or Romanian, and proposes corrected XML.
-It complements accountants, it does not replace them.
+**Check Romanian e-Factura invoices before ANAF rejects them.** FacturaGuard validates a UBL
+XML or PDF invoice against ANAF's official rules, explains every error in plain English or
+Romanian with NVIDIA Nemotron on Nebius Token Factory, and proposes a corrected XML that is
+re-validated before you see it. It complements accountants; it does not replace them.
 
-Built for the Nebius x NVIDIA Global AI Hackathon (track: Best Apps & Agents).
+Built for the Nebius x NVIDIA Global AI Hackathon, track **Best Apps and Agents**.
 Synthetic data only.
 
-See [docs/HACKATHON.md](docs/HACKATHON.md) for the hackathon requirements checklist.
+- **Live demo:** TODO (Render URL after deployment)
+- **Demo video:** TODO (YouTube, 3 minutes)
+- Hackathon checklist: [docs/HACKATHON.md](docs/HACKATHON.md). Platform feedback: [FEEDBACK.md](FEEDBACK.md).
 
-## Principles
-1. Deterministic validation (XSD + Schematron) decides validity. The LLM only explains and repairs.
-2. Explanations are grounded in validator output and official rule text.
-3. All model access goes through `facturaguard/llm/client.py`. Models are set in `.env`.
-4. Live ANAF submission is out of scope. A mock adapter sits behind an interface.
+![FacturaGuard home](docs/screenshots/home.png)
 
-## Setup
+## What, why, how
+
+**What.** Upload an invoice (UBL XML, or a text PDF). FacturaGuard tells you whether ANAF would
+accept it, explains each error in plain words, proposes a corrected XML, answers follow-up
+questions, and produces a summary you can send to your accountant.
+
+**Why.** Since 2024 Romanian B2B invoices must go through ANAF's e-Factura system, which rejects
+anything that breaks the RO_CIUS profile of EN 16931. The rejection messages are terse rule
+codes in technical Romanian. Foreign founders and small businesses depend on their accountant
+for every small fix. We also measured why a plain chatbot is not the answer: asked what an
+e-Factura needs before ANAF accepts it, Nemotron Ultra and Super both answered wrongly (a
+qualified signature, an invented "CIUS-PT" profile), see [FEEDBACK.md](FEEDBACK.md).
+
+**How.** Deterministic code decides; the model explains and proposes.
+1. A validator runs UBL 2.1 XSD, ANAF's CIUS-RO 1.0.9 Schematron and ANAF's identifier checks.
+   It agrees with ANAF's own offline validator on 100 of 100 test invoices.
+2. Nemotron 3 Ultra explains each error, given only the validator message and the official
+   rule text (1,105 rules extracted from ANAF's files, Romanian and English).
+3. Nemotron proposes small edit operations, never a new document. Code applies them and
+   re-validates; edits are kept only if errors go down. Totals are computed by code, and
+   missing business facts become questions for the user, never invented values.
+4. For PDFs, Nemotron 3.5 Lightning copies fields from the text, code checks each value
+   appears in the PDF, and code builds the UBL.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    U["Invoice: UBL XML or PDF"] --> API["FastAPI + web UI"]
+    API -- PDF --> TXT["pypdf text layer"]
+    TXT --> EX["Nemotron 3.5 Lightning<br/>copy fields to JSON"]
+    EX --> GR["Grounding check<br/>every value must appear in the PDF"]
+    GR --> BLD["UBL builder (code)<br/>county and unit tables"]
+    API -- XML --> VAL
+    BLD --> VAL["Validator: source of truth<br/>UBL 2.1 XSD, ANAF CIUS-RO 1.0.9 Schematron,<br/>CUI / CNP checks"]
+    VAL -- "errors + official rule text" --> EXP["Nemotron 3 Ultra<br/>explain in EN or RO"]
+    VAL -- "errors + totals computed by code" --> REP["Nemotron 3 Ultra<br/>propose edit operations"]
+    REP --> PATCH["Patch applier (code)"]
+    PATCH -- "re-validate; keep only if better" --> VAL
+    VAL --> OUT["Verdict, diff, corrected XML,<br/>accountant summary, mock ANAF submit"]
+    VAL -- "context" --> CHAT["Nemotron 3 Ultra<br/>chat about this invoice"]
+```
+
+All model calls go through one module, `facturaguard/llm/client.py`, using the OpenAI-compatible
+Token Factory API. Code asks for a role (`fast`, `reasoning`, `balanced`); `.env` maps roles to
+model IDs, so models can be swapped without code changes.
+
+## How Nebius Token Factory and NVIDIA Nemotron are used
+
+| Role | Model (Token Factory) | Used for | Notes |
+|---|---|---|---|
+| `reasoning` | `nvidia/Nemotron-3-Ultra-550b-a55b` | Explanations, repair operations, chat | Grounded in validator output and official rule text |
+| `fast` | `nvidia/Nemotron-3_5-Lightning` | PDF field extraction | Thinking switched off via `chat_template_kwargs` (verified: 1.3 s instead of a truncated 800-token monologue) |
+| `balanced` | `nvidia/nemotron-3-super-120b-a12b` | Configured alternative | Swap in via `.env` |
+
+- **Token Factory** is the only inference provider. Base URL and model IDs are configuration.
+- **Where it helped:** one OpenAI-compatible endpoint for every Nemotron size, so the same client
+  serves fast extraction and heavy reasoning; JSON responses for structured output; low latency
+  on Ultra (0.5 to 0.7 s for short answers in our smoke tests).
+- **Other Nebius services:** none yet. The app is hosted on Render (free tier) because it needs a
+  persistent web process with a native XSLT engine. The Docker image runs unchanged on a
+  Nebius AI Cloud VM.
+- Detailed, dated notes (latency, Romanian quality, docs gaps, feature wishes): [FEEDBACK.md](FEEDBACK.md).
+
+## Results so far
+
+| Check | Result |
+|---|---|
+| Our verdict vs ANAF's offline validator (ROeFacturaValidator 1.3.0), 100 synthetic invoices | **100 / 100 same verdict**, every ANAF finding also reported by us |
+| Planted errors detected (27 error types, 66 invalid invoices) | 100% of expected rules fire |
+| PDF to UBL rebuild with correct fields (52 PDFs) | 50 byte-identical to the original XML; 2 differ only where paper cannot distinguish BT-106 from BT-109 |
+| Automated tests | 110 passing (fake model; no key needed) |
+| Docker image under a 512 MB memory cap | 100 / 100 invoices validated, about 200 MB used |
+| Nemotron explanation and repair quality | TODO: `scripts/eval_repair.py` |
+| Nemotron PDF extraction accuracy | TODO: `scripts/eval_extraction.py` |
+
+Building the validator surfaced two things worth knowing: the standard ISO Schematron compiler
+silently skips rules on XML attributes (ANAF's validator does not, so we patch the compiled
+XSLT), and ANAF checks seller and buyer identifiers outside the Schematron. We reproduced the
+latter by probing ANAF's tool; see `facturaguard/validation/identifiers.py`.
+
+## Quick start
+
+Requires Python 3.11 to 3.13 (3.12 recommended).
+
 ```bash
-python3 -m venv .venv && . .venv/bin/activate
-pip install -e ".[dev]"            # core
-pip install -e ".[schematron]"      # needed for validation (Milestone 3), see note below
-cp .env.example .env     # add your NEBIUS_API_KEY
+python3 -m venv .venv && . .venv/bin/activate      # Windows: .venv\Scripts\activate
+pip install -e ".[dev,schematron]"
+cp .env.example .env                                # add NEBIUS_API_KEY
 pytest
-python scripts/smoke_nebius.py --list   # model IDs your key can use
-python scripts/smoke_nebius.py          # one real call per role
+uvicorn facturaguard.api.app:app --reload           # open http://127.0.0.1:8000
 ```
 
-Use Python 3.11 to 3.13 (3.12 recommended). `saxonche` has no wheel for Python 3.14 on
-Intel Macs older than macOS 11 (Catalina), nor for musl/Alpine, Windows on ARM or 32-bit
-Python. On those, use Python 3.12 or run via Docker.
+- Click a sample in the sidebar, or open `/?sample=payable` directly.
+- Without `NEBIUS_API_KEY` the app still validates and shows official rule texts; AI buttons are
+  hidden and PDF upload is unavailable.
+- `saxonche` (the XSLT 2.0 engine) has no wheel for Python 3.14 on Intel Macs older than
+  macOS 11, nor for musl/Alpine, Windows on ARM or 32-bit Python. Use Python 3.12 or Docker.
 
-## How Nebius and Nemotron are used
-- Nebius Token Factory, OpenAI-compatible API, through the `openai` SDK.
-- Nemotron 3 Ultra (`MODEL_REASONING`) explains validator errors in English or Romanian and
-  proposes repairs as small edit operations (`facturaguard/explain.py`,
-  `facturaguard/repair/engine.py`).
-- Nemotron 3.5 Lightning (`MODEL_FAST`, thinking switched off) extracts invoice fields from
-  PDF text (`facturaguard/extraction/`).
-- Roles map to model IDs in `.env` (`MODEL_FAST`, `MODEL_REASONING`, ...).
-
-## Explain and repair
-The model never decides validity and never rewrites the document:
-1. The validator finds the errors.
-2. Nemotron explains each one, given the validator message and the official rule text
-   (`facturaguard/rules/index.py`, extracted from ANAF's Schematron, Romanian and English).
-   If the model fails, the official text is shown instead.
-3. Nemotron proposes edit operations (set a value, insert or delete an element). Totals come
-   from code (`facturaguard/repair/facts.py`), not from the model. Missing business facts
-   (invoice number, CIF, names) become questions for the user, never invented values.
-4. Code applies the edits and re-validates. Edits are kept only if errors go down and no new
-   kind of error appears. Up to two rounds.
+Command-line tools (real model calls):
 
 ```bash
-python scripts/try_assist.py data/synthetic/xml/SYN-037.xml --lang ro   # one invoice
-python scripts/eval_repair.py --limit 28 --out eval_repair.json        # fix rate on the set
+python scripts/smoke_nebius.py --list                              # model IDs your key can use
+python scripts/try_assist.py data/synthetic/xml/SYN-037.xml --lang ro
+python scripts/try_pdf.py data/synthetic/pdf/SYN-037.pdf --assist
+python scripts/eval_repair.py --limit 28 --out eval_repair.json
+python scripts/eval_extraction.py --out eval_extraction.json
 ```
 
-## Run the web app
-```bash
-uvicorn facturaguard.api.app:app --reload    # then open http://127.0.0.1:8000
-```
-- Upload an XML or PDF, or click a sample in the sidebar. `/?sample=payable` opens a sample
-  directly (handy for demos).
-- Without `NEBIUS_API_KEY` the app still validates and shows official rule texts; AI buttons
-  are hidden and PDF upload is unavailable.
-- **Explain with AI**, **Propose a fix** (diff, download, questions for missing facts),
-  **Share with accountant** (Markdown summary, print to PDF), **Submit to ANAF (mock)** and a
-  chat assistant grounded in the current invoice. English and Romanian.
-- Sessions live in memory for one hour; nothing is written to disk. AI calls are rate-limited
-  per client (40 per 10 minutes).
-- Uploads are capped at 5 MB, and XML with a DOCTYPE or ENTITY declaration is refused
-  (blocks XXE and entity-expansion attacks).
-
-API: `POST /api/check`, `/api/explain`, `/api/repair`, `/api/chat`, `/api/submit`;
-`GET /api/summary/{id}`, `/api/download/{id}`, `/api/samples`, `/api/health`.
-
-Live ANAF submission is out of scope. `facturaguard/submission/base.py` defines the adapter
-interface; `MockAnafAdapter` re-validates and returns ANAF-style states (`ok`, `nok`,
-`XML cu erori nepreluat de sistem`), clearly marked as a simulation.
-
-## Synthetic data
-`data/synthetic/` holds 100 labelled invoices (34 designed valid, 56 with one planted error,
-10 with two). Labels are in `manifest.json`. `data/synthetic/pdf/` holds 52 of them as
-Romanian-style PDFs, with the exact printed fields in `pdf/manifest.json`. Regenerate with
-`python -m facturaguard.synthetic.generate --seed 2026`. Synthetic only, no real client data.
-
-## PDF invoices
-1. `pypdf` reads the PDF text layer. Scanned PDFs are reported as unsupported (no Nemotron
-   vision model was available on our key).
-2. Nemotron copies the fields into JSON. It is told not to compute, correct or guess.
-3. A grounding check confirms every extracted value appears in the PDF text and flags any
-   that do not.
-4. Code builds the UBL (county and unit codes from fixed tables). Printed totals are kept,
-   so arithmetic mistakes on the PDF show up as validator errors.
-5. The same validator, explainer and repair loop as for XML.
+## Docker and deployment
 
 ```bash
-python scripts/try_pdf.py data/synthetic/pdf/SYN-037.pdf --assist   # one PDF
-python scripts/eval_extraction.py --out eval_extraction.json         # accuracy on 52 PDFs
+docker build -t facturaguard .
+docker run -p 8000:8000 --env-file .env facturaguard
 ```
 
-## Status
-Milestones 1 (scaffold, client), 2 (synthetic set), 3 (validator), 4 (explain and repair),
-5 (PDF extraction) and 6 (web UI, chat, accountant summary, mock ANAF) done. See `FEEDBACK.md` for platform notes.
+**Render (free tier):** in the Render dashboard choose New, then Blueprint, pick this repository,
+and paste `NEBIUS_API_KEY` when prompted. `render.yaml` defines one Docker web service in
+Frankfurt with a health check on `/api/health`. Free instances sleep when idle, so the first
+request after a pause takes longer. The key never goes into git.
 
-## Validation
-`facturaguard/validation/` runs three layers: UBL 2.1 XSD, the ANAF CIUS-RO 1.0.9 Schematron
-(compiled with `scripts/build_schematron.py`, output committed) and ANAF's seller/buyer
-identifier checks (CUI, CNP/NIF). Rule sources and versions are in `vendor/SOURCES.md`.
-Check the synthetic set with `python scripts/validate_set.py`. Installing the Schematron
-runtime: `pip install -e ".[schematron]"`.
+## Using the app
 
-Cross-checked against ANAF's own offline validator (ROeFacturaValidator 1.3.0): same verdict on
-100/100 synthetic invoices. To repeat on Windows, run ANAF's tool on a copy of
-`data/synthetic/xml` and then `python scripts/compare_with_anaf.py <that folder>`.
+- **Explain with AI:** plain-language explanation per error, with the official rule text beside it.
+- **Propose a fix:** a diff of the changes and the corrected XML to download. If a fix needs a
+  business fact (for example the invoice number), the app asks, and uses your answer exactly.
+- **Share with accountant:** a summary built by code from the validator results, explanations
+  and fix. Copy it, download it as Markdown, or print it to PDF.
+- **Submit to ANAF (mock):** live submission is out of scope. `facturaguard/submission/base.py`
+  defines the adapter interface; the mock re-validates and returns ANAF-style states (`ok`,
+  `nok`, `XML cu erori nepreluat de sistem`), clearly labelled as a simulation.
+- **Assistant:** chat about the current invoice, grounded in its validation results.
+- English and Romanian throughout.
+
+## Trust, data and security
+
+- **The validator is the only judge of validity.** The model never declares an invoice valid.
+- **Grounding:** explanations get the official rule text; the model is told not to rely on
+  memory of tax law. Extracted PDF values are checked against the PDF text.
+- **No invented facts:** missing numbers, names and identifiers become questions.
+- **Data:** synthetic data only in this repository. Uploaded files live in memory for one hour
+  and are never written to disk.
+- **Security:** uploads capped at 5 MB; XML with DOCTYPE or ENTITY declarations is refused
+  (XXE and entity-expansion attacks); AI calls are rate-limited per client; the container runs
+  as a non-root user.
+
+## Limitations
+
+- Text PDFs only. Scanned PDFs need a vision model, and no Nemotron vision model was available
+  on our Token Factory key.
+- Invoices with standard-rated VAT lines (category S). Exempt, reverse-charge and zero-rated
+  categories, allowances and charges are validated but not generated or rebuilt from PDFs.
+- Credit notes are validated but not generated from PDFs.
+- Rules: ANAF CIUS-RO 1.0.9, still current in ANAF's December 2024 validator. Rules change;
+  `vendor/SOURCES.md` records versions and hashes, and `scripts/compare_with_anaf.py` repeats
+  the cross-check.
+- Open question for an accountant: how an EU business buyer without a Romanian identifier
+  should be encoded. ANAF's validator rejects a foreign VAT id alone.
+
+## Project layout
+
+```
+facturaguard/
+  validation/   XSD, Schematron (saxonche), ANAF identifier checks
+  rules/        official rule texts for grounding
+  llm/          Token Factory client, prompts, JSON helpers
+  explain.py    plain-language explanations
+  repair/       edit operations, computed totals, repair loop
+  extraction/   PDF text, Nemotron extraction, grounding, UBL builder
+  ubl/          UBL renderer, county and unit code tables
+  synthetic/    labelled invoice and PDF generator
+  submission/   adapter interface and mock ANAF
+  api/          FastAPI app and sessions
+  chat.py, summary.py
+web/            HTML, CSS, JS (no build step)
+vendor/         ANAF Schematron, UBL 2.1 XSD, compiled XSLT (see vendor/SOURCES.md)
+data/synthetic/ 100 labelled XML invoices, 52 PDFs
+scripts/        smoke test, try and eval scripts, Schematron build, ANAF comparison
+tests/          pytest suite
+```
+
+## License and credits
+
+MIT, see [LICENSE](LICENSE). Copyright (c) 2026 Ebenezer Agbozo (Nova Analytica S.R.L.),
+GitHub [@agbozo1](https://github.com/agbozo1).
+
+Vendored rule files keep their own licences: ANAF CIUS-RO Schematron and EN 16931 artefacts
+(EUPL 1.2), OASIS UBL 2.1 schemas, ISO Schematron XSLT (MIT). Details in `vendor/SOURCES.md`.

@@ -1,0 +1,16 @@
+.git
+.venv
+.env
+.env.*
+download-packages
+tests
+scripts
+docs
+**/__pycache__
+**/*.pyc
+*.egg-info
+.pytest_cache
+.ruff_cache
+eval_*.json
+vendor/en16931-1.3.16
+vendor/iso-schematron

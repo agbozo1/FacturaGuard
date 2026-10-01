@@ -1,0 +1,22 @@
+# Render Blueprint. In the Render dashboard: New > Blueprint, pick this repo, paste
+# NEBIUS_API_KEY when prompted. The key is never stored in git.
+services:
+  - type: web
+    name: facturaguard
+    runtime: docker
+    plan: free            # sleeps after inactivity; first request after a sleep is slow
+    region: frankfurt     # closest Render region to Romania
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NEBIUS_API_KEY
+        sync: false
+      - key: NEBIUS_BASE_URL
+        value: https://api.tokenfactory.us-central1.nebius.com/v1/
+      - key: MODEL_FAST
+        value: nvidia/Nemotron-3_5-Lightning
+      - key: MODEL_REASONING
+        value: nvidia/Nemotron-3-Ultra-550b-a55b
+      - key: MODEL_BALANCED
+        value: nvidia/nemotron-3-super-120b-a12b

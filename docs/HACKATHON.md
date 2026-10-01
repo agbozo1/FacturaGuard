@@ -6,14 +6,14 @@ Deadline Oct 30, 2026. Our target: submit by Oct 27.
 ## Hard requirements
 | # | Requirement | Status |
 |---|---|---|
-| 1 | Runs on Nebius Token Factory or Nebius AI Cloud | Client done and verified on a real key. Hosted run pending |
-| 2 | Uses at least one NVIDIA open source model | Nemotron Lightning, Super, Ultra verified |
-| 3 | Public repo with OSI license, visible at the top of the repo page | **MISSING: no LICENSE file in the repo yet** |
-| 4 | README with setup and run instructions | Started |
-| 5 | README highlights Nemotron use, where Token Factory helped, other Nebius services | Section started, needs final numbers |
-| 6 | Working demo URL (hosted app) | Not started (Render planned) |
-| 7 | Public YouTube demo video, 3 minutes or shorter, shows Token Factory and Nemotron | Not started |
-| 8 | Project description: what, why, how | Not started |
+| 1 | Runs on Nebius Token Factory or Nebius AI Cloud | Token Factory client verified on a real key. Hosted run pending (Render) |
+| 2 | Uses at least one NVIDIA open source model | Nemotron 3 Ultra (explain, repair, chat), 3.5 Lightning (PDF extraction) |
+| 3 | Public repo with OSI license, visible at the top of the repo page | Done: MIT `LICENSE`. Check GitHub shows it in the sidebar |
+| 4 | README with setup and run instructions | Done: quick start, Docker, Render |
+| 5 | README highlights Nemotron use, where Token Factory helped, other Nebius services | Done; model eval numbers still TODO (`eval_repair.py`, `eval_extraction.py`) |
+| 6 | Working demo URL (hosted app) | Ready to deploy: `Dockerfile` (tested, 512 MB cap) and `render.yaml`. Needs the Render Blueprint created with the key |
+| 7 | Public YouTube demo video, 3 minutes or shorter, shows Token Factory and Nemotron | Script ready: `docs/DEMO.md`. Recording pending |
+| 8 | Project description: what, why, how | Draft in README "What, why, how" |
 | 9 | Feedback on Token Factory, AI Cloud and NVIDIA tools | `FEEDBACK.md` running |
 | 10 | If the project existed before the Submission Period, explain what was updated during it | Repo started 2026-09-30. Confirm the official period start date |
 | 11 | Pick the track | Best Apps and Agents |
