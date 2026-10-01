@@ -7,6 +7,8 @@ It complements accountants, it does not replace them.
 Built for the Nebius x NVIDIA Global AI Hackathon (track: Best Apps & Agents).
 Synthetic data only.
 
+See [docs/HACKATHON.md](docs/HACKATHON.md) for the hackathon requirements checklist.
+
 ## Principles
 1. Deterministic validation (XSD + Schematron) decides validity. The LLM only explains and repairs.
 2. Explanations are grounded in validator output and official rule text.
