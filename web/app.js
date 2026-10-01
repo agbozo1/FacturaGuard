@@ -50,6 +50,7 @@ const I18N = {
     officialSources: "Search official sources (ANAF, MF, legislatie.just.ro)",
     sourcesTitle: "Official sources", searchUnavailable: "Official-source search was unavailable for this answer.",
     uncitedTitle: "Not from a cited source, please verify:",
+    alsoSearched: (n) => `Also searched, not used in the answer (${n})`,
     productOf: "© 2026 Product of Nova Analytica S.R.L.", license: "Source code (AGPL-3.0)",
   },
   ro: {
@@ -99,6 +100,7 @@ const I18N = {
     officialSources: "Caută în surse oficiale (ANAF, MF, legislatie.just.ro)",
     sourcesTitle: "Surse oficiale", searchUnavailable: "Căutarea în surse oficiale nu a fost disponibilă pentru acest răspuns.",
     uncitedTitle: "Nu provine dintr-o sursă citată, vă rugăm verificați:",
+    alsoSearched: (n) => `Căutate, dar nefolosite în răspuns (${n})`,
     productOf: "© 2026 Un produs Nova Analytica S.R.L.", license: "Cod sursă (AGPL-3.0)",
   },
 };
@@ -394,37 +396,44 @@ async function doSubmit() {
   });
 }
 
-/* ---------- summary ---------- */
-function renderMarkdown(md) {
-  const root = el("div");
-  let list = null, code = null;
+/* ---------- markdown (summary and chat) ---------- */
+// Small, safe Markdown renderer: builds DOM nodes from text, never parses HTML.
+function renderMarkdown(md, headingOffset = 0) {
+  const root = el("div", { class: "md-body" });
+  let list = null, listType = "", code = null;
   const inline = (text) => {
     const frag = document.createDocumentFragment();
-    text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g).forEach((part) => {
-      if (/^\*\*[^*]+\*\*$/.test(part)) frag.append(el("strong", {}, part.slice(2, -2)));
-      else if (/^`[^`]+`$/.test(part)) frag.append(el("code", {}, part.slice(1, -1)));
-      else if (part) frag.append(document.createTextNode(part));
-    });
+    text.split(/(\*\*[^*]+\*\*|`[^`]+`|(?<![\w*])\*[^*\s][^*]*\*(?![\w*])|(?<!\w)_[^_\s][^_]*_(?!\w))/g)
+      .forEach((part) => {
+        if (/^\*\*[^*]+\*\*$/.test(part)) frag.append(el("strong", {}, part.slice(2, -2)));
+        else if (/^`[^`]+`$/.test(part)) frag.append(el("code", {}, part.slice(1, -1)));
+        else if (/^(\*|_)[^*_].*(\*|_)$/.test(part) && part.length > 2) frag.append(el("em", {}, part.slice(1, -1)));
+        else if (part) frag.append(document.createTextNode(part));
+      });
     return frag;
   };
-  for (const line of md.split("\n")) {
-    if (line.startsWith("```")) {
+  for (const raw of md.replace(/\r/g, "").split("\n")) {
+    const line = raw.replace(/\s+$/, "");
+    if (line.trimStart().startsWith("```")) {
       if (code) { root.append(code); code = null; } else code = el("pre");
       continue;
     }
-    if (code) { code.append(document.createTextNode(line + "\n")); continue; }
-    if (/^- /.test(line)) {
-      if (!list) { list = el("ul"); root.append(list); }
-      list.append(el("li", {}, inline(line.slice(2))));
+    if (code) { code.append(document.createTextNode(raw + "\n")); continue; }
+    const item = line.match(/^\s*(?:([-*•])|(\d+)[.)])\s+(.*)$/);
+    if (item) {
+      const type = item[2] ? "ol" : "ul";
+      if (!list || listType !== type) { list = el(type); listType = type; root.append(list); }
+      list.append(el("li", {}, inline(item[3])));
       continue;
     }
+    if (!line.trim()) { list = null; continue; }  // blank lines end a list
     list = null;
-    const h = line.match(/^(#{1,3}) (.*)$/);
-    if (h) root.append(el(`h${h[1].length}`, {}, h[2]));
-    else if (line === "---") root.append(el("hr"));
-    else if (/^_.*_$/.test(line)) root.append(el("p", {}, el("em", {}, line.slice(1, -1))));
-    else if (line.trim()) root.append(el("p", {}, inline(line)));
+    const h = line.match(/^(#{1,4})\s+(.*)$/);
+    if (h) root.append(el(`h${Math.min(h[1].length + headingOffset, 6)}`, {}, inline(h[2])));
+    else if (/^(-{3,}|\*{3,})$/.test(line.trim())) root.append(el("hr"));
+    else root.append(el("p", {}, inline(line)));
   }
+  if (code) root.append(code);
   return root;
 }
 
@@ -456,13 +465,13 @@ async function sendChat(text) {
   log.querySelector(".chat-empty")?.remove();
   $("#chat-input").value = "";
   log.append(el("p", { class: "msg user" }, message));
-  const pending = el("p", { class: "msg bot thinking" }, t("thinking"));
+  const pending = el("div", { class: "msg bot thinking" }, t("thinking"));
   log.append(pending);
   log.scrollTop = log.scrollHeight;
   try {
     const web = state.search && $("#web-search").checked;
     const r = await post("/api/chat", { session_id: state.check.session_id, message, lang: state.lang, web });
-    pending.textContent = r.answer;
+    pending.replaceChildren(renderMarkdown(r.answer, 2));  // chat headings render small
     if (r.uncited?.length) {
       pending.append(el("div", { class: "uncited" },
         el("strong", {}, t("uncitedTitle")),
@@ -487,9 +496,23 @@ function sourceLink(s, n) {
     el("span", { class: "meta" }, ` ${host}${s.published_date ? ", " + s.published_date.slice(0, 10) : ""}`));
 }
 
+// Show the sources the answer actually cites, numbered as in the answer; the rest are only
+// listed under "Also searched", so an unused page never looks like support for the answer.
 function renderSources(sources) {
-  return el("ul", { class: "sources", "aria-label": t("sourcesTitle") },
-    sources.map((s, i) => sourceLink(s, i + 1)));
+  const n = (s, i) => s.n ?? i + 1;
+  const cited = sources.filter((s) => s.cited !== false);
+  const other = sources.filter((s) => s.cited === false);
+  const wrap = el("div", { class: "sources-wrap" });
+  if (cited.length) {
+    wrap.append(el("ul", { class: "sources", "aria-label": t("sourcesTitle") },
+      cited.map((s, i) => sourceLink(s, n(s, i)))));
+  }
+  if (other.length) {
+    wrap.append(el("details", { class: "sources-other" },
+      el("summary", {}, t("alsoSearched", other.length)),
+      el("ul", { class: "sources" }, other.map((s, i) => sourceLink(s, n(s, i))))));
+  }
+  return wrap;
 }
 
 async function checkRuleUpdates() {

@@ -159,6 +159,26 @@ def test_search_features_off_without_tavily_key(client, monkeypatch):
     assert chat["answer"] and chat["sources"] == []
 
 
+def test_chat_marks_which_sources_the_answer_cites(client, monkeypatch):
+    from facturaguard.search.tavily import Source
+
+    class FakeSearch:
+        def search(self, q, **kw):
+            return [Source("Used", "https://www.anaf.ro/a", "x", None, 1.0),
+                    Source("Unused", "https://www.anaf.ro/b", "y", None, 0.5)], 0.1
+
+    class CitingLLM(RoutingLLM):
+        def chat(self, role, messages, **kw):
+            return LLMResult("The deadline is 5 working days [1].", "fake", None, 0.1, 5, 5)
+
+    monkeypatch.setattr(app_module, "get_search", lambda: FakeSearch())
+    app_module.app.state.llm = CitingLLM()
+    sid = upload(client, xml_for(["bad_payable"]))["session_id"]
+    r = client.post("/api/chat", json={"session_id": sid, "message": "Deadline?"}).json()
+    assert [(s["n"], s["cited"]) for s in r["sources"]] == [(1, True), (2, False)]
+    assert r["uncited"] == []
+
+
 def test_unknown_session_and_rate_limit(client):
     assert client.post("/api/submit", json={"session_id": "nope"}).status_code == 404
     app_module.app.state.llm = RoutingLLM()

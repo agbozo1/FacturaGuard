@@ -54,6 +54,21 @@ Dated notes for the hackathon submission feedback fields.
   and use Lightning (thinking off) for extraction.
 - Real-call numbers for extraction and repair are pending (no key on the dev machine).
 
+## 2026-10-02 (user test: a USD invoice)
+- On the deployed (older) version, asked how to show a USD invoice with its RON equivalent,
+  Ultra said the retrieved web pages did not cover it. The answer was in our own vendored rules
+  all along (BR-RO-030: BT-6 must be RON when BT-5 is not; BR-53: then BT-111 is required), but
+  the chat only saw the rules this invoice breaks. Added an offline keyword search over all
+  1,105 official rule texts; the top two results for the question are BR-RO-030 and BR-53, and
+  Ultra now answers correctly, citing rule IDs, in about 2 s.
+- Ultra stated an amount as "8.50 RON" on a USD invoice. The context now carries the invoice
+  currency and the prompt forbids assuming RON.
+- In both answers Tavily's pages went unused (the official rules were enough), yet the UI listed
+  them as if they supported the answer. The UI now shows only cited sources and keeps the rest
+  under "Also searched". Each such question still costs 2 search credits.
+- The chat showed raw Markdown (**bold**, lists). Chat answers are now rendered with the same
+  safe, DOM-only Markdown renderer as the accountant summary.
+
 ## 2026-10-02 (after the Tavily fixes, real calls from the dev machine)
 - VAT-rate question, searched as asked with advanced depth: relevant official sources (Ministry
   of Finance fiscal strategy 2026-2028, legislation portal, Fiscal Code). Ultra cited the 19 to

@@ -45,6 +45,21 @@ def test_real_false_alarms_from_2026_10_02_now_pass():
     assert flag_uncited(en, n_sources=5) == []
 
 
+def test_lead_in_line_with_a_currency_code_is_not_a_claim():
+    answer = ("To show the USD transaction amount and the RON equivalent, use these e-Factura "
+              "fields:\n- **BT-6** = `RON`, mandatory when BT-5 is not RON (BR-RO-030).")
+    assert flag_uncited(answer, n_sources=4) == []
+    # An amount in RON is still a factual claim that needs a citation.
+    assert flag_uncited("The fine is 2,500 RON.", n_sources=4) == ["The fine is 2,500 RON."]
+
+
+def test_statements_about_the_users_own_invoice_pass():
+    assert flag_uncited("Here `PayableAmount` is 5.00 RON too high.", n_sources=2) == []
+    assert flag_uncited("Your invoice shows 24,199.65 RON as amount due.", n_sources=2) == []
+    # A general claim with an amount still needs a citation.
+    assert flag_uncited("Late invoices cost 1,000 lei.", n_sources=2) == ["Late invoices cost 1,000 lei."]
+
+
 def test_split_sentences_handles_lists_and_bold():
     parts = split_sentences("**Deadline**\n- First rule [1].\n- Second rule [2].")
     assert parts == ["Deadline", "First rule [1].", "Second rule [2]."]

@@ -89,6 +89,12 @@ Optional (`TAVILY_API_KEY`). The same grounding principle, extended to the web:
   Nemotron answers from those pages and cites them as [1], [2], with links under the answer.
   Results from any other site are dropped in code. If the sources do not answer, the assistant
   says so instead of answering from memory. A toggle turns search off per question.
+- **Official rules first.** Before any web search, code searches all 1,105 official CIUS-RO and
+  EN 16931 rule texts (offline keyword search, `facturaguard/rules/search.py`) and gives the best
+  matches to Nemotron, which cites them by rule ID. For example, "how do I show a USD invoice
+  with its RON equivalent?" is answered from BR-RO-030 and BR-53.
+- **Only cited sources are shown.** Pages the answer does not cite are listed separately under
+  "Also searched", so an unused page never looks like support.
 - **Citation check.** Prompts alone did not stop every memory leak in our tests, so code
   checks each answer: a sentence that states a rule, number, deadline or legal reference without
   a valid [n] citation is shown under the answer as "not from a cited source, please verify".

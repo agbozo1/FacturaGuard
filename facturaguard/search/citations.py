@@ -11,8 +11,9 @@ import re
 _CITATION = re.compile(r"\[(\d{1,2})\]")
 _SENTENCE_END = re.compile(r"(?<=[.!?])\s+(?=[A-ZĂÂÎȘȚ\"'*(\[])|\n+")
 # Statements of fact: numbers, money, rates, time limits, legal references, obligations.
+# A bare currency code ("RON") is not a claim; amounts are caught by the digit pattern.
 _FACTUAL = re.compile(
-    r"\d|%|\b(lei|ron|eur)\b|\b(art\.?|articol|lege|legea|ordin|ordonan|hot[aă]r[aâ]re|cod(ul)? "
+    r"\d|%|\b(art\.?|articol|lege|legea|ordin|ordonan|hot[aă]r[aâ]re|cod(ul)? "
     r"fiscal|norme|norms|law|regulation)\b|\b(must|required|mandatory|obliged|deadline|fine|"
     r"penalt|trebuie|obligatori|termen|amend|sanc[tț]|interzis|prohibited|not allowed|cannot)\b",
     re.IGNORECASE)
@@ -20,6 +21,10 @@ _FACTUAL = re.compile(
 # accountant, or statements about what the retrieved sources do or do not say.
 _EXEMPT = re.compile(
     r"\b(BR-[A-Z]{0,3}-?\w+|BT-\d+|BG-\d+)\b|accountant|contabil|this invoice|aceast[aă] factur"
+    # Pointing at the user's own invoice: "here", "your invoice/file", or a UBL element name.
+    r"|^here\b|\byour (invoice|file|xml)\b|\baici\b|factura (dvs|dumneavoastr)"
+    r"|`[A-Za-z:]+`|\b(cbc|cac):[A-Z]\w+|\b(Payable|TaxInclusive|TaxExclusive|LineExtension|"
+    r"Tax|Prepaid|PayableRounding)Amount\b"
     r"|\b(the|these|official) sources\b|\bsursele\b|\bdocumentele\b|sources (do|does) not"
     r"|nu (specific|men[tț]ion|con[tț]in)",
     re.IGNORECASE)
@@ -28,6 +33,7 @@ _HYPHENS = str.maketrans({c: "-" for c in "‐‑‒–—―−"})
 
 
 def split_sentences(text: str) -> list[str]:
+    # Code spans are kept: _EXEMPT uses them to spot sentences about the user's own XML.
     text = text.translate(_HYPHENS).replace("**", "").replace("__", "")
     out = []
     for p in _SENTENCE_END.split(text):
@@ -43,6 +49,8 @@ def flag_uncited(answer: str, n_sources: int) -> list[str]:
     for s in split_sentences(answer):
         cites = [int(n) for n in _CITATION.findall(s)]
         bad = [n for n in cites if not 1 <= n <= n_sources]
-        if bad or (not cites and _FACTUAL.search(s) and not _EXEMPT.search(s)):
-            flagged.append(s if len(s) <= 300 else s[:297] + "...")
+        lead_in = s.endswith(":")  # "Use these fields:" introduces a list, it states nothing
+        if bad or (not cites and not lead_in and _FACTUAL.search(s) and not _EXEMPT.search(s)):
+            shown = s.replace("`", "")  # flagged text is shown as plain text in the UI
+            flagged.append(shown if len(shown) <= 300 else shown[:297] + "...")
     return flagged

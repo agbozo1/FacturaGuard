@@ -128,4 +128,5 @@ def test_chat_without_search_or_on_search_failure_still_answers():
     broken = TavilyClient(Settings(tavily_api_key="tvly-x"),
                           http=httpx.Client(transport=httpx.MockTransport(boom)))
     r = chat_reply(session, "hi", llm, search=broken)
-    assert r.answer and r.search_error == "ConnectError" and "cite them" not in llm.system
+    assert r.answer and r.search_error == "ConnectError"
+    assert "Official sources were retrieved" not in llm.system

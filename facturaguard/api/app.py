@@ -7,6 +7,7 @@ repair and chat need NEBIUS_API_KEY; without it those endpoints return 503.
 """
 
 import json
+import re
 import threading
 import time
 from collections import defaultdict, deque
@@ -288,9 +289,10 @@ def chat_endpoint(body: ChatBody, request: Request):
         r = chat_reply(s, body.message, llm, lang=body.lang, search=search)
     except Exception as e:  # surface model errors as a friendly 502
         raise HTTPException(502, f"The AI model did not answer: {type(e).__name__}") from e
-    return {"answer": r.answer, "call": r.call.to_dict(),
-            "sources": [x.to_dict() for x in r.sources], "search_s": r.search_s,
-            "search_error": r.search_error, "uncited": r.uncited}
+    cited = {int(n) for n in re.findall(r"\[(\d{1,2})\]", r.answer)}
+    sources = [{**x.to_dict(), "n": i, "cited": i in cited} for i, x in enumerate(r.sources, 1)]
+    return {"answer": r.answer, "call": r.call.to_dict(), "sources": sources,
+            "search_s": r.search_s, "search_error": r.search_error, "uncited": r.uncited}
 
 
 @app.get("/api/summary/{sid}")

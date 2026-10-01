@@ -1,12 +1,14 @@
 """Follow-up chat about one checked invoice, grounded in that invoice's validation results."""
 
 import json
+import re
 from dataclasses import dataclass, field
 
 from facturaguard.llm.ask import CallRecord
 from facturaguard.llm.client import LLMClient
 from facturaguard.llm.prompts import LANGUAGES
 from facturaguard.rules.index import rule_text
+from facturaguard.rules.search import search_rules
 from facturaguard.search.citations import flag_uncited
 from facturaguard.search.tavily import Source, TavilyClient
 
@@ -23,7 +25,11 @@ beyond the rule texts (VAT treatment, deadlines, penalties, signatures, SPV), sa
 needs their accountant and say what to ask them.
 - Never state tax rates, percentages, deadlines, fines or legal references from memory, not \
 even as examples or "typical" values. Model memory of Romanian tax law is often out of date.
-- Never invent invoice data, identifiers or amounts.
+- Never invent invoice data, identifiers or amounts. State amounts in the invoice's own \
+currency (invoice_currency in the context); never assume RON.
+- relevant_official_rules are texts from ANAF's official CIUS-RO Schematron that match the \
+question. They say how the e-Factura XML must be built, so use them and cite them by rule id, \
+for example (BR-RO-030). They cover XML requirements only, not tax rates or legal deadlines.
 - If the question can mean different things (for example an invoice "rejected" by the client \
 versus rejected by ANAF's validation), ask one short clarifying question, or answer each \
 meaning separately and say which is which.
@@ -48,7 +54,13 @@ accountant. Do not fill the gap from memory.
 MAX_HISTORY = 10
 
 
-def build_context(session: dict) -> str:
+def _document_currency(session: dict) -> str | None:
+    xml = session.get("corrected_xml") or session.get("original_xml") or b""
+    m = re.search(rb"<cbc:DocumentCurrencyCode[^>]*>\s*([A-Za-z]{3})\s*<", xml)
+    return m.group(1).decode().upper() if m else None
+
+
+def build_context(session: dict, question: str = "") -> str:
     validation = session.get("validation") or {}
     issues = []
     for i in validation.get("issues", []):
@@ -61,6 +73,7 @@ def build_context(session: dict) -> str:
     ctx = {
         "file_name": session.get("file_name"),
         "source": session.get("source"),
+        "invoice_currency": _document_currency(session),
         "validator_verdict": "valid" if validation.get("valid") else "invalid",
         "errors": issues[:40],
         "plain_explanations": [
@@ -76,6 +89,11 @@ def build_context(session: dict) -> str:
             "diff": (repair.get("diff") or "")[:6000],
         } if repair else None,
         "extracted_from_pdf": session.get("pdf_fields"),
+        # Official rule texts matching the question, found offline by keyword search.
+        "relevant_official_rules": [
+            {"rule_id": r.rule_id, "text_en": r.en, "text_ro": r.ro}
+            for r in search_rules(question)
+        ] if question else [],
     }
     return json.dumps(ctx, ensure_ascii=False)
 
@@ -104,7 +122,7 @@ def chat_reply(session: dict, message: str, llm: LLMClient, lang: str = "en",
         except Exception as e:  # noqa: BLE001  search is optional; answer without it
             search_error = f"{type(e).__name__}"
     system = CHAT_SYSTEM.format(language=LANGUAGES[lang]) + (SOURCES_RULES if sources else "")
-    context = "Context for this invoice (JSON):\n" + build_context(session)
+    context = "Context for this invoice (JSON):\n" + build_context(session, message)
     if sources:
         context += "\n\nOfficial sources (JSON):\n" + json.dumps(
             [{"n": i, "title": s.title, "url": s.url, "published_date": s.published_date,
