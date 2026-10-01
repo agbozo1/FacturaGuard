@@ -140,7 +140,8 @@ docker run -p 8000:8000 --env-file .env facturaguard
 
 **Render (free tier):** in the Render dashboard choose New, then Blueprint, pick this repository,
 and paste `NEBIUS_API_KEY` when prompted. `render.yaml` defines one Docker web service in
-Frankfurt with a health check on `/api/health`. Free instances sleep when idle, so the first
+Frankfurt with a health check on `/api/health`. Auto-deploy is off to save build minutes:
+after pushing, use **Manual Deploy > Deploy latest commit**. Free instances sleep when idle, so the first
 request after a pause takes longer. The key never goes into git.
 
 ## Using the app
