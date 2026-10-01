@@ -54,6 +54,23 @@ Dated notes for the hackathon submission feedback fields.
   and use Lightning (thinking off) for extraction.
 - Real-call numbers for extraction and repair are pending (no key on the dev machine).
 
+## 2026-10-02 (Tavily + Nemotron on the hosted app)
+- Tavily search restricted to anaf.ro, mfinante.gov.ro and legislatie.just.ro: 3.5 to 4.4 s
+  per search (basic depth). Results stayed on the official domains.
+- Deadline and fines question (English): Tavily found an ANAF communique from January 2026 and
+  the Ministry of Finance e-Factura guide; Ultra answered with [1], [2] citations and pointed to
+  the accountant. 6.6 s end to end. This is the behaviour we want.
+- VAT-rate question (Romanian): our query suffix ("e-Factura ANAF Romania") pulled five
+  irrelevant "Servicii Web - ANAF" pages. Ultra correctly said the sources did not answer, but
+  then listed 19 %, 9 % and 5 % as possible rates from memory. Those are outdated (21 % and 11 %
+  since August 2025). Model memory leaks even when told not to rely on it.
+  Fixes: send the question unchanged, use advanced depth for chat, drop duplicate pages, and a
+  prompt rule that every rate, amount, deadline or legal reference must come from a cited
+  source, never from memory, not even as an example.
+- Rule-update check: 4.8 s, relevant official pages (MF "Informatii tehnice", "Validare XML
+  factura"), no CIUS-RO version newer than 1.0.9 mentioned.
+- PDF extraction latency varied more on this run: 9.0 s for one PDF (2.8 s median in the eval).
+
 ## 2026-10-02 (evals with real calls, from the dev machine)
 - Repair, Nemotron 3 Ultra, 28 invoices: 18 fixed and re-validated, 8 correctly asked for a
   missing business fact instead of inventing it, 1 asked for the invoice type code, 1 declined

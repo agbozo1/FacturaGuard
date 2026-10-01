@@ -44,8 +44,9 @@ def test_sanitize_query_strips_identifiers_but_keeps_words():
 
 def test_search_sends_bearer_and_official_domains_and_drops_other_sites():
     seen = []
-    client = tavily_with([src("https://static.anaf.ro/x.html"), src("https://blog.example.com/y"),
-                          src("https://legislatie.just.ro/z")], seen)
+    client = tavily_with([src("https://static.anaf.ro/x.html", "x"),
+                          src("https://blog.example.com/y", "y"),
+                          src("https://legislatie.just.ro/z", "z")], seen)
     sources, _ = client.search("termen transmitere e-Factura")
     assert seen[0]["auth"] == "Bearer tvly-test"
     assert seen[0]["include_domains"] == OFFICIAL_DOMAINS
@@ -100,6 +101,20 @@ def test_chat_with_sources_cites_them_and_never_sends_invoice_data():
     assert r.sources and r.sources[0].url == "https://www.anaf.ro/efactura"
     assert "cite them inline" in llm.system and "anaf.ro/efactura" in llm.context
     assert "44172032" not in seen[0]["query"]
+    # Real-call finding: a fixed "e-Factura" suffix pulled a VAT question to irrelevant pages.
+    assert seen[0]["query"] == "What is the deadline for ?" and seen[0]["search_depth"] == "advanced"
+    # Real-call finding: with no answer in the sources, Ultra listed outdated VAT rates.
+    assert "must come from a cited source" in llm.system
+    assert "Never state tax rates" in llm.system
+
+
+def test_duplicate_pages_are_dropped():
+    seen = []
+    client = tavily_with([src("https://www.anaf.ro/a?x=1", "Servicii Web - ANAF"),
+                          src("https://www.anaf.ro/a?x=2", "Servicii  web - ANAF"),
+                          src("https://mfinante.gov.ro/b", "Ghidul e-Factura")], seen)
+    sources, _ = client.search("q")
+    assert [s.title for s in sources] == ["Servicii Web - ANAF", "Ghidul e-Factura"]
 
 
 def test_chat_without_search_or_on_search_failure_still_answers():

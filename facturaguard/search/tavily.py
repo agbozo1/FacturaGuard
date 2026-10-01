@@ -79,11 +79,16 @@ class TavilyClient:
             "Authorization": f"Bearer {self.settings.tavily_api_key}"})
         resp.raise_for_status()
         latency = time.perf_counter() - start
-        sources = []
+        sources, seen_titles = [], set()
         for r in resp.json().get("results", []):
             url = str(r.get("url", ""))
             if not is_official(url):  # defence in depth; include_domains should already do this
                 continue
+            # The same page is often published under several URLs; keep one per title.
+            title_key = " ".join(str(r.get("title", "")).lower().split())
+            if title_key and title_key in seen_titles:
+                continue
+            seen_titles.add(title_key)
             sources.append(Source(
                 title=str(r.get("title", ""))[:200],
                 url=url,

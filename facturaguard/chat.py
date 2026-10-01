@@ -20,6 +20,8 @@ valid or invalid on your own judgement.
 context. Do not rely on memory of Romanian tax law. If the question needs tax or legal advice \
 beyond the rule texts (VAT treatment, deadlines, penalties, signatures, SPV), say that this \
 needs their accountant and say what to ask them.
+- Never state tax rates, percentages, deadlines, fines or legal references from memory, not \
+even as examples or "typical" values. Model memory of Romanian tax law is often out of date.
 - Never invent invoice data, identifiers or amounts.
 - Be brief and practical: two to six sentences, or a short list.
 - Answer in {language}."""
@@ -29,12 +31,12 @@ SOURCES_RULES = """
 Official sources were retrieved for this question from anaf.ro, mfinante.gov.ro or \
 legislatie.just.ro. They are numbered in the context.
 - For facts beyond the invoice context, use only these sources and cite them inline as [1], [2].
+- Every number, rate, deadline or legal reference you state must come from a cited source.
 - If the sources do not answer the question, say so plainly and suggest what to ask the \
-accountant. Do not fill gaps from memory.
+accountant. Do not fill the gap from memory.
 - Sources may be in Romanian or out of date; mention the publication date when it matters.
 - This is information, not legal advice; keep the suggestion to confirm with the accountant."""
 
-SEARCH_SUFFIX = " e-Factura ANAF Romania"
 MAX_HISTORY = 10
 
 
@@ -87,7 +89,9 @@ def chat_reply(session: dict, message: str, llm: LLMClient, lang: str = "en",
     sources, search_s, search_error = [], None, ""
     if search is not None:
         try:
-            sources, search_s = search.search(message + SEARCH_SUFFIX, max_results=5)
+            # The question as asked: the domain restriction already keeps results Romanian and
+            # official, and a fixed "e-Factura" suffix pulled VAT questions to the wrong pages.
+            sources, search_s = search.search(message, max_results=5, depth="advanced")
         except Exception as e:  # noqa: BLE001  search is optional; answer without it
             search_error = f"{type(e).__name__}"
     system = CHAT_SYSTEM.format(language=LANGUAGES[lang]) + (SOURCES_RULES if sources else "")
