@@ -13,15 +13,16 @@ const I18N = {
     p2t: "Plain explanations", p2: "NVIDIA Nemotron explains each error in English or Romanian, grounded in the official rule text.",
     p3t: "Checked fixes", p3: "Every proposed fix is re-validated. Missing business facts are asked, never invented.",
     explainAi: "Explain with AI", fix: "Propose a fix", share: "Share with accountant",
-    submit: "Submit to ANAF (mock)", pdfTitle: "Read from the PDF", fixTitle: "Proposed correction",
-    submitTitle: "Mock ANAF submission", assistant: "AI Assistant",
+    about: "How FacturaGuard works", aboutShort: "About",
+    exportXml: "Export final XML", pdfTitle: "Read from the PDF", fixTitle: "Proposed correction",
+    assistant: "AI Assistant",
     chatEmpty: "Check an invoice, then ask me anything about its errors.",
     ask: "Ask about this invoice", summaryTitle: "Summary for your accountant",
     copy: "Copy text", download: "Download .md", print: "Print or save as PDF",
     aiOn: "AI connected (NVIDIA Nemotron on Nebius)", aiOff: "Validation only (AI not configured)",
     checking: "Checking the invoice...", readingPdf: "Reading the PDF with Nemotron and checking it...",
     explaining: "Nemotron is explaining the errors...", fixing: "Nemotron is proposing a fix; every change is re-validated...",
-    submitting: "Simulating the ANAF upload...", valid: "Valid", invalid: "Invalid",
+    valid: "Valid", invalid: "Invalid",
     validSub: "Passes ANAF's RO_CIUS 1.0.9 checks. Ready to send.",
     invalidSub: (n) => `${n} error${n === 1 ? "" : "s"} that ANAF would reject.`,
     warnings: (n) => `${n} warning${n === 1 ? "" : "s"} (not blocking).`,
@@ -39,10 +40,12 @@ const I18N = {
     remaining: "Remaining errors", none: "none", answerHint: "Only you know these. Your answers are used exactly as typed.",
     applyAnswers: "Apply answers and retry", downloadXml: "Download corrected XML",
     changes: "Changes", noChanges: "No changes were applied.",
-    submitOk: "accepted", submitNok: "rejected", copied: "Copied.", correctedValid: "Corrected version is valid",
+    copied: "Copied.", correctedValid: "Corrected version is valid",
     chips: ["Why would ANAF reject this?", "What should I ask my accountant?", "Which fields do I need to fill in?"],
     errNoAi: "AI features are not configured on this server. Validation still works.",
-    thinking: "Thinking...", mockNote: "Simulation only. Nothing was sent to ANAF.",
+    thinking: "Thinking...",
+    exportedValid: (fixed) => `Exported the ${fixed ? "corrected " : ""}XML. It passes all checks, so it is ready to send to ANAF through your usual channel.`,
+    exportedInvalid: (fixed, n) => `Exported the ${fixed ? "corrected" : "original"} XML, but it still has ${n} error${n === 1 ? "" : "s"}, so ANAF would reject it. Fix ${n === 1 ? "it" : "them"} before sending.`,
     rulesVersion: "Rules: ANAF CIUS-RO 1.0.9", checkUpdates: "Check ANAF for updates",
     checkingRules: "Searching official sources...",
     newerFound: (v) => `ANAF sources mention CIUS-RO ${v}, newer than the 1.0.9 rules used here. Results may be out of date; check before relying on them.`,
@@ -63,15 +66,16 @@ const I18N = {
     p2t: "Explicații clare", p2: "NVIDIA Nemotron explică fiecare eroare în română sau engleză, pe baza textului oficial al regulii.",
     p3t: "Corecturi verificate", p3: "Fiecare corectură propusă este revalidată. Datele firmei care lipsesc sunt cerute, nu inventate.",
     explainAi: "Explică cu AI", fix: "Propune o corectură", share: "Trimite contabilului",
-    submit: "Trimite la ANAF (simulare)", pdfTitle: "Citit din PDF", fixTitle: "Corectură propusă",
-    submitTitle: "Trimitere ANAF simulată", assistant: "Asistent AI",
+    about: "Cum funcționează FacturaGuard", aboutShort: "Despre",
+    exportXml: "Exportă XML final", pdfTitle: "Citit din PDF", fixTitle: "Corectură propusă",
+    assistant: "Asistent AI",
     chatEmpty: "Verifică o factură, apoi întreabă-mă orice despre erorile ei.",
     ask: "Întreabă despre această factură", summaryTitle: "Rezumat pentru contabil",
     copy: "Copiază textul", download: "Descarcă .md", print: "Tipărește sau salvează PDF",
     aiOn: "AI conectat (NVIDIA Nemotron pe Nebius)", aiOff: "Doar validare (AI neconfigurat)",
     checking: "Se verifică factura...", readingPdf: "Nemotron citește PDF-ul și îl verificăm...",
     explaining: "Nemotron explică erorile...", fixing: "Nemotron propune o corectură; fiecare modificare este revalidată...",
-    submitting: "Se simulează încărcarea la ANAF...", valid: "Validă", invalid: "Invalidă",
+    valid: "Validă", invalid: "Invalidă",
     validSub: "Trece verificările RO_CIUS 1.0.9 ale ANAF. Gata de trimis.",
     invalidSub: (n) => `${n} ${n === 1 ? "eroare" : "erori"} pentru care ANAF ar respinge factura.`,
     warnings: (n) => `${n} ${n === 1 ? "avertisment" : "avertismente"} (nu blochează).`,
@@ -89,10 +93,12 @@ const I18N = {
     remaining: "Erori rămase", none: "niciuna", answerHint: "Doar tu știi aceste date. Răspunsurile sunt folosite exact cum le scrii.",
     applyAnswers: "Aplică răspunsurile și reîncearcă", downloadXml: "Descarcă XML corectat",
     changes: "Modificări", noChanges: "Nu s-a aplicat nicio modificare.",
-    submitOk: "acceptată", submitNok: "respinsă", copied: "Copiat.", correctedValid: "Versiunea corectată este validă",
+    copied: "Copiat.", correctedValid: "Versiunea corectată este validă",
     chips: ["De ce ar respinge ANAF factura?", "Ce să-l întreb pe contabil?", "Ce câmpuri trebuie să completez?"],
     errNoAi: "Funcțiile AI nu sunt configurate pe acest server. Validarea funcționează.",
-    thinking: "Mă gândesc...", mockNote: "Doar simulare. Nimic nu a fost trimis la ANAF.",
+    thinking: "Mă gândesc...",
+    exportedValid: (fixed) => `Ați exportat XML-ul${fixed ? " corectat" : ""}. Trece toate verificările, deci este gata de trimis la ANAF prin canalul obișnuit.`,
+    exportedInvalid: (fixed, n) => `Ați exportat XML-ul ${fixed ? "corectat" : "original"}, dar are încă ${n} ${n === 1 ? "eroare" : "erori"}, deci ANAF l-ar respinge. Corectați înainte de trimitere.`,
     rulesVersion: "Reguli: ANAF CIUS-RO 1.0.9", checkUpdates: "Verifică actualizări ANAF",
     checkingRules: "Se caută în surse oficiale...",
     newerFound: (v) => `Sursele ANAF menționează CIUS-RO ${v}, mai nou decât regulile 1.0.9 folosite aici. Rezultatele pot fi depășite; verificați înainte de a vă baza pe ele.`,
@@ -223,7 +229,7 @@ async function checkFile(file) {
   $("#hero").hidden = true;
   $("#results").hidden = false;
   $("#errors").replaceChildren();
-  ["#pdf-panel", "#fix-panel", "#submit-panel"].forEach((s) => ($(s).hidden = true));
+  ["#pdf-panel", "#fix-panel"].forEach((s) => ($(s).hidden = true));
   $("#file-name").textContent = file.name;
   $("#verdict").textContent = "";
   $("#verdict-sub").textContent = "";
@@ -249,6 +255,9 @@ function updateActions() {
   const invalid = state.check && !state.check.validation.valid;
   $("#btn-explain").hidden = !invalid || !state.ai;
   $("#btn-fix").hidden = !invalid || !state.ai;
+  // Nothing to export from a file that is not XML at all.
+  $("#btn-export").hidden = !state.check
+    || state.check.validation.issues.some((i) => i.layer === "parse");
 }
 
 function renderResults() {
@@ -383,17 +392,17 @@ async function doRepair(formData) {
   });
 }
 
-async function doSubmit() {
-  await run(t("submitting"), async () => {
-    const r = await post("/api/submit", { session_id: state.check.session_id });
-    $("#submit-panel").hidden = false;
-    const ok = r.status === "ok";
-    $("#submit-body").replaceChildren(...[
-      el("p", { class: `note ${ok ? "ok" : "bad"}` }, `${r.status}: ${ok ? t("submitOk") : t("submitNok")}`),
-      el("p", {}, r.message),
-      r.errors?.length ? el("p", { class: "muted" }, r.errors.join(", ")) : null,
-      el("p", { class: "muted" }, `Index: ${r.upload_index}. ${t("mockNote")}`)].filter(Boolean));
-  });
+// Export the corrected XML if a fix was applied, otherwise the original (or the XML built from
+// a PDF), and say plainly whether it would pass. Sending it to ANAF is up to the user.
+function doExport() {
+  const r = state.repair;
+  const fixed = !!r?.corrected_xml;
+  const result = fixed ? r.final : state.check.validation;
+  const errors = new Set((result?.issues || []).filter((i) => i.severity === "fatal")
+    .map((i) => `${i.rule_id}|${i.message}`)).size;
+  window.location.href = `/api/download/${state.check.session_id}?which=final`;
+  if (result?.valid) setStatus(t("exportedValid", fixed));
+  else setStatus(t("exportedInvalid", fixed, errors), "error");
 }
 
 /* ---------- markdown (summary and chat) ---------- */
@@ -554,7 +563,7 @@ function wire() {
   $("#btn-explain").addEventListener("click", doExplain);
   $("#btn-fix").addEventListener("click", () => doRepair(null));
   $("#btn-summary").addEventListener("click", openSummary);
-  $("#btn-submit").addEventListener("click", doSubmit);
+  $("#btn-export").addEventListener("click", doExport);
   $("#btn-rules").addEventListener("click", checkRuleUpdates);
   $("#chat-form").addEventListener("submit", (e) => { e.preventDefault(); sendChat(); });
 

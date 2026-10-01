@@ -106,7 +106,7 @@ def test_rejects_doctype_and_oversize(client):
     assert client.post("/api/check", files={"file": ("big.xml", big)}).status_code == 413
 
 
-def test_explain_repair_summary_download_submit(client):
+def test_explain_repair_summary_and_export(client):
     app_module.app.state.llm = RoutingLLM()
     r = upload(client, xml_for(["bad_payable"]))
     sid = r["session_id"]
@@ -122,10 +122,21 @@ def test_explain_repair_summary_download_submit(client):
     md = client.get(f"/api/summary/{sid}?lang=ro").text
     assert "BR-CO-16" in md and "Corectură propusă" in md and "```diff" in md
 
-    sub = client.post("/api/submit", json={"session_id": sid}).json()
-    assert sub["status"] == "ok" and sub["mock"] is True
-    original = client.post("/api/submit", json={"session_id": sid, "which": "original"}).json()
-    assert original["status"] == "nok"
+    # Export: the final version is the corrected XML once a fix exists, and it re-validates.
+    final = client.get(f"/api/download/{sid}")
+    assert final.status_code == 200 and "-final.xml" in final.headers["content-disposition"]
+    assert app_module.validate_xml(final.content).valid
+    original = client.get(f"/api/download/{sid}?which=original").content
+    assert not app_module.validate_xml(original).valid
+    assert client.post("/api/submit", json={"session_id": sid}).status_code in (404, 405)
+
+
+def test_export_without_a_fix_returns_the_original(client):
+    data = xml_for(None)
+    sid = upload(client, data, name="clean.xml")["session_id"]
+    r = client.get(f"/api/download/{sid}")
+    assert r.status_code == 200 and r.content == data
+    assert 'filename="clean-final.xml"' in r.headers["content-disposition"]
 
 
 def test_repair_asks_then_uses_the_answer(client):
@@ -180,7 +191,7 @@ def test_chat_marks_which_sources_the_answer_cites(client, monkeypatch):
 
 
 def test_unknown_session_and_rate_limit(client):
-    assert client.post("/api/submit", json={"session_id": "nope"}).status_code == 404
+    assert client.get("/api/download/nope").status_code == 404
     app_module.app.state.llm = RoutingLLM()
     app_module.app.state.ai_limit = app_module._RateLimit(limit=2)
     sid = upload(client, xml_for(["bad_payable"]))["session_id"]

@@ -29,11 +29,9 @@ from facturaguard.repair.engine import repair
 from facturaguard.repair.patch import unified_diff
 from facturaguard.search.rule_watch import RuleWatch
 from facturaguard.search.tavily import SearchNotConfigured, TavilyClient
-from facturaguard.submission.mock import MockAnafAdapter
 from facturaguard.summary import accountant_summary
 from facturaguard.validation.models import Issue, ValidationResult
 from facturaguard.validation.validate import validate_xml
-from facturaguard.xmlsafe import UnsafeXML, parse
 
 ROOT = Path(__file__).resolve().parents[2]
 WEB = ROOT / "web"
@@ -43,7 +41,6 @@ Lang = Literal["en", "ro"]
 
 app = FastAPI(title="FacturaGuard", version="0.1.0")
 app.state.sessions = SessionStore()
-app.state.submission = MockAnafAdapter()
 app.state.llm = None  # created lazily; tests may set a fake
 app.state.search = None  # Tavily client, created lazily; None when TAVILY_API_KEY is unset
 app.state.rule_watch = RuleWatch()
@@ -109,16 +106,6 @@ app.state.ai_limit = _RateLimit()
 
 def _calls(calls) -> list[dict]:
     return [c.to_dict() for c in calls]
-
-
-def _seller_cif(xml: bytes) -> str:
-    try:
-        root = parse(xml)
-    except (UnsafeXML, ValueError):
-        return ""
-    return root.xpath(
-        "normalize-space(*[local-name()='AccountingSupplierParty']/*[local-name()='Party']"
-        "/*[local-name()='PartyTaxScheme']/*[local-name()='CompanyID'])")
 
 
 # --- samples -----------------------------------------------------------------------------
@@ -304,29 +291,19 @@ def summary(sid: str, lang: Lang = "en", download: bool = False):
 
 
 @app.get("/api/download/{sid}")
-def download(sid: str, which: Literal["original", "corrected"] = "corrected"):
+def download(sid: str, which: Literal["final", "original", "corrected"] = "final"):
+    """`final` is the corrected XML if a fix was applied, otherwise the original (for a PDF, the
+    XML built from it). Sending it to ANAF is up to the user and their software."""
     s = get_session(sid)
-    xml = s.get("corrected_xml") if which == "corrected" else s["original_xml"]
+    if which == "final":
+        xml = s.get("corrected_xml") or s["original_xml"]
+    else:
+        xml = s.get("corrected_xml") if which == "corrected" else s["original_xml"]
     if not xml:
         raise HTTPException(404, "No corrected XML yet.")
     stem = Path(s["file_name"]).stem
     return Response(xml, media_type="application/xml", headers={
         "Content-Disposition": f'attachment; filename="{stem}-{which}.xml"'})
-
-
-class SubmitBody(BaseModel):
-    session_id: str
-    which: Literal["original", "corrected"] = "corrected"
-
-
-@app.post("/api/submit")
-def submit(body: SubmitBody):
-    s = get_session(body.session_id)
-    xml = s.get("corrected_xml") if body.which == "corrected" else None
-    xml = xml or s["original_xml"]
-    result = app.state.submission.submit(xml, _seller_cif(xml))
-    s["submission"] = result.to_dict()
-    return s["submission"]
 
 
 if WEB.exists():

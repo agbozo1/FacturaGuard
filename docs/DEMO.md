@@ -23,5 +23,8 @@ Before recording:
 
 Notes:
 - If a model call is slow on camera, cut the wait in editing; do not fake output.
-- Show the mock ANAF submit only if time allows, and say it is a simulation.
+- After the fix, click **Export final XML** to show the clean file and its "ready to send"
+  message. FacturaGuard does not send invoices to ANAF; say so if asked.
+- The About page (`/about.html`) has a simple five-step diagram that works well as an opening
+  or closing shot.
 - Do not show the `.env` file or any API key.

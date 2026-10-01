@@ -38,6 +38,10 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>
       <span data-i18n="newCheck">New check</span>
     </button>
+    <a class="side-about" href="/about.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+      <span data-i18n="about">How FacturaGuard works</span>
+    </a>
     <p class="side-label" data-i18n="trySample">Try a sample invoice</p>
     <ul class="samples" id="samples"></ul>
     <div class="side-foot">
@@ -82,7 +86,7 @@
           <button class="btn-ai" id="btn-explain"><span class="spark" aria-hidden="true">✦</span><span data-i18n="explainAi">Explain with AI</span></button>
           <button class="btn" id="btn-fix" data-i18n="fix">Propose a fix</button>
           <button class="btn" id="btn-summary" data-i18n="share">Share with accountant</button>
-          <button class="btn ghost" id="btn-submit" data-i18n="submit">Submit to ANAF (mock)</button>
+          <button class="btn" id="btn-export" data-i18n="exportXml">Export final XML</button>
         </div>
       </header>
 
@@ -100,12 +104,10 @@
         <div id="fix-body"></div>
       </section>
 
-      <section id="submit-panel" class="card" hidden>
-        <h3 data-i18n="submitTitle">Mock ANAF submission</h3>
-        <div id="submit-body"></div>
-      </section>
     </section>
     <footer class="app-foot">
+      <a href="/about.html" data-i18n="aboutShort">About</a>
+      <span aria-hidden="true">·</span>
       <span data-i18n="productOf">© 2026 Product of Nova Analytica S.R.L.</span>
       <span aria-hidden="true">·</span>
       <a href="https://github.com/agbozo1" target="_blank" rel="noopener">GitHub @agbozo1</a>

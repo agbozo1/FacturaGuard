@@ -53,7 +53,7 @@ flowchart LR
     VAL -- "errors + totals computed by code" --> REP["Nemotron 3 Ultra<br/>propose edit operations"]
     REP --> PATCH["Patch applier (code)"]
     PATCH -- "re-validate; keep only if better" --> VAL
-    VAL --> OUT["Verdict, diff, corrected XML,<br/>accountant summary, mock ANAF submit"]
+    VAL --> OUT["Verdict, diff, final XML export,<br/>accountant summary"]
     VAL -- "context" --> CHAT["Nemotron 3 Ultra<br/>chat about this invoice"]
     CHAT -- "question only, identifiers removed" --> TAV["Tavily search<br/>anaf.ro, mfinante.gov.ro,<br/>legislatie.just.ro only"]
     TAV -- "cited official sources" --> CHAT
@@ -182,9 +182,11 @@ request after a pause takes longer. The key never goes into git.
   business fact (for example the invoice number), the app asks, and uses your answer exactly.
 - **Share with accountant:** a summary built by code from the validator results, explanations
   and fix. Copy it, download it as Markdown, or print it to PDF.
-- **Submit to ANAF (mock):** live submission is out of scope. `facturaguard/submission/base.py`
-  defines the adapter interface; the mock re-validates and returns ANAF-style states (`ok`,
-  `nok`, `XML cu erori nepreluat de sistem`), clearly labelled as a simulation.
+- **Export final XML:** downloads the corrected XML if a fix was applied, otherwise the
+  original (for a PDF, the XML built from it), and says whether it passes. FacturaGuard does
+  not send invoices to ANAF; you send the exported file through your usual channel.
+- **About page** (`/about.html`): a plain-language overview with a five-step diagram
+  (upload, check, understand, fix, share), in English and Romanian.
 - **Assistant:** chat about the current invoice, grounded in its validation results.
 - English and Romanian throughout.
 
@@ -225,8 +227,7 @@ facturaguard/
   extraction/   PDF text, Nemotron extraction, grounding, UBL builder
   ubl/          UBL renderer, county and unit code tables
   synthetic/    labelled invoice and PDF generator
-  submission/   adapter interface and mock ANAF
-  api/          FastAPI app and sessions
+ api/          FastAPI app and sessions
   chat.py, summary.py
 web/            HTML, CSS, JS (no build step)
 vendor/         ANAF Schematron, UBL 2.1 XSD, compiled XSLT (see vendor/SOURCES.md)

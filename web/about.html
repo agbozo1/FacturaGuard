@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About FacturaGuard</title>
+  <meta name="description" content="How FacturaGuard checks Romanian e-Factura invoices before ANAF does: upload, check, understand, fix, share.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23CFF851'/%3E%3Cpath d='M10 8h12v4h-8v3h7v4h-7v5h-4z' fill='%2319363C'/%3E%3C/svg%3E">
+  <style>
+    .about { max-width: 1060px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 72px; position: relative; isolation: isolate; }
+    .about-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .back { color: var(--teal); text-decoration: none; font-weight: 500; display: inline-flex; gap: 6px; align-items: center; }
+    .back:hover { text-decoration: underline; }
+    .about-hero { text-align: center; margin: 36px auto 8px; max-width: 760px; }
+    .about-hero .wordmark { font-size: clamp(52px, 8vw, 96px); }
+    .about-hero h1 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; margin: 16px 0 8px; }
+    .about-hero p { color: var(--muted); margin: 0 auto; max-width: 620px; font-size: 17px; }
+    .about-hero p.wordmark { color: var(--teal); max-width: none; }
+
+    /* ---- how it works ---- */
+    .flow-title { text-align: center; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 52px 0 18px; font-weight: 500; }
+    .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; position: relative; }
+    .flow::before { /* the line the steps sit on */
+      content: ""; position: absolute; left: 10%; right: 10%; top: 44px; height: 4px; border-radius: 4px; z-index: 0;
+      background: linear-gradient(90deg, var(--sun), var(--lime), var(--leaf));
+    }
+    .step { position: relative; z-index: 1; text-align: center; display: grid; justify-items: center; align-content: start; gap: 10px; }
+    .bubble {
+      width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; position: relative;
+      background: var(--teal); color: var(--lime); box-shadow: 0 10px 28px rgba(25, 54, 60, .25);
+      border: 4px solid var(--bg);
+    }
+    .bubble svg { width: 34px; height: 34px; stroke-width: 1.7; }
+    .step:nth-child(2) .bubble { background: linear-gradient(140deg, var(--teal), #2E5B4A); }
+    .step:nth-child(3) .bubble { background: linear-gradient(140deg, var(--teal) 20%, #3D6B47); }
+    .step:nth-child(4) .bubble { background: linear-gradient(140deg, #2E5B4A, #6E9F53); }
+    .step:nth-child(5) .bubble { background: var(--lime); color: var(--teal); }
+    .num {
+      position: absolute; top: -4px; right: -4px; width: 28px; height: 28px; border-radius: 50%;
+      background: #fff; color: var(--teal); font-weight: 700; font-size: 13px; display: grid; place-items: center;
+      box-shadow: 0 2px 6px rgba(15, 26, 43, .15);
+    }
+    .step h3 { margin: 4px 0 0; font-size: 17px; font-weight: 700; color: var(--teal); }
+    .step p { margin: 0; font-size: 14px; color: var(--muted); max-width: 190px; }
+    .assistant-note {
+      margin: 26px auto 0; max-width: 640px; display: flex; gap: 12px; align-items: center;
+      background: var(--surface); border-radius: 999px; padding: 10px 18px 10px 10px; box-shadow: var(--shadow);
+      border: 1.5px solid transparent;
+      background-image: linear-gradient(var(--surface), var(--surface)), linear-gradient(90deg, var(--sun), var(--lime));
+      background-origin: border-box; background-clip: padding-box, border-box;
+    }
+    .assistant-note .spark { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--teal); color: var(--lime); font-size: 18px; }
+    .assistant-note p { margin: 0; font-size: 14.5px; }
+
+    /* ---- sections ---- */
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 56px; }
+    .cards .card h2 { margin: 0 0 10px; font-size: 18px; font-weight: 500; }
+    .cards ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--ink); }
+    .cards li::marker { color: var(--leaf); }
+    .not li::marker { color: var(--bad); }
+    .cta { text-align: center; margin-top: 44px; }
+    .cta a { text-decoration: none; }
+
+    @media (max-width: 860px) {
+      .flow { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .flow::before { left: 43px; right: auto; top: 20px; bottom: 20px; width: 4px; height: auto;
+        background: linear-gradient(180deg, var(--sun), var(--lime), var(--leaf)); }
+      .step { grid-template-columns: 88px minmax(0, 1fr); text-align: left; justify-items: start; align-content: center; column-gap: 16px; row-gap: 4px; }
+      .step .bubble { grid-row: span 2; }
+      .step p { max-width: none; }
+      .cards { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <main class="about">
+    <div class="about-top">
+      <a class="back" href="/"><span aria-hidden="true">←</span> <span data-k="back">Back to the app</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="ro">RO</button>
+      </div>
+    </div>
+
+    <section class="about-hero">
+      <p class="wordmark" aria-hidden="true">FacturaGuard</p>
+      <h1 data-k="heroTitle">Your e-Factura, checked before ANAF sees it.</h1>
+      <p data-k="heroText">Every B2B invoice in Romania must pass ANAF's e-Factura checks. When one fails, the reason comes back as a short rule code. FacturaGuard finds the problems first, explains them in plain words and helps you fix them.</p>
+    </section>
+
+    <h2 class="flow-title" data-k="howTitle">How it works</h2>
+    <ol class="flow">
+      <li class="step">
+        <span class="bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg><span class="num">1</span></span>
+        <h3 data-k="s1t">Upload</h3>
+        <p data-k="s1">Drop your invoice: the e-Factura XML file or a PDF.</p>
+      </li>
+      <li class="step">
+        <span class="bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span class="num">2</span></span>
+        <h3 data-k="s2t">Check</h3>
+        <p data-k="s2">It is checked against ANAF's own official rules, the same ones ANAF uses.</p>
+      </li>
+      <li class="step">
+        <span class="bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18l-1 3 4-1.5A8 8 0 1 0 5 18z"/><path d="M9 10h6M9 13h4"/></svg><span class="num">3</span></span>
+        <h3 data-k="s3t">Understand</h3>
+        <p data-k="s3">Each problem is explained in plain English or Romanian, next to the official rule.</p>
+      </li>
+      <li class="step">
+        <span class="bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.7 1.8 1.8.7-1.8.7L19 22l-.7-1.8-1.8-.7 1.8-.7z"/></svg><span class="num">4</span></span>
+        <h3 data-k="s4t">Fix</h3>
+        <p data-k="s4">A suggested fix, checked again before you see it. If something only you know is missing, it asks.</p>
+      </li>
+      <li class="step">
+        <span class="bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span class="num">5</span></span>
+        <h3 data-k="s5t">Share</h3>
+        <p data-k="s5">Export the final XML, or send your accountant a clear summary.</p>
+      </li>
+    </ol>
+    <div class="assistant-note">
+      <span class="spark" aria-hidden="true">✦</span>
+      <p data-k="assistant">Still have a question? Ask the assistant. It answers from ANAF's official rules and websites, and shows you the source.</p>
+    </div>
+
+    <div class="cards">
+      <section class="card">
+        <h2 data-k="forTitle">Who it is for</h2>
+        <ul>
+          <li data-k="for1">Foreign founders running a company in Romania</li>
+          <li data-k="for2">Small businesses that rely on an accountant for every small fix</li>
+          <li data-k="for3">Anyone who wants to know why an invoice would be rejected, in plain words</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2 data-k="notTitle">What it does not do</h2>
+        <ul class="not">
+          <li data-k="not1">It does not send invoices to ANAF. You stay in control of that.</li>
+          <li data-k="not2">It does not replace your accountant. It helps you both save time.</li>
+          <li data-k="not3">It never lets AI guess whether an invoice is valid. ANAF's official rules decide; AI only explains.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2 data-k="dataTitle">Your data</h2>
+        <ul>
+          <li data-k="data1">Files are kept in memory for one hour and never saved.</li>
+          <li data-k="data2">Questions sent to web search have company IDs, IBANs and emails removed.</li>
+          <li data-k="data3">This demo uses made-up invoices only. Please do not upload real client data.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2 data-k="builtTitle">What powers it</h2>
+        <ul>
+          <li data-k="built1">ANAF's official e-Factura rules (CIUS-RO)</li>
+          <li data-k="built2">NVIDIA Nemotron models on Nebius Token Factory for explanations and fixes</li>
+          <li data-k="built3">Tavily search, limited to official Romanian government websites</li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="cta"><a class="btn-ai" href="/?sample=payable"><span class="spark" aria-hidden="true">✦</span> <span data-k="cta">Try it with a sample invoice</span></a></p>
+
+    <footer class="app-foot">
+      <span data-k="productOf">© 2026 Product of Nova Analytica S.R.L.</span>
+      <span aria-hidden="true">·</span>
+      <a href="https://github.com/agbozo1" target="_blank" rel="noopener">GitHub @agbozo1</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://github.com/agbozo1/FacturaGuard" target="_blank" rel="noopener" data-k="license">Source code (AGPL-3.0)</a>
+    </footer>
+    <div class="glow" aria-hidden="true" style="left:0"></div>
+  </main>
+
+  <script>
+    "use strict";
+    const T = {
+      ro: {
+        back: "Înapoi la aplicație",
+        heroTitle: "e-Factura ta, verificată înainte s-o vadă ANAF.",
+        heroText: "Orice factură B2B din România trebuie să treacă de verificările e-Factura ale ANAF. Când una e respinsă, motivul vine ca un cod scurt de regulă. FacturaGuard găsește problemele înainte, le explică pe înțeles și te ajută să le corectezi.",
+        howTitle: "Cum funcționează",
+        s1t: "Încarci", s1: "Adaugi factura: fișierul XML e-Factura sau un PDF.",
+        s2t: "Verificăm", s2: "Este verificată după regulile oficiale ale ANAF, aceleași pe care le folosește ANAF.",
+        s3t: "Înțelegi", s3: "Fiecare problemă e explicată pe înțeles, în română sau engleză, lângă regula oficială.",
+        s4t: "Corectezi", s4: "O corectură propusă, verificată din nou înainte s-o vezi. Dacă lipsește ceva ce doar tu știi, te întreabă.",
+        s5t: "Trimiți", s5: "Exporți XML-ul final sau trimiți contabilului un rezumat clar.",
+        assistant: "Mai ai o întrebare? Întreabă asistentul. Răspunde din regulile și site-urile oficiale ANAF și îți arată sursa.",
+        forTitle: "Pentru cine este",
+        for1: "Fondatori străini care conduc o firmă în România",
+        for2: "Firme mici care depind de contabil pentru orice mică corectură",
+        for3: "Oricine vrea să știe, pe înțeles, de ce ar fi respinsă o factură",
+        notTitle: "Ce nu face",
+        not1: "Nu trimite facturi la ANAF. Tu rămâi în control.",
+        not2: "Nu îți înlocuiește contabilul. Vă ajută pe amândoi să economisiți timp.",
+        not3: "Nu lasă niciodată AI-ul să ghicească dacă o factură e validă. Decid regulile oficiale ANAF; AI-ul doar explică.",
+        dataTitle: "Datele tale",
+        data1: "Fișierele sunt păstrate în memorie o oră și nu sunt salvate.",
+        data2: "Din întrebările trimise la căutarea web se elimină codurile fiscale, IBAN-urile și e-mailurile.",
+        data3: "Această demonstrație folosește doar facturi inventate. Nu încărcați date reale ale clienților.",
+        builtTitle: "Ce stă la bază",
+        built1: "Regulile oficiale e-Factura ale ANAF (CIUS-RO)",
+        built2: "Modele NVIDIA Nemotron pe Nebius Token Factory pentru explicații și corecturi",
+        built3: "Căutare Tavily, limitată la site-urile oficiale ale statului român",
+        cta: "Încearcă cu o factură exemplu",
+        productOf: "© 2026 Un produs Nova Analytica S.R.L.",
+        license: "Cod sursă (AGPL-3.0)",
+      },
+    };
+    const original = {};
+    document.querySelectorAll("[data-k]").forEach((n) => (original[n.dataset.k] = n.textContent));
+    function apply(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-k]").forEach((n) => {
+        n.textContent = (lang === "ro" && T.ro[n.dataset.k]) || original[n.dataset.k];
+      });
+      document.querySelectorAll(".lang button").forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
+      try { localStorage.setItem("fg-lang", lang); } catch { /* storage blocked */ }
+    }
+    document.querySelectorAll(".lang button").forEach((b) => b.addEventListener("click", () => apply(b.dataset.lang)));
+    let saved = null;
+    try { saved = localStorage.getItem("fg-lang"); } catch { /* storage blocked */ }
+    apply(saved === "ro" ? "ro" : "en");
+  </script>
+</body>
+</html>
