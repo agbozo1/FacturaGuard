@@ -54,6 +54,18 @@ Dated notes for the hackathon submission feedback fields.
   and use Lightning (thinking off) for extraction.
 - Real-call numbers for extraction and repair are pending (no key on the dev machine).
 
+## 2026-10-02 (first real calls from the hosted app, Render Frankfurt to Token Factory us-central1)
+- Explain, Nemotron 3 Ultra, English, one BR-CO-16 error: 4.47 s, 3,282 prompt and 1,557
+  completion tokens. JSON mode accepted. Output accurate and grounded: quoted the invoice's
+  real amounts and the official formula, and deferred the judgement call to the accountant.
+- Repair, Nemotron 3 Ultra, Romanian summary: 2.48 s, one edit operation, re-validated as
+  valid, no rejected operations. Romanian with correct diacritics.
+- One small hallucination: the explanation suggested adding a "RoundingAmount" element; the
+  UBL element is PayableRoundingAmount. Prompt tightened to take element names only from the
+  invoice or rule text.
+- Completion tokens (1,557) are high for a short explanation; most is likely reasoning.
+  Wish: per-request reasoning budget controls documented for Ultra.
+
 ## 2026-10-01 (web app)
 - Not a Token Factory note: saxonche (GraalVM native) objects are bound to the creating
   thread; using them from FastAPI worker threads crashed the process. All Schematron work now

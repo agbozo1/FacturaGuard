@@ -20,6 +20,8 @@ procedures, deadlines, fines or legal articles unless they appear in the rule te
 - Plain language, short sentences. Name each business term in plain words and keep its code, \
 for example "amount due (BT-115)".
 - If a fix needs information only the business has (an identifier, a name, a date), say so.
+- Name XML elements only as they appear in the invoice XML or the rule text. Do not invent \
+element names; when unsure, use the business term and its code (for example BT-114).
 - If something is uncertain, say to check with their accountant.
 
 Respond with JSON only:
