@@ -11,7 +11,7 @@ Deadline Oct 30, 2026. Our target: submit by Oct 27.
 | 3 | Public repo with OSI license, visible at the top of the repo page | Done: AGPL-3.0-only `LICENSE` (OSI-approved), `NOTICE` with copyright and commercial licensing. Repo must be made public; check the official rules accept any OSI licence (not only permissive) |
 | 4 | README with setup and run instructions | Done: quick start, Docker, Render |
 | 5 | README highlights Nemotron use, where Token Factory helped, other Nebius services | Done; model eval numbers still TODO (`eval_repair.py`, `eval_extraction.py`) |
-| 6 | Working demo URL (hosted app) | Ready to deploy: `Dockerfile` (tested, 512 MB cap) and `render.yaml`. Needs the Render Blueprint created with the key |
+| 6 | Working demo URL (hosted app) | Live: https://facturaguard.onrender.com (Render free tier, Frankfurt). Validation verified on the hosted app; AI pending until NEBIUS_API_KEY is set |
 | 7 | Public YouTube demo video, 3 minutes or shorter, shows Token Factory and Nemotron | Script ready: `docs/DEMO.md`. Recording pending |
 | 8 | Project description: what, why, how | Draft in README "What, why, how" |
 | 9 | Feedback on Token Factory, AI Cloud and NVIDIA tools | `FEEDBACK.md` running |

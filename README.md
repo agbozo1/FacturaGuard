@@ -8,7 +8,7 @@ re-validated before you see it. It complements accountants; it does not replace 
 Built for the Nebius x NVIDIA Global AI Hackathon, track **Best Apps and Agents**.
 Synthetic data only.
 
-- **Live demo:** TODO (Render URL after deployment)
+- **Live demo:** https://facturaguard.onrender.com (free tier: the first visit after a quiet period takes about a minute to wake up). Try https://facturaguard.onrender.com/?sample=payable
 - **Demo video:** TODO (YouTube, 3 minutes)
 - Hackathon checklist: [docs/HACKATHON.md](docs/HACKATHON.md). Platform feedback: [FEEDBACK.md](FEEDBACK.md).
 
