@@ -43,7 +43,7 @@ const I18N = {
     chips: ["Why would ANAF reject this?", "What should I ask my accountant?", "Which fields do I need to fill in?"],
     errNoAi: "AI features are not configured on this server. Validation still works.",
     thinking: "Thinking...", mockNote: "Simulation only. Nothing was sent to ANAF.",
-    productOf: "Product of Nova Analytica S.R.L.", license: "MIT License",
+    productOf: "© 2026 Product of Nova Analytica S.R.L.", license: "Source code (AGPL-3.0)",
   },
   ro: {
     newCheck: "Verificare nouă", trySample: "Încearcă o factură exemplu",
@@ -85,7 +85,7 @@ const I18N = {
     chips: ["De ce ar respinge ANAF factura?", "Ce să-l întreb pe contabil?", "Ce câmpuri trebuie să completez?"],
     errNoAi: "Funcțiile AI nu sunt configurate pe acest server. Validarea funcționează.",
     thinking: "Mă gândesc...", mockNote: "Doar simulare. Nimic nu a fost trimis la ANAF.",
-    productOf: "Un produs Nova Analytica S.R.L.", license: "Licență MIT",
+    productOf: "© 2026 Un produs Nova Analytica S.R.L.", license: "Cod sursă (AGPL-3.0)",
   },
 };
 

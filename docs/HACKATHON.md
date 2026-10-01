@@ -8,7 +8,7 @@ Deadline Oct 30, 2026. Our target: submit by Oct 27.
 |---|---|---|
 | 1 | Runs on Nebius Token Factory or Nebius AI Cloud | Token Factory client verified on a real key. Hosted run pending (Render) |
 | 2 | Uses at least one NVIDIA open source model | Nemotron 3 Ultra (explain, repair, chat), 3.5 Lightning (PDF extraction) |
-| 3 | Public repo with OSI license, visible at the top of the repo page | Done: MIT `LICENSE`. Check GitHub shows it in the sidebar |
+| 3 | Public repo with OSI license, visible at the top of the repo page | Done: AGPL-3.0-only `LICENSE` (OSI-approved), `NOTICE` with copyright and commercial licensing. Repo must be made public; check the official rules accept any OSI licence (not only permissive) |
 | 4 | README with setup and run instructions | Done: quick start, Docker, Render |
 | 5 | README highlights Nemotron use, where Token Factory helped, other Nebius services | Done; model eval numbers still TODO (`eval_repair.py`, `eval_extraction.py`) |
 | 6 | Working demo URL (hosted app) | Ready to deploy: `Dockerfile` (tested, 512 MB cap) and `render.yaml`. Needs the Render Blueprint created with the key |

@@ -1,0 +1,32 @@
+FacturaGuard
+Copyright (C) 2026 Ebenezer Agbozo (Nova Analytica S.R.L.)
+https://github.com/agbozo1
+
+This program is free software: you can redistribute it and/or modify it under the terms of
+the GNU Affero General Public License, version 3 only (AGPL-3.0-only), as published by the
+Free Software Foundation. See the LICENSE file.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Affero General Public License for more details.
+
+If you run a modified version of FacturaGuard and let users interact with it over a network,
+section 13 of the AGPL requires you to offer those users the complete source code of your
+modified version.
+
+Commercial licensing
+--------------------
+Nova Analytica S.R.L. offers FacturaGuard under separate commercial terms for organisations
+that cannot meet the AGPL's obligations (for example, to run a modified version without
+publishing its source). Contact Nova Analytica S.R.L. via https://github.com/agbozo1.
+
+Contributions
+-------------
+Outside contributions are accepted only under a contributor licence agreement that lets
+Nova Analytica S.R.L. offer them under both the AGPL and commercial terms.
+
+Third-party files
+-----------------
+Files under vendor/ keep their own licences: ANAF CIUS-RO Schematron and EN 16931 validation
+artefacts (EUPL-1.2, which lists AGPL-3.0 as compatible), OASIS UBL 2.1 schemas, and the ISO
+Schematron XSLT (MIT). See vendor/SOURCES.md.

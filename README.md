@@ -197,8 +197,17 @@ tests/          pytest suite
 
 ## License and credits
 
-MIT, see [LICENSE](LICENSE). Copyright (c) 2026 Ebenezer Agbozo (Nova Analytica S.R.L.),
-GitHub [@agbozo1](https://github.com/agbozo1).
+Copyright (C) 2026 Ebenezer Agbozo (Nova Analytica S.R.L.), GitHub
+[@agbozo1](https://github.com/agbozo1).
+
+Licensed under the [GNU Affero General Public License v3.0 only](LICENSE) (AGPL-3.0-only), an
+OSI-approved open source licence. You may use, study, modify and share FacturaGuard. If you run
+a modified version as a network service, the AGPL requires you to offer its users your
+modified source code.
+
+**Commercial licences** are available from Nova Analytica S.R.L. for organisations that want to
+use FacturaGuard without the AGPL's obligations. Outside contributions are accepted under a
+contributor licence agreement. See [NOTICE](NOTICE).
 
 Vendored rule files keep their own licences: ANAF CIUS-RO Schematron and EN 16931 artefacts
 (EUPL 1.2), OASIS UBL 2.1 schemas, ISO Schematron XSLT (MIT). Details in `vendor/SOURCES.md`.

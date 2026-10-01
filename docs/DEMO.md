@@ -19,7 +19,7 @@ Before recording:
 | 1:35 to 2:00 | Sample "Missing invoice number", switch to **RO**, Propose a fix, answer the question | "Some fixes need facts only the business knows. FacturaGuard asks instead of inventing. In Romanian, too." |
 | 2:00 to 2:25 | Sample "PDF with wrong total": fields read from the PDF, grounding note, BR-CO-16 | "PDFs too. Nemotron 3.5 Lightning copies the fields, code checks every value really is in the PDF, and code builds the e-Factura XML. The mistake printed on the PDF is caught." |
 | 2:25 to 2:45 | Chat chip "What should I ask my accountant?", then **Share with accountant** | "Ask follow-up questions, then send your accountant a summary with the official rules and the exact changes." |
-| 2:45 to 3:00 | README architecture diagram | "Deterministic validation, grounded Nemotron explanations, re-validated fixes. FacturaGuard, built on Nebius Token Factory with NVIDIA Nemotron. Open source, MIT." |
+| 2:45 to 3:00 | README architecture diagram | "Deterministic validation, grounded Nemotron explanations, re-validated fixes. FacturaGuard, built on Nebius Token Factory with NVIDIA Nemotron. Open source under AGPL-3.0." |
 
 Notes:
 - If a model call is slow on camera, cut the wait in editing; do not fake output.
