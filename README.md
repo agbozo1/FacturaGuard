@@ -87,8 +87,16 @@ model IDs, so models can be swapped without code changes.
 | PDF to UBL rebuild with correct fields (52 PDFs) | 50 byte-identical to the original XML; 2 differ only where paper cannot distinguish BT-106 from BT-109 |
 | Automated tests | 110 passing (fake model; no key needed) |
 | Docker image under a 512 MB memory cap | 100 / 100 invoices validated, about 200 MB used |
-| Nemotron explanation and repair quality | TODO: `scripts/eval_repair.py` |
-| Nemotron PDF extraction accuracy | TODO: `scripts/eval_extraction.py` |
+| **Repair with Nemotron 3 Ultra** (28 invoices, one per error type) | **18 fixed** and re-validated as valid; **8 correctly asked** the user for a missing fact instead of inventing it; 1 asked for the invoice type code where we expected a fix (arguably right: 380, 384 and 389 mean different things); 1 truncated file declined by design. Median 2.7 s per call |
+| **PDF extraction with Nemotron 3.5 Lightning** (52 PDFs) | **97.2% of fields correct** (2,377 of 2,446); **51 of 52** PDFs get the same validator verdict as the original invoice. Median 2.8 s per PDF |
+| Hosted app, real calls (Render to Token Factory) | Explain 4.5 s, repair 2.5 s, fix re-validated as valid |
+
+Eval details: `docs/eval/` (raw per-invoice results; reproduce with `scripts/eval_repair.py`
+and `scripts/eval_extraction.py`). The first extraction run scored 89.7%: most misses were
+Lightning returning Romanian number formats ("2.054,66") despite instructions, and full address
+lines in the street field. We fixed this in deterministic code (number parsing, address
+splitting, a quantity x price check) rather than trusting the model to convert, and the
+grounding check now flags a county inferred from the city name rather than printed.
 
 Building the validator surfaced two things worth knowing: the standard ISO Schematron compiler
 silently skips rules on XML attributes (ANAF's validator does not, so we patch the compiled

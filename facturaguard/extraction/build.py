@@ -6,8 +6,9 @@ the original PDF shows up as a validator error instead of being silently correct
 
 import re
 from dataclasses import dataclass, field
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 
+from facturaguard.extraction.numbers import parse_amount
 from facturaguard.ubl.codes import bucharest_sector, county_code, normalise, unit_code
 from facturaguard.ubl.render import CUSTOMIZATION_ID, TOTAL_KEYS, compute_totals, money, render
 
@@ -30,11 +31,23 @@ class BuildResult:
 def _dec(value, warnings: list[str], what: str) -> Decimal | None:
     if value is None or value == "":
         return None
-    try:
-        return Decimal(str(value).replace(" ", ""))
-    except InvalidOperation:
+    amount = parse_amount(value)
+    if amount is None:
         warnings.append(f"{what}: '{value}' is not a number")
-        return None
+    return amount
+
+
+_ADDRESS_TAIL = re.compile(r",\s*(?=jud(?:e[tț]ul)?\b\.?|\d{6}\b|rom[aâ]nia\b|bucure[sș]ti\b)",
+                           re.IGNORECASE)
+_COUNTY_IN_TEXT = re.compile(r"\bjud(?:e[tț]ul)?\.?\s+([^,\d]+)", re.IGNORECASE)
+
+
+def _split_address(street: str, city: str | None) -> str:
+    """The model sometimes pastes the whole address line into `street`; keep the street part."""
+    cuts = [m.start() for m in _ADDRESS_TAIL.finditer(street)]
+    if city and f", {city}" in street:
+        cuts.append(street.index(f", {city}"))
+    return street[: min(cuts)].strip() if cuts else street
 
 
 def _country(value: str | None) -> str | None:
@@ -50,13 +63,24 @@ def _party(p: dict | None, warnings: list[str], role: str) -> dict:
     p = p or {}
     country = _country(p.get("country"))
     city, county = p.get("city"), p.get("county")
+    raw_street = p.get("street") or ""
+    address_text = ", ".join(x for x in (raw_street, city, county) if x)
+    if not county:  # recover "Jud. Cluj" or Bucharest from the address text itself
+        m = _COUNTY_IN_TEXT.search(address_text)
+        if m:
+            county = m.group(1).strip()
+        elif "bucuresti" in normalise(address_text):
+            county = "Bucuresti"
+    if country is None and "romania" in normalise(address_text):
+        country = "RO"
+    street = _split_address(raw_street, city) or None
     subdivision = county_code(county)
     is_bucharest = subdivision == "RO-B" or "bucuresti" in normalise(city or "")
     if country is None and (subdivision or p.get("vat_id", "") or "").startswith("RO"):
         country = "RO"  # Romanian county or RO VAT id printed, country line omitted
     if is_bucharest:
         subdivision = "RO-B"
-        sector = bucharest_sector(city, p.get("street"), county)
+        sector = bucharest_sector(city, address_text, county)
         if sector:
             city = sector
         else:
@@ -69,7 +93,7 @@ def _party(p: dict | None, warnings: list[str], role: str) -> dict:
         "legal_name": p.get("name"),
         "vat_id": vat,
         "reg_no": p.get("registration_number"),
-        "street": p.get("street"),
+        "street": street,
         "city": city,
         "postal": p.get("postal_code"),
         "subdivision": subdivision,
@@ -96,10 +120,17 @@ def build_from_fields(fields: dict) -> BuildResult:
         if rate is None:
             warnings.append(f"line {n}: no VAT rate printed")
             rate = Decimal(0)
+        if price is not None and abs(money(qty * price) - money(amount)) > Decimal("0.01"):
+            # A real printed mistake or a misread column; either way a person should look.
+            warnings.append(f"line {n}: quantity x unit price = {money(qty * price)} but the "
+                            f"line total read is {money(amount)}; please check the PDF")
         unit = unit_code(raw.get("unit"))
         if raw.get("unit") and not unit:
             warnings.append(f"line {n}: unit '{raw.get('unit')}' not recognised")
-        lines.append({"id": str(n), "name": raw.get("description"), "unit": unit or "C62",
+        name = raw.get("description")
+        if name and raw.get("unit") and name.endswith(" " + str(raw["unit"]).strip()):
+            name = name[: -len(str(raw["unit"]).strip())].rstrip()  # unit column leaked in
+        lines.append({"id": str(n), "name": name, "unit": unit or "C62",
                       "qty": qty, "price": price, "amount": money(amount), "rate": rate})
 
     currency = (fields.get("currency") or "").strip().upper() or None

@@ -74,6 +74,28 @@ def test_grounding_flags_values_not_in_the_pdf():
     assert flagged == {"seller.iban", "totals.amount_due"}
 
 
+def test_county_inferred_from_city_name_is_flagged():
+    # Real eval case (SYN-079): no county printed; the model returned the city name as county.
+    e = _first(lambda e: e["mutations"] == ["missing_ro_subdivision"])
+    text = extract_text((DATA / e["file"]).read_bytes())
+    fields = copy.deepcopy(e["fields"])
+    assert fields["seller"]["county"] is None
+    fields["seller"]["county"] = fields["seller"]["city"].split("-")[0]
+    flagged = {u["field"] for u in check_grounding(fields, text)}
+    assert "seller.county" in flagged
+    # A county printed as "Jud. X" stays grounded.
+    assert "buyer.county" not in flagged
+
+
+def test_unit_leaking_into_description_is_trimmed():
+    e = _first(lambda e: e["designed_valid"])
+    fields = copy.deepcopy(e["fields"])
+    line = fields["lines"][0]
+    original = line["description"]
+    line["description"] = f"{original} {line['unit']}"
+    assert build_from_fields(fields).model["lines"][0]["name"] == original
+
+
 def test_missing_fields_are_left_for_the_validator_not_invented():
     e = _first(lambda e: e["designed_valid"])
     fields = copy.deepcopy(e["fields"])

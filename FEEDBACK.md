@@ -54,6 +54,25 @@ Dated notes for the hackathon submission feedback fields.
   and use Lightning (thinking off) for extraction.
 - Real-call numbers for extraction and repair are pending (no key on the dev machine).
 
+## 2026-10-02 (evals with real calls, from the dev machine)
+- Repair, Nemotron 3 Ultra, 28 invoices: 18 fixed and re-validated, 8 correctly asked for a
+  missing business fact instead of inventing it, 1 asked for the invoice type code, 1 declined
+  (not XML). 29 calls, median 2.67 s, max 9.37 s; median 3,037 prompt and 893 completion
+  tokens. JSON mode accepted on every call. Ultra followed "do not invent facts" reliably.
+- Extraction, Nemotron 3.5 Lightning (thinking off), 52 PDFs: first run 89.7% fields correct,
+  44/52 same verdict. Main issue: despite an explicit instruction, Lightning often returned
+  Romanian number formats ("2.054,66", "10,00") and once a mangled "1.069.59", and pasted the
+  whole address line into "street". After moving number parsing and address splitting into
+  code: 97.2% fields correct, 51/52 same verdict, median 2.84 s.
+- Remaining Lightning errors: a decimal shift on one invoice (715.77 for 7,157.70), caught by
+  the grounding check; the unit leaking into item descriptions; a county inferred from the
+  city name (correct in reality, but not printed), now flagged for the user to verify.
+- Lesson for other builders: ask the model to copy, and do conversions in code.
+- Wish: a structured-output / JSON-schema mode documented for Lightning on Token Factory, so
+  number formats could be enforced by the API rather than by post-processing.
+- Lightning, asked directly what an e-Factura needs, again claimed a digital signature is
+  required (third model to make this mistake).
+
 ## 2026-10-02 (first real calls from the hosted app, Render Frankfurt to Token Factory us-central1)
 - Explain, Nemotron 3 Ultra, English, one BR-CO-16 error: 4.47 s, 3,282 prompt and 1,557
   completion tokens. JSON mode accepted. Output accurate and grounded: quoted the invoice's

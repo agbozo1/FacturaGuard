@@ -1,0 +1,1049 @@
+{
+  "summary": {
+    "fixed": 18,
+    "asked_for_input": 8,
+    "failed": 1,
+    "unsupported": 1
+  },
+  "total": 28,
+  "rows": [
+    {
+      "id": "SYN-035",
+      "mutations": [
+        "bad_payable"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "value": "24194.65"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 3.44,
+          "prompt_tokens": 3835,
+          "completion_tokens": 461,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-037",
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount",
+          "value": "2667.81"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "value": "2667.81"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.68,
+          "prompt_tokens": 2738,
+          "completion_tokens": 608,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-039",
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount",
+          "value": "17811.79"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount",
+          "value": "21552.27"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "value": "21552.27"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.88,
+          "prompt_tokens": 3597,
+          "completion_tokens": 1125,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-041",
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount",
+          "value": "6841.70"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount",
+          "value": "6841.70"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount",
+          "value": "8278.46"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "value": "8278.46"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.73,
+          "prompt_tokens": 3032,
+          "completion_tokens": 1078,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-043",
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount",
+          "value": "543.92"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount",
+          "value": "5488.62"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "value": "5488.62"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.64,
+          "prompt_tokens": 2763,
+          "completion_tokens": 591,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-045",
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal[1]/cbc:TaxAmount",
+          "value": "999.12"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount",
+          "value": "3319.27"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount",
+          "value": "23450.50"
+        },
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "value": "23450.50"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 4.2,
+          "prompt_tokens": 4052,
+          "completion_tokens": 1565,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-047",
+      "mutations": [
+        "vat_no_country_prefix"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID",
+          "value": "RO67620038"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 3.41,
+          "prompt_tokens": 2863,
+          "completion_tokens": 1195,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-049",
+      "mutations": [
+        "wrong_country_seller"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode",
+          "value": "RO"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.08,
+          "prompt_tokens": 3961,
+          "completion_tokens": 598,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-051",
+      "mutations": [
+        "wrong_country_buyer"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode",
+          "value": "RO"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.88,
+          "prompt_tokens": 2900,
+          "completion_tokens": 548,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-053",
+      "mutations": [
+        "bad_currency_code"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cbc:DocumentCurrencyCode",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[1]/cbc:LineExtensionAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[1]/cac:Price/cbc:PriceAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[2]/cbc:LineExtensionAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[2]/cac:Price/cbc:PriceAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[3]/cbc:LineExtensionAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[3]/cac:Price/cbc:PriceAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[4]/cbc:LineExtensionAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[4]/cac:Price/cbc:PriceAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[5]/cbc:LineExtensionAmount",
+          "name": "currencyID",
+          "value": "RON"
+        },
+        {
+          "op": "set_attribute",
+          "xpath": "/ubl:Invoice/cac:InvoiceLine[5]/cac:Price/cbc:PriceAmount",
+          "name": "currencyID",
+          "value": "RON"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 4.36,
+          "prompt_tokens": 3947,
+          "completion_tokens": 2009,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-055",
+      "mutations": [
+        "missing_customization_id"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 2,
+      "ops_applied": [
+        {
+          "op": "insert_before",
+          "xpath": "/ubl:Invoice/cbc:ID[1]",
+          "xml": "<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:efactura.mfinante.ro:CIUS-RO:1.0.1</cbc:CustomizationID>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.44,
+          "prompt_tokens": 3486,
+          "completion_tokens": 478,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.65,
+          "prompt_tokens": 3535,
+          "completion_tokens": 932,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-057",
+      "mutations": [
+        "missing_invoice_number"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 2,
+      "ops_applied": [
+        {
+          "op": "insert_before",
+          "xpath": "/ubl:Invoice/cbc:IssueDate[1]",
+          "xml": "<cbc:ID></cbc:ID>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "BR-02",
+          "field": "BT-1",
+          "question": "Please provide the invoice number (BT-1) which must contain at least one numeric character."
+        }
+      ],
+      "remaining": [
+        "BR-02",
+        "BR-RO-010"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 6.24,
+          "prompt_tokens": 3220,
+          "completion_tokens": 2122,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.13,
+          "prompt_tokens": 3037,
+          "completion_tokens": 316,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-059",
+      "mutations": [
+        "missing_issue_date"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "BR-03",
+          "field": "BT-2",
+          "question": "What is the invoice issue date (BT-2) in YYYY-MM-DD format?"
+        }
+      ],
+      "remaining": [
+        "BR-03",
+        "XSD"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 9.37,
+          "prompt_tokens": 4146,
+          "completion_tokens": 3178,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-061",
+      "mutations": [
+        "missing_type_code"
+      ],
+      "status": "needs_input",
+      "verdict": "failed",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "BR-04",
+          "field": "BT-3",
+          "question": "What is the invoice type code (BT-3) for this invoice? Provide the code from the UNTDID 1001 list (e.g., 380 for commercial invoice)."
+        }
+      ],
+      "remaining": [
+        "BR-04"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.77,
+          "prompt_tokens": 2971,
+          "completion_tokens": 948,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-063",
+      "mutations": [
+        "missing_currency"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "insert_after",
+          "xpath": "/ubl:Invoice/cbc:InvoiceTypeCode",
+          "xml": "<cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.81,
+          "prompt_tokens": 3842,
+          "completion_tokens": 586,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-065",
+      "mutations": [
+        "missing_seller_name"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "BR-06",
+          "field": "BT-27",
+          "question": "What is the seller's name (BT-27)?"
+        }
+      ],
+      "remaining": [
+        "BR-06"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.14,
+          "prompt_tokens": 2653,
+          "completion_tokens": 674,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-067",
+      "mutations": [
+        "missing_buyer_name"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "BR-07",
+          "field": "BT-44",
+          "question": "What is the buyer's name (BT-44) to be placed in cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name?"
+        }
+      ],
+      "remaining": [
+        "BR-07"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.63,
+          "prompt_tokens": 3395,
+          "completion_tokens": 483,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-069",
+      "mutations": [
+        "missing_seller_country"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "insert_after",
+          "xpath": "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity",
+          "xml": "<cac:Country>\n  <cbc:IdentificationCode>RO</cbc:IdentificationCode>\n</cac:Country>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.67,
+          "prompt_tokens": 2794,
+          "completion_tokens": 917,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-071",
+      "mutations": [
+        "missing_buyer_country"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "insert_after",
+          "xpath": "/ubl:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity",
+          "xml": "<cac:Country xmlns:cac=\"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\" xmlns:cbc=\"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2\"><cbc:IdentificationCode>RO</cbc:IdentificationCode></cac:Country>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.19,
+          "prompt_tokens": 3585,
+          "completion_tokens": 627,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-073",
+      "mutations": [
+        "no_invoice_lines"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "BR-16",
+          "field": "BT-25",
+          "question": "Please provide at least one invoice line (description, quantity, unit code, unit price, VAT category code, VAT rate)."
+        },
+        {
+          "rule_id": "BR-CO-18",
+          "field": "BG-23",
+          "question": "Please provide VAT breakdown groups (taxable amount, tax amount, VAT rate, VAT category code) for each VAT category present in the invoice lines."
+        }
+      ],
+      "remaining": [
+        "BR-16",
+        "BR-CO-18",
+        "XSD"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 5.65,
+          "prompt_tokens": 2432,
+          "completion_tokens": 1849,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-075",
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "FG-CUI-SELLER",
+          "field": "BT-31",
+          "question": "Please provide a valid Romanian CUI (VAT identifier) for the seller (Pixel Test 4 SRL) that passes the control-digit check."
+        }
+      ],
+      "remaining": [
+        "FG-CUI-SELLER"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.27,
+          "prompt_tokens": 2746,
+          "completion_tokens": 374,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-077",
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "FG-BUYER-ID",
+          "field": "BT-47/BT-48",
+          "question": "Please provide the Romanian identifier for the buyer (Lotus Muster 65 GmbH): either a Romanian VAT ID (starting with RO) for BT-48, or a numeric CUI, CNP, or NIF for BT-47."
+        }
+      ],
+      "remaining": [
+        "FG-BUYER-ID"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.83,
+          "prompt_tokens": 3017,
+          "completion_tokens": 995,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-079",
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "insert_after",
+          "xpath": "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone",
+          "xml": "<cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.87,
+          "prompt_tokens": 3270,
+          "completion_tokens": 949,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-081",
+      "mutations": [
+        "bad_ro_subdivision"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "set_text",
+          "xpath": "/ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity",
+          "value": "RO-CJ"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.27,
+          "prompt_tokens": 3044,
+          "completion_tokens": 353,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-083",
+      "mutations": [
+        "xsd_wrong_element_order"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "delete",
+          "xpath": "/ubl:Invoice/cbc:IssueDate[1]"
+        },
+        {
+          "op": "insert_after",
+          "xpath": "/ubl:Invoice/cbc:ID[1]",
+          "xml": "<cbc:IssueDate>2026-08-23</cbc:IssueDate>"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.88,
+          "prompt_tokens": 2825,
+          "completion_tokens": 893,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-085",
+      "mutations": [
+        "xsd_unknown_element"
+      ],
+      "status": "fixed",
+      "verdict": "fixed",
+      "rounds": 1,
+      "ops_applied": [
+        {
+          "op": "delete",
+          "xpath": "/ubl:Invoice/cbc:Foo"
+        }
+      ],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 1.2,
+          "prompt_tokens": 2852,
+          "completion_tokens": 297,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-087",
+      "mutations": [
+        "xsd_bad_date"
+      ],
+      "status": "needs_input",
+      "verdict": "asked_for_input",
+      "rounds": 1,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [
+        {
+          "rule_id": "XSD",
+          "field": "BT-2",
+          "question": "What is the correct IssueDate (BT-2) in YYYY-MM-DD format? The current value '31/02/2026' is not a valid date (February 31 does not exist) and is in the wrong format."
+        }
+      ],
+      "remaining": [
+        "BR-RO-DT001",
+        "XSD"
+      ],
+      "calls": [
+        {
+          "purpose": "repair",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "latency_s": 2.69,
+          "prompt_tokens": 2908,
+          "completion_tokens": 915,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-089",
+      "mutations": [
+        "malformed_xml"
+      ],
+      "status": "unsupported",
+      "verdict": "unsupported",
+      "rounds": 0,
+      "ops_applied": [],
+      "ops_rejected": [],
+      "needs_input": [],
+      "remaining": [
+        "XML-WELLFORMED"
+      ],
+      "calls": []
+    }
+  ]
+}

@@ -1,0 +1,3089 @@
+{
+  "field_accuracy": [
+    2194,
+    2446
+  ],
+  "verdicts": [
+    44,
+    52
+  ],
+  "rows": [
+    {
+      "id": "SYN-001",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.99,
+          "prompt_tokens": 988,
+          "completion_tokens": 448,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-002",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 46",
+          "got": "Bd. Demo 46, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Model 36",
+          "got": "Str. Model 36, Brasov, Jud. Brasov, 500001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.78,
+          "prompt_tokens": 1117,
+          "completion_tokens": 710,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-003",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Brasov",
+          "got": null
+        },
+        {
+          "field": "vat_breakdown[0].rate",
+          "truth": "11.00",
+          "got": "21.00"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "3332.40",
+          "got": "24893.27"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "366.56",
+          "got": "5227.59"
+        },
+        {
+          "field": "vat_breakdown[1].rate",
+          "truth": "21.00",
+          "got": "11.00"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "24893.27",
+          "got": "3332.40"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "5227.59",
+          "got": "366.56"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.51,
+          "prompt_tokens": 1163,
+          "completion_tokens": 746,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-004",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 113",
+          "got": "Bd. Demo 113, Timisoara"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 41",
+          "got": "Str. Test 41, Cluj-Napoca"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.57,
+          "prompt_tokens": 1137,
+          "completion_tokens": 699,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-005",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.7,
+          "prompt_tokens": 1027,
+          "completion_tokens": 515,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-006",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.72,
+          "prompt_tokens": 1027,
+          "completion_tokens": 516,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-007",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].unit_price",
+          "truth": "1027.33",
+          "got": "1.027,33"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "2054.66",
+          "got": "2.054,66"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "truth": "2472.09",
+          "got": "2.472,09"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "7416.27",
+          "got": "7.416,27"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "truth": "1687.20",
+          "got": "1.687,20"
+        },
+        {
+          "field": "lines[2].line_total",
+          "truth": "3374.40",
+          "got": "3.374,40"
+        },
+        {
+          "field": "lines[3].unit_price",
+          "truth": "1187.08",
+          "got": "1.187,08"
+        },
+        {
+          "field": "lines[3].line_total",
+          "truth": "3561.24",
+          "got": "3.561,24"
+        },
+        {
+          "field": "lines[4].unit_price",
+          "truth": "1710.96",
+          "got": "1.710,96"
+        },
+        {
+          "field": "lines[4].line_total",
+          "truth": "1710.96",
+          "got": "1.710,96"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "7416.27",
+          "got": "7.416,27"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "815.79",
+          "got": "815,79"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "10701.26",
+          "got": "10.701,26"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "2247.26",
+          "got": "2.247,26"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "18117.53",
+          "got": "18.117,53"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "3063.05",
+          "got": "3.063,05"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "21180.58",
+          "got": "21.180,58"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "21180.58",
+          "got": "21.180,58"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "1.027,33"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "2.054,66"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "value": "2.472,09"
+        },
+        {
+          "field": "lines[1].line_total",
+          "value": "7.416,27"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "value": "1.687,20"
+        },
+        {
+          "field": "lines[2].line_total",
+          "value": "3.374,40"
+        },
+        {
+          "field": "lines[3].unit_price",
+          "value": "1.187,08"
+        },
+        {
+          "field": "lines[3].line_total",
+          "value": "3.561,24"
+        },
+        {
+          "field": "lines[4].unit_price",
+          "value": "1.710,96"
+        },
+        {
+          "field": "lines[4].line_total",
+          "value": "1.710,96"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "7.416,27"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "815,79"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "value": "10.701,26"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "value": "2.247,26"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "18.117,53"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "3.063,05"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "21.180,58"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "21.180,58"
+        }
+      ],
+      "build_warnings": [
+        "line 1 unit price: '1.027,33' is not a number",
+        "line 1 total: '2.054,66' is not a number",
+        "line 1: no amount, skipped",
+        "line 2 unit price: '2.472,09' is not a number",
+        "line 2 total: '7.416,27' is not a number",
+        "line 2: no amount, skipped",
+        "line 3 unit price: '1.687,20' is not a number",
+        "line 3 total: '3.374,40' is not a number",
+        "line 3: no amount, skipped",
+        "line 4 unit price: '1.187,08' is not a number",
+        "line 4 total: '3.561,24' is not a number",
+        "line 4: no amount, skipped",
+        "line 5 unit price: '1.710,96' is not a number",
+        "line 5 total: '1.710,96' is not a number",
+        "line 5: no amount, skipped",
+        "printed total_without_vat: '18.117,53' is not a number",
+        "printed total_vat: '3.063,05' is not a number",
+        "printed total_with_vat: '21.180,58' is not a number",
+        "printed amount_due: '21.180,58' is not a number"
+      ],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.39,
+          "prompt_tokens": 1171,
+          "completion_tokens": 767,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-008",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.79,
+          "prompt_tokens": 1084,
+          "completion_tokens": 607,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-009",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "70.42",
+          "got": "70,42"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "704.20",
+          "got": "704,20"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        },
+        {
+          "field": "lines[1].quantity",
+          "truth": "1.00",
+          "got": "1,00"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "truth": "1181.24",
+          "got": "1181,24"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "1181.24",
+          "got": "1181,24"
+        },
+        {
+          "field": "lines[2].quantity",
+          "truth": "1.00",
+          "got": "1,00"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "truth": "1056.61",
+          "got": "1056,61"
+        },
+        {
+          "field": "lines[2].line_total",
+          "truth": "1056.61",
+          "got": "1056,61"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "1760.81",
+          "got": "1760,81"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "193.69",
+          "got": "193,69"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "1181.24",
+          "got": "1181,24"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "248.06",
+          "got": "248,06"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "2942.05",
+          "got": "2942,05"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "441.75",
+          "got": "441,75"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "3383.80",
+          "got": "3383,80"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "3383.80",
+          "got": "3383,80"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].quantity",
+          "value": "10,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "value": "70,42"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "704,20"
+        },
+        {
+          "field": "lines[1].quantity",
+          "value": "1,00"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "value": "1181,24"
+        },
+        {
+          "field": "lines[1].line_total",
+          "value": "1181,24"
+        },
+        {
+          "field": "lines[2].quantity",
+          "value": "1,00"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "value": "1056,61"
+        },
+        {
+          "field": "lines[2].line_total",
+          "value": "1056,61"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "1760,81"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "193,69"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "value": "1181,24"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "value": "248,06"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "2942,05"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "441,75"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "3383,80"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "3383,80"
+        }
+      ],
+      "build_warnings": [
+        "line 1 quantity: '10,00' is not a number",
+        "line 1 unit price: '70,42' is not a number",
+        "line 1 total: '704,20' is not a number",
+        "line 1: no amount, skipped",
+        "line 2 quantity: '1,00' is not a number",
+        "line 2 unit price: '1181,24' is not a number",
+        "line 2 total: '1181,24' is not a number",
+        "line 2: no amount, skipped",
+        "line 3 quantity: '1,00' is not a number",
+        "line 3 unit price: '1056,61' is not a number",
+        "line 3 total: '1056,61' is not a number",
+        "line 3: no amount, skipped",
+        "printed total_without_vat: '2942,05' is not a number",
+        "printed total_vat: '441,75' is not a number",
+        "printed total_with_vat: '3383,80' is not a number",
+        "printed amount_due: '3383,80' is not a number"
+      ],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.14,
+          "prompt_tokens": 1085,
+          "completion_tokens": 610,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-010",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.1,
+          "prompt_tokens": 1102,
+          "completion_tokens": 643,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-011",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].unit_price",
+          "truth": "1069.59",
+          "got": "1.069.59"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "5347.95",
+          "got": "5.347.95"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "5347.95",
+          "got": "5.347.95"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "1123.07",
+          "got": "1.123.07"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "5347.95",
+          "got": "5.347.95"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "1123.07",
+          "got": "1.123.07"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "6471.02",
+          "got": "6.471.02"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "6471.02",
+          "got": "6.471.02"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "1.069.59"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "5.347.95"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "5.347.95"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "1.123.07"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "5.347.95"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "1.123.07"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "6.471.02"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "6.471.02"
+        }
+      ],
+      "build_warnings": [
+        "line 1 unit price: '1.069.59' is not a number",
+        "line 1 total: '5.347.95' is not a number",
+        "line 1: no amount, skipped",
+        "printed total_without_vat: '5.347.95' is not a number",
+        "printed total_vat: '1.123.07' is not a number",
+        "printed total_with_vat: '6.471.02' is not a number",
+        "printed amount_due: '6.471.02' is not a number"
+      ],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.2,
+          "prompt_tokens": 997,
+          "completion_tokens": 464,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-012",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "vat_breakdown[0].rate",
+          "truth": "11.00",
+          "got": "21.00"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "1436.65",
+          "got": "9429.53"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "158.03",
+          "got": "1980.20"
+        },
+        {
+          "field": "vat_breakdown[1].rate",
+          "truth": "21.00",
+          "got": "11.00"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "9429.53",
+          "got": "1436.65"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "1980.20",
+          "got": "158.03"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.14,
+          "prompt_tokens": 1100,
+          "completion_tokens": 624,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-013",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 83",
+          "got": "Str. Model 83, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 94",
+          "got": "Str. Test 94, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.23,
+          "prompt_tokens": 1124,
+          "completion_tokens": 715,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-014",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 39",
+          "got": "Str. Model 39, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Proba 57",
+          "got": "Str. Proba 57, Iasi, Jud. Iasi, 700001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.23,
+          "prompt_tokens": 1070,
+          "completion_tokens": 618,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-015",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 114",
+          "got": "Bd. Demo 114, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Bd. Demo 97",
+          "got": "Bd. Demo 97, Timisoara, Jud. Timis, 300001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.57,
+          "prompt_tokens": 1089,
+          "completion_tokens": 654,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-016",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.25,
+          "prompt_tokens": 1120,
+          "completion_tokens": 673,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-017",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Timis",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.17,
+          "prompt_tokens": 977,
+          "completion_tokens": 444,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-018",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        },
+        {
+          "field": "lines[1].unit",
+          "truth": "buc",
+          "got": "kg"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.61,
+          "prompt_tokens": 1163,
+          "completion_tokens": 741,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-019",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 10",
+          "got": "Str. Model 10, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Proba 1",
+          "got": "Str. Proba 1, Iasi, Jud. Iasi, 700001, Romania"
+        },
+        {
+          "field": "lines[2].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.31,
+          "prompt_tokens": 1094,
+          "completion_tokens": 671,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-020",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 100",
+          "got": "Str. Model 100, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Exemplu 14",
+          "got": "Str. Exemplu 14, Bucuresti Sector 3, 030167, Romania"
+        },
+        {
+          "field": "buyer.city",
+          "truth": "Bucuresti Sector 3",
+          "got": "Bucuresti"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "1097.27",
+          "got": "1.097.27"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "5486.35",
+          "got": "5.486.35"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "1962.48",
+          "got": "1.962.48"
+        },
+        {
+          "field": "lines[2].line_total",
+          "truth": "1541.20",
+          "got": "1.541.20"
+        },
+        {
+          "field": "lines[3].line_total",
+          "truth": "1680.06",
+          "got": "1.680.06"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "10670.09",
+          "got": "10.670.09"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "2240.72",
+          "got": "2.240.72"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "10670.09",
+          "got": "10.670.09"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "2240.72",
+          "got": "2.240.72"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "12910.81",
+          "got": "12.910.81"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "12910.81",
+          "got": "12.910.81"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "1.097.27"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "5.486.35"
+        },
+        {
+          "field": "lines[1].line_total",
+          "value": "1.962.48"
+        },
+        {
+          "field": "lines[2].line_total",
+          "value": "1.541.20"
+        },
+        {
+          "field": "lines[3].line_total",
+          "value": "1.680.06"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "10.670.09"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "2.240.72"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "10.670.09"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "2.240.72"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "12.910.81"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "12.910.81"
+        }
+      ],
+      "build_warnings": [
+        "line 1 unit price: '1.097.27' is not a number",
+        "line 1 total: '5.486.35' is not a number",
+        "line 1: no amount, skipped",
+        "line 2 total: '1.962.48' is not a number",
+        "line 3 total: '1.541.20' is not a number",
+        "line 4 total: '1.680.06' is not a number",
+        "printed total_without_vat: '10.670.09' is not a number",
+        "printed total_vat: '2.240.72' is not a number",
+        "printed total_with_vat: '12.910.81' is not a number",
+        "printed amount_due: '12.910.81' is not a number",
+        "VAT breakdown amount: '2.240.72' is not a number"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.64,
+          "prompt_tokens": 1097,
+          "completion_tokens": 688,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-021",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].line_total",
+          "truth": "1743.57",
+          "got": "581.19"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.94,
+          "prompt_tokens": 1171,
+          "completion_tokens": 749,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-022",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 109",
+          "got": "Str. Model 109, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Exemplu 11",
+          "got": "Str. Exemplu 11, Bucuresti Sector 3, 030167, Romania"
+        },
+        {
+          "field": "buyer.city",
+          "truth": "Bucuresti Sector 3",
+          "got": "Bucuresti"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].quantity",
+          "truth": "5.00",
+          "got": "5,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "1813.15",
+          "got": "1.813,15"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "9065.75",
+          "got": "9.065,75"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "9065.75",
+          "got": "9.065,75"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "997.23",
+          "got": "997,23"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "9065.75",
+          "got": "9.065,75"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "997.23",
+          "got": "997,23"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "10062.98",
+          "got": "10.062,98"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "10062.98",
+          "got": "10.062,98"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].quantity",
+          "value": "5,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "value": "1.813,15"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "9.065,75"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "9.065,75"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "997,23"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "9.065,75"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "997,23"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "10.062,98"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "10.062,98"
+        }
+      ],
+      "build_warnings": [
+        "line 1 quantity: '5,00' is not a number",
+        "line 1 unit price: '1.813,15' is not a number",
+        "line 1 total: '9.065,75' is not a number",
+        "line 1: no amount, skipped",
+        "printed total_without_vat: '9.065,75' is not a number",
+        "printed total_vat: '997,23' is not a number",
+        "printed total_with_vat: '10.062,98' is not a number",
+        "printed amount_due: '10.062,98' is not a number"
+      ],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.36,
+          "prompt_tokens": 997,
+          "completion_tokens": 498,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-023",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 14",
+          "got": "Bd. Demo 14, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 81",
+          "got": "Str. Test 81, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        },
+        {
+          "field": "vat_breakdown[0].rate",
+          "truth": "11.00",
+          "got": "21.00"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "6849.18",
+          "got": "4533.89"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "753.41",
+          "got": "952.12"
+        },
+        {
+          "field": "vat_breakdown[1].rate",
+          "truth": "21.00",
+          "got": "11.00"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "4533.89",
+          "got": "6849.18"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "952.12",
+          "got": "753.41"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.08,
+          "prompt_tokens": 1093,
+          "completion_tokens": 657,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-024",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 87",
+          "got": "Bd. Demo 87, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Exemplu 68",
+          "got": "Str. Exemplu 68, Bucuresti Sector 3, 030167, Romania"
+        },
+        {
+          "field": "buyer.city",
+          "truth": "Bucuresti Sector 3",
+          "got": "Bucuresti"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": "Sector 3"
+        },
+        {
+          "field": "vat_breakdown[0].rate",
+          "truth": "11.00",
+          "got": "21.00"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "4680.05",
+          "got": "12602.08"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "514.81",
+          "got": "2646.44"
+        },
+        {
+          "field": "vat_breakdown[1].rate",
+          "truth": "21.00",
+          "got": "11.00"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "12602.08",
+          "got": "4680.05"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "2646.44",
+          "got": "514.81"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.77,
+          "prompt_tokens": 1164,
+          "completion_tokens": 787,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-025",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 93",
+          "got": "Str. Model 93, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Model 110",
+          "got": "Str. Model 110, Brasov, Jud. Brasov, 500001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.06,
+          "prompt_tokens": 1046,
+          "completion_tokens": 579,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-026",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        },
+        {
+          "field": "lines[1].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].quantity",
+          "value": "10,00"
+        },
+        {
+          "field": "lines[1].quantity",
+          "value": "10,00"
+        }
+      ],
+      "build_warnings": [
+        "line 1 quantity: '10,00' is not a number",
+        "line 2 quantity: '10,00' is not a number"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.88,
+          "prompt_tokens": 1043,
+          "completion_tokens": 530,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-027",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[2].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.18,
+          "prompt_tokens": 1096,
+          "completion_tokens": 619,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-028",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 112",
+          "got": "Str. Model 112, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Proba 78",
+          "got": "Str. Proba 78, Iasi, Jud. Iasi, 700001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.94,
+          "prompt_tokens": 1090,
+          "completion_tokens": 654,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-029",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.71,
+          "prompt_tokens": 1030,
+          "completion_tokens": 524,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-030",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 109",
+          "got": "Str. Model 109, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Bd. Demo 17",
+          "got": "Bd. Demo 17, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "vat_breakdown[0].rate",
+          "truth": "11.00",
+          "got": "21.00"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "11151.85",
+          "got": "5863.46"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "1226.70",
+          "got": "1231.33"
+        },
+        {
+          "field": "vat_breakdown[1].rate",
+          "truth": "21.00",
+          "got": "11.00"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "5863.46",
+          "got": "11151.85"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "1231.33",
+          "got": "1226.70"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 4.0,
+          "prompt_tokens": 1169,
+          "completion_tokens": 784,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-031",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 111",
+          "got": "Bd. Demo 111, Timisoara"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 72",
+          "got": "Str. Test 72, Cluj-Napoca"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.18,
+          "prompt_tokens": 1094,
+          "completion_tokens": 627,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-032",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 37",
+          "got": "Bd. Demo 37, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 119",
+          "got": "Str. Test 119, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "4780.25",
+          "got": "956.05"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.38,
+          "prompt_tokens": 996,
+          "completion_tokens": 492,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-033",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 56",
+          "got": "Bd. Demo 56, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Bd. Demo 31",
+          "got": "Bd. Demo 31, Timisoara, Jud. Timis, 300001, Romania"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.77,
+          "prompt_tokens": 1024,
+          "completion_tokens": 552,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-034",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 108",
+          "got": "Str. Model 108, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Exemplu 38",
+          "got": "Str. Exemplu 38, Bucuresti Sector 3, 030167, Romania"
+        },
+        {
+          "field": "buyer.city",
+          "truth": "Bucuresti Sector 3",
+          "got": "Bucuresti"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "715.77",
+          "got": "71.577"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "7157.70",
+          "got": "715.77"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "truth": "2265.42",
+          "got": "226.542"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "22654.20",
+          "got": "2265.42"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "7157.70",
+          "got": "715.77"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "787.35",
+          "got": "78.73"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "22654.20",
+          "got": "2265.42"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "4757.38",
+          "got": "475.74"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "29811.90",
+          "got": "2981.19"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "5544.73",
+          "got": "554.47"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "35356.63",
+          "got": "3535.66"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "35356.63",
+          "got": "3535.66"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "71.577"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "value": "226.542"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "78.73"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "value": "475.74"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "2981.19"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "554.47"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "3535.66"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "3535.66"
+        }
+      ],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.16,
+          "prompt_tokens": 1066,
+          "completion_tokens": 583,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-035",
+      "mutations": [
+        "bad_payable"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.28,
+          "prompt_tokens": 1126,
+          "completion_tokens": 710,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-036",
+      "mutations": [
+        "bad_payable"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Timis",
+          "got": null
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.81,
+          "prompt_tokens": 1048,
+          "completion_tokens": 547,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-037",
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.22,
+          "prompt_tokens": 990,
+          "completion_tokens": 451,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-038",
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.77,
+          "prompt_tokens": 1053,
+          "completion_tokens": 574,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-039",
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 114",
+          "got": "Bd. Demo 114, Timisoara"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Exemplu 98",
+          "got": "Str. Exemplu 98, Bucuresti Sector 3"
+        },
+        {
+          "field": "buyer.city",
+          "truth": "Bucuresti Sector 3",
+          "got": "Bucuresti"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.3,
+          "prompt_tokens": 1106,
+          "completion_tokens": 665,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-040",
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Cluj",
+          "got": null
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "1437.15",
+          "got": "1434.15"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.17,
+          "prompt_tokens": 994,
+          "completion_tokens": 453,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-041",
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Test 27",
+          "got": "Str. Test 27, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Proba 85",
+          "got": "Str. Proba 85, Iasi, Jud. Iasi, 700001, Romania"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.86,
+          "prompt_tokens": 1032,
+          "completion_tokens": 553,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-042",
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.4,
+          "prompt_tokens": 1021,
+          "completion_tokens": 513,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-043",
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 11",
+          "got": "Bd. Demo 11, Timisoara, Jud. Timis, 300001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 92",
+          "got": "Str. Test 92, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "494.47",
+          "got": "49.44"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "4944.70",
+          "got": "494.47"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "4944.70",
+          "got": "494.47"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "543.92",
+          "got": "54.39"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "556.92",
+          "got": "543.92"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "49.44"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "54.39"
+        }
+      ],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.73,
+          "prompt_tokens": 991,
+          "completion_tokens": 486,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-044",
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Model 10",
+          "got": "Str. Model 10, Brasov, Jud. Brasov, 500001, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 77",
+          "got": "Str. Test 77, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        },
+        {
+          "field": "lines[0].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "58.46",
+          "got": "58,46"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "584.60",
+          "got": "584,60"
+        },
+        {
+          "field": "lines[1].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "truth": "1866.26",
+          "got": "1866,26"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "18662.60",
+          "got": "18662,60"
+        },
+        {
+          "field": "lines[2].quantity",
+          "truth": "5.00",
+          "got": "5,00"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "truth": "2111.91",
+          "got": "2111,91"
+        },
+        {
+          "field": "lines[2].line_total",
+          "truth": "10559.55",
+          "got": "10559,55"
+        },
+        {
+          "field": "lines[3].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        },
+        {
+          "field": "lines[3].unit_price",
+          "truth": "941.92",
+          "got": "941,92"
+        },
+        {
+          "field": "lines[3].line_total",
+          "truth": "9419.20",
+          "got": "9419,20"
+        },
+        {
+          "field": "lines[4].quantity",
+          "truth": "3.00",
+          "got": "3,00"
+        },
+        {
+          "field": "lines[4].unit_price",
+          "truth": "2398.43",
+          "got": "2398,43"
+        },
+        {
+          "field": "lines[4].line_total",
+          "truth": "7195.29",
+          "got": "7195,29"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "19247.20",
+          "got": "19247,20"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "2117.19",
+          "got": "2117,19"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "27174.04",
+          "got": "27174,04"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "5706.55",
+          "got": "5706,55"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "46421.24",
+          "got": "46421,24"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "7836.74",
+          "got": "7836,74"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "54257.98",
+          "got": "54257,98"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "54257.98",
+          "got": "54257,98"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].quantity",
+          "value": "10,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "value": "58,46"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "584,60"
+        },
+        {
+          "field": "lines[1].quantity",
+          "value": "10,00"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "value": "1866,26"
+        },
+        {
+          "field": "lines[1].line_total",
+          "value": "18662,60"
+        },
+        {
+          "field": "lines[2].quantity",
+          "value": "5,00"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "value": "2111,91"
+        },
+        {
+          "field": "lines[2].line_total",
+          "value": "10559,55"
+        },
+        {
+          "field": "lines[3].quantity",
+          "value": "10,00"
+        },
+        {
+          "field": "lines[3].unit_price",
+          "value": "941,92"
+        },
+        {
+          "field": "lines[3].line_total",
+          "value": "9419,20"
+        },
+        {
+          "field": "lines[4].quantity",
+          "value": "3,00"
+        },
+        {
+          "field": "lines[4].unit_price",
+          "value": "2398,43"
+        },
+        {
+          "field": "lines[4].line_total",
+          "value": "7195,29"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "19247,20"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "2117,19"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "value": "27174,04"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "value": "5706,55"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "46421,24"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "7836,74"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "54257,98"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "54257,98"
+        }
+      ],
+      "build_warnings": [
+        "line 1 quantity: '10,00' is not a number",
+        "line 1 unit price: '58,46' is not a number",
+        "line 1 total: '584,60' is not a number",
+        "line 1: no amount, skipped",
+        "line 2 quantity: '10,00' is not a number",
+        "line 2 unit price: '1866,26' is not a number",
+        "line 2 total: '18662,60' is not a number",
+        "line 2: no amount, skipped",
+        "line 3 quantity: '5,00' is not a number",
+        "line 3 unit price: '2111,91' is not a number",
+        "line 3 total: '10559,55' is not a number",
+        "line 3: no amount, skipped",
+        "line 4 quantity: '10,00' is not a number",
+        "line 4 unit price: '941,92' is not a number",
+        "line 4 total: '9419,20' is not a number",
+        "line 4: no amount, skipped",
+        "line 5 quantity: '3,00' is not a number",
+        "line 5 unit price: '2398,43' is not a number",
+        "line 5 total: '7195,29' is not a number",
+        "line 5: no amount, skipped",
+        "printed total_without_vat: '46421,24' is not a number",
+        "printed total_vat: '7836,74' is not a number",
+        "printed total_with_vat: '54257,98' is not a number",
+        "printed amount_due: '54257,98' is not a number"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.53,
+          "prompt_tokens": 1166,
+          "completion_tokens": 785,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-045",
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.51,
+          "prompt_tokens": 1135,
+          "completion_tokens": 684,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-046",
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Timis",
+          "got": null
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "2068.50",
+          "got": "206.85"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "20685.00",
+          "got": "2068.50"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "206.85"
+        }
+      ],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 4.11,
+          "prompt_tokens": 1131,
+          "completion_tokens": 707,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-075",
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Str. Exemplu 12",
+          "got": "Str. Exemplu 12, Bucuresti Sector 3, 030167, Romania"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Str. Test 34",
+          "got": "Str. Test 34, Cluj-Napoca, Jud. Cluj, 400001, Romania"
+        },
+        {
+          "field": "lines[0].quantity",
+          "truth": "2.00",
+          "got": "2,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "535.55",
+          "got": "535,55"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "1071.10",
+          "got": "1.071,10"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "1071.10",
+          "got": "1.071,10"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "224.93",
+          "got": "224,93"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "1071.10",
+          "got": "1.071,10"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "224.93",
+          "got": "224,93"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "1296.03",
+          "got": "1.296,03"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "1296.03",
+          "got": "1.296,03"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].quantity",
+          "value": "2,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "value": "535,55"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "1.071,10"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "1.071,10"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "224,93"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "1.071,10"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "224,93"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "1.296,03"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "1.296,03"
+        }
+      ],
+      "build_warnings": [
+        "line 1 quantity: '2,00' is not a number",
+        "line 1 unit price: '535,55' is not a number",
+        "line 1 total: '1.071,10' is not a number",
+        "line 1: no amount, skipped",
+        "printed total_without_vat: '1.071,10' is not a number",
+        "printed total_vat: '224,93' is not a number",
+        "printed total_with_vat: '1.296,03' is not a number",
+        "printed amount_due: '1.296,03' is not a number"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.6,
+          "prompt_tokens": 991,
+          "completion_tokens": 502,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-076",
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].quantity",
+          "truth": "1.00",
+          "got": "1,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "1055.34",
+          "got": "1.055,34"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "1055.34",
+          "got": "1.055,34"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        },
+        {
+          "field": "lines[1].quantity",
+          "truth": "10.00",
+          "got": "10,00"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "truth": "80.16",
+          "got": "80,16"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "801.60",
+          "got": "801,60"
+        },
+        {
+          "field": "lines[2].quantity",
+          "truth": "5.00",
+          "got": "5,00"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "truth": "2077.27",
+          "got": "2.077,27"
+        },
+        {
+          "field": "lines[2].line_total",
+          "truth": "10386.35",
+          "got": "10.386,35"
+        },
+        {
+          "field": "lines[3].quantity",
+          "truth": "1.00",
+          "got": "1,00"
+        },
+        {
+          "field": "lines[3].unit_price",
+          "truth": "2433.83",
+          "got": "2.433,83"
+        },
+        {
+          "field": "lines[3].line_total",
+          "truth": "2433.83",
+          "got": "2.433,83"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "14677.12",
+          "got": "14.677,12"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "3082.20",
+          "got": "3.082,20"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "14677.12",
+          "got": "14.677,12"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "3082.20",
+          "got": "3.082,20"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "17759.32",
+          "got": "17.759,32"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "17759.32",
+          "got": "17.759,32"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].quantity",
+          "value": "1,00"
+        },
+        {
+          "field": "lines[0].unit_price",
+          "value": "1.055,34"
+        },
+        {
+          "field": "lines[0].line_total",
+          "value": "1.055,34"
+        },
+        {
+          "field": "lines[1].quantity",
+          "value": "10,00"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "value": "80,16"
+        },
+        {
+          "field": "lines[1].line_total",
+          "value": "801,60"
+        },
+        {
+          "field": "lines[2].quantity",
+          "value": "5,00"
+        },
+        {
+          "field": "lines[2].unit_price",
+          "value": "2.077,27"
+        },
+        {
+          "field": "lines[2].line_total",
+          "value": "10.386,35"
+        },
+        {
+          "field": "lines[3].quantity",
+          "value": "1,00"
+        },
+        {
+          "field": "lines[3].unit_price",
+          "value": "2.433,83"
+        },
+        {
+          "field": "lines[3].line_total",
+          "value": "2.433,83"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "value": "14.677,12"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "3.082,20"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "14.677,12"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "3.082,20"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "17.759,32"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "17.759,32"
+        }
+      ],
+      "build_warnings": [
+        "line 1 quantity: '1,00' is not a number",
+        "line 1 unit price: '1.055,34' is not a number",
+        "line 1 total: '1.055,34' is not a number",
+        "line 1: no amount, skipped",
+        "line 2 quantity: '10,00' is not a number",
+        "line 2 unit price: '80,16' is not a number",
+        "line 2 total: '801,60' is not a number",
+        "line 2: no amount, skipped",
+        "line 3 quantity: '5,00' is not a number",
+        "line 3 unit price: '2.077,27' is not a number",
+        "line 3 total: '10.386,35' is not a number",
+        "line 3: no amount, skipped",
+        "line 4 quantity: '1,00' is not a number",
+        "line 4 unit price: '2.433,83' is not a number",
+        "line 4 total: '2.433,83' is not a number",
+        "line 4: no amount, skipped",
+        "printed total_without_vat: '14.677,12' is not a number",
+        "printed total_vat: '3.082,20' is not a number",
+        "printed total_with_vat: '17.759,32' is not a number",
+        "printed amount_due: '17.759,32' is not a number"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.0,
+          "prompt_tokens": 1099,
+          "completion_tokens": 663,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-077",
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.66,
+          "prompt_tokens": 1001,
+          "completion_tokens": 499,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-078",
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.street",
+          "truth": "Bd. Demo 26",
+          "got": "Bd. Demo 26, Timisoara"
+        },
+        {
+          "field": "buyer.street",
+          "truth": "Teszt utca 52",
+          "got": "Teszt utca 52, Budapest"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.3,
+          "prompt_tokens": 961,
+          "completion_tokens": 439,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-079",
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Brasov",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.79,
+          "prompt_tokens": 1055,
+          "completion_tokens": 571,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-080",
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Iasi",
+          "got": null
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "9145.71",
+          "got": "10271.61"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "value": "10271.61"
+        }
+      ],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.06,
+          "prompt_tokens": 1091,
+          "completion_tokens": 618,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    }
+  ]
+}

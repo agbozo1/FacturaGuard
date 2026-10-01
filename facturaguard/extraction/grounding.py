@@ -6,8 +6,10 @@ dd.mm.yyyy, dd/mm/yyyy or ISO form; text case- and accent-insensitively.
 """
 
 import re
+import unicodedata
 from decimal import Decimal, InvalidOperation
 
+from facturaguard.extraction.numbers import parse_amount
 from facturaguard.ubl.codes import normalise
 
 _NUM = re.compile(r"\d{1,3}(?:[.\s]\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?")
@@ -48,24 +50,36 @@ def _leaves(obj, path=""):
         yield path, obj
 
 
+def _fold(s: str) -> str:
+    """Lowercase without diacritics, keeping hyphens and spacing."""
+    return "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.combining(c)) \
+        .lower()
+
+
 def check_grounding(fields: dict, text: str) -> list[dict]:
     """Return the extracted values that could not be found in the text."""
     numbers = _numbers_in(text)
     flat_text = normalise(text)
     compact_text = re.sub(r"\s+", "", text)
+    folded = _fold(text)
     missing = []
     for path, value in _leaves(fields):
         key = path.rsplit(".", 1)[-1]
         sval = str(value).strip()
         if key in _NUMERIC_KEYS:
-            try:
-                ok = Decimal(sval) in numbers
-            except InvalidOperation:
-                ok = False
+            amount = parse_amount(sval)
+            ok = amount is not None and amount in numbers
         elif _ISO_DATE.fullmatch(sval):
             ok = any(f in text for f in _date_forms(sval))
         elif key in ("vat_id", "iban", "registration_number", "postal_code", "invoice_number"):
             ok = re.sub(r"\s+", "", sval) in compact_text
+        elif key == "county":
+            # Grounded only if printed as a county ("Jud. Iasi", "Judetul Iasi") or Bucharest.
+            # A county inferred from the city name (city Iasi -> county Iasi) is usually right,
+            # but it is not on the page, so the user is asked to verify it.
+            c = re.escape(_fold(sval).removeprefix("municipiul "))
+            ok = (re.search(rf"\bjud(?:etul)?\.?\s+{c}(?![\w-])", folded) is not None
+                  or (c == "bucuresti" and "bucuresti" in folded))
         else:
             ok = normalise(sval) in flat_text
         if not ok:

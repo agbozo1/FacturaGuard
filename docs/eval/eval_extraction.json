@@ -1,0 +1,1571 @@
+{
+  "field_accuracy": [
+    2377,
+    2446
+  ],
+  "verdicts": [
+    51,
+    52
+  ],
+  "rows": [
+    {
+      "id": "SYN-001",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 6.09,
+          "prompt_tokens": 1101,
+          "completion_tokens": 449,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-002",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 9.82,
+          "prompt_tokens": 1230,
+          "completion_tokens": 673,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-003",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[3].unit_price",
+          "truth": "2107.53",
+          "got": "210.753"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[3].unit_price",
+          "value": "210.753"
+        }
+      ],
+      "build_warnings": [
+        "line 4: quantity x unit price = 2107.53 but the line total read is 21075.30; please check the PDF"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 7.84,
+          "prompt_tokens": 1276,
+          "completion_tokens": 762,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-004",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.95,
+          "prompt_tokens": 1250,
+          "completion_tokens": 690,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-005",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.73,
+          "prompt_tokens": 1140,
+          "completion_tokens": 515,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-006",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.47,
+          "prompt_tokens": 1140,
+          "completion_tokens": 516,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-007",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.97,
+          "prompt_tokens": 1284,
+          "completion_tokens": 767,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-008",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.09,
+          "prompt_tokens": 1197,
+          "completion_tokens": 607,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-009",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.05,
+          "prompt_tokens": 1198,
+          "completion_tokens": 610,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-010",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Servicii consultanta",
+          "got": "Servicii consultanta ora"
+        },
+        {
+          "field": "lines[2].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.34,
+          "prompt_tokens": 1215,
+          "completion_tokens": 646,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-011",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.55,
+          "prompt_tokens": 1110,
+          "completion_tokens": 457,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-012",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.97,
+          "prompt_tokens": 1213,
+          "completion_tokens": 624,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-013",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.65,
+          "prompt_tokens": 1237,
+          "completion_tokens": 690,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-014",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.0,
+          "prompt_tokens": 1183,
+          "completion_tokens": 582,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-015",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.09,
+          "prompt_tokens": 1202,
+          "completion_tokens": 617,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-016",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.36,
+          "prompt_tokens": 1233,
+          "completion_tokens": 686,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-017",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.21,
+          "prompt_tokens": 1090,
+          "completion_tokens": 446,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-018",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        },
+        {
+          "field": "lines[3].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.43,
+          "prompt_tokens": 1276,
+          "completion_tokens": 747,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-019",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.35,
+          "prompt_tokens": 1207,
+          "completion_tokens": 649,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-020",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.2,
+          "prompt_tokens": 1210,
+          "completion_tokens": 645,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-021",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        },
+        {
+          "field": "lines[3].description",
+          "truth": "Servicii consultanta",
+          "got": "Servicii consultanta ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.83,
+          "prompt_tokens": 1284,
+          "completion_tokens": 753,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-022",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.48,
+          "prompt_tokens": 1110,
+          "completion_tokens": 466,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-023",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.18,
+          "prompt_tokens": 1206,
+          "completion_tokens": 619,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-024",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.84,
+          "prompt_tokens": 1277,
+          "completion_tokens": 751,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-025",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.83,
+          "prompt_tokens": 1159,
+          "completion_tokens": 544,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-026",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.76,
+          "prompt_tokens": 1156,
+          "completion_tokens": 533,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-027",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.8,
+          "prompt_tokens": 1209,
+          "completion_tokens": 622,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-028",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.22,
+          "prompt_tokens": 1203,
+          "completion_tokens": 618,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-029",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.82,
+          "prompt_tokens": 1143,
+          "completion_tokens": 524,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-030",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.47,
+          "prompt_tokens": 1282,
+          "completion_tokens": 747,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-031",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.66,
+          "prompt_tokens": 1207,
+          "completion_tokens": 622,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-032",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.25,
+          "prompt_tokens": 1109,
+          "completion_tokens": 456,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-033",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Licenta software anuala",
+          "got": "Licenta software anuala buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.03,
+          "prompt_tokens": 1137,
+          "completion_tokens": 516,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-034",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].unit_price",
+          "truth": "715.77",
+          "got": "71.5770"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "7157.70",
+          "got": "715.77"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "truth": "2265.42",
+          "got": "226.5420"
+        },
+        {
+          "field": "lines[1].line_total",
+          "truth": "22654.20",
+          "got": "2265.42"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "7157.70",
+          "got": "715.77"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "truth": "787.35",
+          "got": "78.73"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "22654.20",
+          "got": "2265.42"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "truth": "4757.38",
+          "got": "475.74"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "truth": "29811.90",
+          "got": "2981.19"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "5544.73",
+          "got": "554.47"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "truth": "35356.63",
+          "got": "3535.66"
+        },
+        {
+          "field": "totals.amount_due",
+          "truth": "35356.63",
+          "got": "3535.66"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "71.5770"
+        },
+        {
+          "field": "lines[1].unit_price",
+          "value": "226.5420"
+        },
+        {
+          "field": "vat_breakdown[0].vat_amount",
+          "value": "78.73"
+        },
+        {
+          "field": "vat_breakdown[1].vat_amount",
+          "value": "475.74"
+        },
+        {
+          "field": "totals.total_without_vat",
+          "value": "2981.19"
+        },
+        {
+          "field": "totals.total_vat",
+          "value": "554.47"
+        },
+        {
+          "field": "totals.total_with_vat",
+          "value": "3535.66"
+        },
+        {
+          "field": "totals.amount_due",
+          "value": "3535.66"
+        }
+      ],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.16,
+          "prompt_tokens": 1179,
+          "completion_tokens": 553,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-035",
+      "mutations": [
+        "bad_payable"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        },
+        {
+          "field": "lines[0].description",
+          "truth": "Licenta software anuala",
+          "got": "Licenta software anuala buc"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        },
+        {
+          "field": "lines[2].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        },
+        {
+          "field": "lines[3].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe 1kg buc"
+        },
+        {
+          "field": "lines[4].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.98,
+          "prompt_tokens": 1239,
+          "completion_tokens": 726,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-036",
+      "mutations": [
+        "bad_payable"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.61,
+          "prompt_tokens": 1161,
+          "completion_tokens": 557,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-037",
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.1,
+          "prompt_tokens": 1103,
+          "completion_tokens": 452,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-038",
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Transport marfa",
+          "got": "Transport marfa buc"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.23,
+          "prompt_tokens": 1166,
+          "completion_tokens": 582,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-039",
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.79,
+          "prompt_tokens": 1219,
+          "completion_tokens": 669,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-040",
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "totals.total_without_vat",
+          "truth": "1437.15",
+          "got": "1434.15"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 1.83,
+          "prompt_tokens": 1107,
+          "completion_tokens": 455,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-041",
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe"
+        },
+        {
+          "field": "lines[1].unit",
+          "truth": "buc",
+          "got": "kg"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.66,
+          "prompt_tokens": 1145,
+          "completion_tokens": 515,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-042",
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.34,
+          "prompt_tokens": 1134,
+          "completion_tokens": 519,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-043",
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].unit_price",
+          "truth": "494.47",
+          "got": "49,44"
+        },
+        {
+          "field": "lines[0].line_total",
+          "truth": "4944.70",
+          "got": "494,47"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "556.92",
+          "got": "543.92"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "lines[0].unit_price",
+          "value": "49,44"
+        }
+      ],
+      "build_warnings": [
+        "line 1: quantity x unit price = 494.40 but the line total read is 494.47; please check the PDF"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 1.8,
+          "prompt_tokens": 1104,
+          "completion_tokens": 450,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-044",
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.1,
+          "prompt_tokens": 1279,
+          "completion_tokens": 763,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-045",
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].line_total",
+          "truth": "9082.90",
+          "got": "908,29"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [
+        "line 1: quantity x unit price = 9082.90 but the line total read is 908.29; please check the PDF"
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.86,
+          "prompt_tokens": 1248,
+          "completion_tokens": 697,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-046",
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Licenta software anuala",
+          "got": "Licenta software anuala buc"
+        },
+        {
+          "field": "lines[2].description",
+          "truth": "Licenta software anuala",
+          "got": "Licenta software anuala buc"
+        },
+        {
+          "field": "lines[3].description",
+          "truth": "Licenta software anuala",
+          "got": "Licenta software anuala buc"
+        },
+        {
+          "field": "lines[4].description",
+          "truth": "Mentenanta website",
+          "got": "Mentenanta website ora"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.85,
+          "prompt_tokens": 1244,
+          "completion_tokens": 720,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-075",
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 1.85,
+          "prompt_tokens": 1104,
+          "completion_tokens": 461,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-076",
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.85,
+          "prompt_tokens": 1212,
+          "completion_tokens": 666,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-077",
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 1.97,
+          "prompt_tokens": 1114,
+          "completion_tokens": 503,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-078",
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 1.77,
+          "prompt_tokens": 1074,
+          "completion_tokens": 433,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-079",
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": null,
+          "got": "Iasi"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.71,
+          "prompt_tokens": 1168,
+          "completion_tokens": 575,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-080",
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": null,
+          "got": "Iasi"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Iasi",
+          "got": null
+        },
+        {
+          "field": "lines[0].description",
+          "truth": "Echipament birou",
+          "got": "Echipament birou buc"
+        },
+        {
+          "field": "lines[1].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe 1kg buc"
+        },
+        {
+          "field": "lines[2].description",
+          "truth": "Cafea boabe 1kg",
+          "got": "Cafea boabe 1kg buc"
+        },
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "truth": "9145.71",
+          "got": "10271.61"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "vat_breakdown[1].taxable_amount",
+          "value": "10271.61"
+        }
+      ],
+      "build_warnings": [],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.7,
+          "prompt_tokens": 1204,
+          "completion_tokens": 623,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    }
+  ]
+}

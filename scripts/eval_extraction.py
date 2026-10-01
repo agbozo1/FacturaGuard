@@ -11,9 +11,10 @@ import argparse
 import json
 import statistics
 import sys
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 from pathlib import Path
 
+from facturaguard.extraction.numbers import parse_amount
 from facturaguard.extraction.pipeline import pdf_to_invoice
 from facturaguard.llm.client import LLMClient, LLMNotConfigured
 
@@ -36,10 +37,19 @@ def _same(a, b) -> bool:
         return True
     if a is None or b is None:
         return False
-    try:
-        return Decimal(str(a)) == Decimal(str(b))
-    except InvalidOperation:
-        return " ".join(str(a).split()).casefold() == " ".join(str(b).split()).casefold()
+    # Numbers are compared by value: the app parses "2.054,66" and "2054.66" identically.
+    na, nb = parse_amount(a), parse_amount(b)
+    if na is not None and nb is not None:
+        return na == nb
+    return " ".join(str(a).split()).casefold() == " ".join(str(b).split()).casefold()
+
+
+def _by_rate(fields: dict) -> dict:
+    """VAT rows may come back in any order; score them matched by rate, not position."""
+    out = dict(fields)
+    rows = fields.get("vat_breakdown") or []
+    out["vat_breakdown"] = sorted(rows, key=lambda r: parse_amount(r.get("rate")) or Decimal(0))
+    return out
 
 
 def main() -> int:
@@ -60,8 +70,8 @@ def main() -> int:
     for n, e in enumerate(entries, 1):
         r = pdf_to_invoice((DATA / e["file"]).read_bytes(), llm)
         latencies += [c.latency_s for c in r.calls if c.ok]
-        truth = dict(_leaves(e["fields"]))
-        got = dict(_leaves(r.fields)) if r.ok else {}
+        truth = dict(_leaves(_by_rate(e["fields"])))
+        got = dict(_leaves(_by_rate(r.fields))) if r.ok else {}
         wrong = [{"field": k, "truth": v, "got": got.get(k)} for k, v in truth.items()
                  if not _same(v, got.get(k))]
         correct += len(truth) - len(wrong)

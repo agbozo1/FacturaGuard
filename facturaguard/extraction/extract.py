@@ -47,7 +47,12 @@ Rules:
 invoice has an arithmetic mistake, copy the printed numbers anyway.
 - If a field is not printed, use null. Never guess.
 - Only two conversions are allowed: dates to YYYY-MM-DD, and numbers to plain decimals with a \
-dot and no thousands separator (Romanian "1.234,56" becomes "1234.56").
+dot and no thousands separator. Romanian "1.234,56" becomes "1234.56"; "10,00" becomes "10.00".
+- Read each table row column by column: quantity, unit price and line value are different \
+columns. Never copy one column's value into another field.
+- Addresses: "street" is only the street name and number. Put the city in "city", the county \
+after "Jud." in "county" (Bucharest: county "Bucuresti", city including "Sector N"), the \
+6-digit code in "postal_code" and the country in "country".
 - "Furnizor" or "Vanzator" is the seller; "Client", "Cumparator" or "Beneficiar" is the buyer. \
 "CIF", "CUI" or "Cod fiscal" is the vat_id. "Reg. Com." is the registration_number.
 
