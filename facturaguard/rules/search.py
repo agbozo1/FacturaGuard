@@ -12,7 +12,7 @@ import unicodedata
 from collections import Counter
 from functools import lru_cache
 
-from facturaguard.rules.index import RuleText, load_rules
+from facturaguard.rules.index import SCH_DIR, RuleText, load_rules
 
 # A plain word list reads better than a list literal here.
 _STOP = set("""
@@ -36,6 +36,25 @@ _SYNONYMS = {
 }
 
 
+@lru_cache
+def _currency_codes() -> frozenset[str]:
+    """ISO 4217 codes, read from the test of the official code-list rule BR-CL-04 in ANAF's
+    Schematron rather than typed in (about 178 codes)."""
+    sch = (SCH_DIR / "codelist" / "EN16931-UBL-codes.sch").read_text(encoding="utf-8")
+    marker = sch.find('id="BR-CL-04"')
+    if marker < 0:
+        return frozenset()
+    assert_start = sch.rfind("<assert", 0, marker)
+    return frozenset(c.lower() for c in re.findall(r"\b[A-Z]{3}\b", sch[assert_start:marker]))
+
+
+def _currencies_in(text: str) -> list[str]:
+    """Currency codes written in capitals. Lowercase does not count: ISO codes include ordinary
+    English words (ALL, TRY, TOP, CUP, PEN), so "try" or "all" in a question is not a currency."""
+    codes = _currency_codes()
+    return [c for c in re.findall(r"\b[A-Z]{3}\b", text) if c.lower() in codes and c != "RON"]
+
+
 def _tokens(text: str) -> list[str]:
     text = unicodedata.normalize("NFKD", text)
     text = "".join(c for c in text if not unicodedata.combining(c)).lower()
@@ -54,7 +73,8 @@ def _index() -> tuple[dict[str, Counter], dict[str, float]]:
 
 def search_rules(query: str, k: int = 6, min_score: float = 6.0) -> list[RuleText]:
     words = _tokens(query)
-    expanded = list(words) + [s for w in words for s in _SYNONYMS.get(w, [])]
+    expanded = (list(words) + [s for w in words for s in _SYNONYMS.get(w, [])]
+                + ["currency"] * len(_currencies_in(query)))
     if not expanded:
         return []
     docs, idf = _index()

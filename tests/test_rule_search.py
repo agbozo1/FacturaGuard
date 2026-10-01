@@ -13,6 +13,18 @@ def test_usd_question_finds_the_currency_rules():
     assert found[:2] == ["BR-RO-030", "BR-53"]
 
 
+def test_any_iso_currency_finds_the_currency_rules():
+    for q in ["How do I invoice in HUF?", "Can I issue the invoice in JPY with the RON value?",
+              "invoice amounts in CAD", "Factura in PLN, ce trebuie sa completez?"]:
+        assert {"BR-RO-030", "BR-53"} & set(ids(q)), q
+
+
+def test_currency_codes_that_are_english_words_need_capitals():
+    # ALL (lek) and TRY (lira) are ISO codes; lowercase "all"/"try" are just words.
+    assert "BR-RO-030" not in ids("I will try to fix all the errors on my invoice")
+    assert "BR-RO-030" in ids("Can I invoice in TRY?")
+
+
 def test_other_questions_land_on_the_right_rule_families():
     assert {"BR-RO-110", "BR-RO-111"} <= set(ids("Do I need the county for a Bucharest address?"))
     assert {"BR-41", "BR-42"} <= set(ids("How do I add a discount to the invoice?"))
