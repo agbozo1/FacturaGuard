@@ -22,8 +22,9 @@ questions, and produces a summary you can send to your accountant.
 
 **Why.** Since 2024 Romanian B2B invoices must go through ANAF's e-Factura system, which rejects
 anything that breaks the RO_CIUS profile of EN 16931. The rejection messages are terse rule
-codes in technical Romanian. Foreign founders and small businesses depend on their accountant
-for every small fix. We also measured why a plain chatbot is not the answer: asked what an
+codes in technical Romanian. Freelancers and sole traders (PFA), owners of micro-enterprise SRLs
+who invoice themselves, and foreign founders running a Romanian company all depend on their
+accountant for every small fix. We also measured why a plain chatbot is not the answer: asked what an
 e-Factura needs before ANAF accepts it, Nemotron Ultra and Super both answered wrongly (a
 qualified signature, an invented "CIUS-PT" profile), see [FEEDBACK.md](FEEDBACK.md).
 

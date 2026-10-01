@@ -29,7 +29,9 @@ Deadline Oct 30, 2026. Our target: submit by Oct 27.
    explaining and repairing, every proposed fix re-validated, model roles swappable by config.
    Report numbers in the README: error recall, fix success rate after re-validation.
 2. **Design:** one polished end-to-end flow: upload, results, fix diff, chat, accountant export.
-3. **Potential impact:** foreign founders and small Romanian SMEs who depend on accountants.
+3. **Potential impact:** Romanian freelancers and sole traders (PFA), owners of micro-enterprise
+   SRLs who do their own invoicing, and foreign founders running a Romanian company: all depend
+   on an accountant for small e-Factura fixes.
    Evidence from our own tests: Nemotron Ultra and Super both gave a wrong answer about
    e-Factura requirements without grounding (see `FEEDBACK.md`), which motivates the design.
 4. **Quality of the idea:** grounding explanations in official rule text, not model memory.
