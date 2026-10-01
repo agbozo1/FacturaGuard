@@ -89,6 +89,11 @@ Optional (`TAVILY_API_KEY`). The same grounding principle, extended to the web:
   Nemotron answers from those pages and cites them as [1], [2], with links under the answer.
   Results from any other site are dropped in code. If the sources do not answer, the assistant
   says so instead of answering from memory. A toggle turns search off per question.
+- **Citation check.** Prompts alone did not stop every memory leak in our tests, so code
+  checks each answer: a sentence that states a rule, number, deadline or legal reference without
+  a valid [n] citation is shown under the answer as "not from a cited source, please verify".
+- **Ambiguous questions.** If a question can mean different things (an invoice "rejected" by
+  the client or by ANAF's validation), the assistant asks before answering.
 - **Privacy.** Only the user's question is sent to Tavily, after CIFs, CNPs, IBANs and emails
   are removed. Invoice data is never sent.
 - **Rule-update check.** "Check ANAF for updates" searches official pages for a CIUS-RO

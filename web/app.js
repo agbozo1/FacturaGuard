@@ -49,6 +49,7 @@ const I18N = {
     noNewer: (when) => `No newer CIUS-RO version found in official sources (checked ${when}).`,
     officialSources: "Search official sources (ANAF, MF, legislatie.just.ro)",
     sourcesTitle: "Official sources", searchUnavailable: "Official-source search was unavailable for this answer.",
+    uncitedTitle: "Not from a cited source, please verify:",
     productOf: "© 2026 Product of Nova Analytica S.R.L.", license: "Source code (AGPL-3.0)",
   },
   ro: {
@@ -97,6 +98,7 @@ const I18N = {
     noNewer: (when) => `Nu s-a găsit o versiune CIUS-RO mai nouă în sursele oficiale (verificat ${when}).`,
     officialSources: "Caută în surse oficiale (ANAF, MF, legislatie.just.ro)",
     sourcesTitle: "Surse oficiale", searchUnavailable: "Căutarea în surse oficiale nu a fost disponibilă pentru acest răspuns.",
+    uncitedTitle: "Nu provine dintr-o sursă citată, vă rugăm verificați:",
     productOf: "© 2026 Un produs Nova Analytica S.R.L.", license: "Cod sursă (AGPL-3.0)",
   },
 };
@@ -461,6 +463,11 @@ async function sendChat(text) {
     const web = state.search && $("#web-search").checked;
     const r = await post("/api/chat", { session_id: state.check.session_id, message, lang: state.lang, web });
     pending.textContent = r.answer;
+    if (r.uncited?.length) {
+      pending.append(el("div", { class: "uncited" },
+        el("strong", {}, t("uncitedTitle")),
+        el("ul", {}, r.uncited.map((s) => el("li", {}, s)))));
+    }
     if (r.sources?.length) pending.append(renderSources(r.sources));
     else if (web && r.search_error) pending.append(el("p", { class: "sources meta" }, t("searchUnavailable")));
   } catch (e) {

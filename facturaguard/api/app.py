@@ -290,7 +290,7 @@ def chat_endpoint(body: ChatBody, request: Request):
         raise HTTPException(502, f"The AI model did not answer: {type(e).__name__}") from e
     return {"answer": r.answer, "call": r.call.to_dict(),
             "sources": [x.to_dict() for x in r.sources], "search_s": r.search_s,
-            "search_error": r.search_error}
+            "search_error": r.search_error, "uncited": r.uncited}
 
 
 @app.get("/api/summary/{sid}")

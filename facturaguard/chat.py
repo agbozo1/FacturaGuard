@@ -7,6 +7,7 @@ from facturaguard.llm.ask import CallRecord
 from facturaguard.llm.client import LLMClient
 from facturaguard.llm.prompts import LANGUAGES
 from facturaguard.rules.index import rule_text
+from facturaguard.search.citations import flag_uncited
 from facturaguard.search.tavily import Source, TavilyClient
 
 CHAT_SYSTEM = """You are FacturaGuard's assistant. You answer questions about ONE Romanian \
@@ -23,6 +24,9 @@ needs their accountant and say what to ask them.
 - Never state tax rates, percentages, deadlines, fines or legal references from memory, not \
 even as examples or "typical" values. Model memory of Romanian tax law is often out of date.
 - Never invent invoice data, identifiers or amounts.
+- If the question can mean different things (for example an invoice "rejected" by the client \
+versus rejected by ANAF's validation), ask one short clarifying question, or answer each \
+meaning separately and say which is which.
 - Be brief and practical: two to six sentences, or a short list.
 - Answer in {language}."""
 
@@ -32,6 +36,10 @@ Official sources were retrieved for this question from anaf.ro, mfinante.gov.ro 
 legislatie.just.ro. They are numbered in the context.
 - For facts beyond the invoice context, use only these sources and cite them inline as [1], [2].
 - Every number, rate, deadline or legal reference you state must come from a cited source.
+- End every sentence that states a rule, number, deadline, fine or legal requirement with its \
+citation, for example "... within 5 working days [2]." A sentence without a citation must not \
+state any such fact. Code checks this and shows uncited sentences to the user as unverified.
+- Cite only sources that actually say it. Ignore sources that are off-topic.
 - If the sources do not answer the question, say so plainly and suggest what to ask the \
 accountant. Do not fill the gap from memory.
 - Sources may be in Romanian or out of date; mention the publication date when it matters.
@@ -79,6 +87,7 @@ class ChatReply:
     sources: list[Source] = field(default_factory=list)
     search_s: float | None = None
     search_error: str = ""
+    uncited: list[str] = field(default_factory=list)  # factual sentences without a citation
 
 
 def chat_reply(session: dict, message: str, llm: LLMClient, lang: str = "en",
@@ -112,5 +121,6 @@ def chat_reply(session: dict, message: str, llm: LLMClient, lang: str = "en",
                         res.completion_tokens, ok=bool(res.text))
     answer = res.text or "Sorry, I could not produce an answer. Please try rephrasing."
     history += [{"role": "user", "content": message}, {"role": "assistant", "content": answer}]
+    uncited = flag_uncited(answer, len(sources)) if sources else []
     return ChatReply(answer, record, sources,
-                     round(search_s, 2) if search_s is not None else None, search_error)
+                     round(search_s, 2) if search_s is not None else None, search_error, uncited)

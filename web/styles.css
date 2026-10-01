@@ -273,6 +273,8 @@ button:disabled { opacity: .55; cursor: progress; }
 .sources a { color: var(--teal); font-weight: 500; text-decoration: none; word-break: break-word; }
 .sources a:hover { text-decoration: underline; }
 .sources .meta { color: var(--muted); }
+.uncited { margin: 8px 0 0; padding: 8px 10px; border-radius: 10px; background: var(--warn-bg); font-size: 12.5px; white-space: normal; }
+.uncited ul { margin: 4px 0 0; padding-left: 18px; }
 .rules-box { background: var(--surface-2); border-radius: 12px; padding: 10px 12px; display: grid; gap: 6px; font-size: 13px; }
 .rules-line { margin: 0; color: var(--ink); font-weight: 500; }
 .side-check { border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 6px 10px; font-size: 13px; color: var(--teal); text-align: left; }

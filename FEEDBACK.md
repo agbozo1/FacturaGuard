@@ -54,6 +54,23 @@ Dated notes for the hackathon submission feedback fields.
   and use Lightning (thinking off) for extraction.
 - Real-call numbers for extraction and repair are pending (no key on the dev machine).
 
+## 2026-10-02 (after the Tavily fixes, real calls from the dev machine)
+- VAT-rate question, searched as asked with advanced depth: relevant official sources (Ministry
+  of Finance fiscal strategy 2026-2028, legislation portal, Fiscal Code). Ultra cited the 19 to
+  21 % change and stated nothing from memory.
+- Deadline question: every factual sentence carried a citation. Sources conflict (a 2024 ANAF
+  guide says 5 calendar days, newer pages say 5 working days); Tavily returned no publication
+  date for most official pages, so the model cannot tell which source is newer. Wish: more
+  reliable published_date on government PDFs.
+- New failure mode, then fixed: on "can I resend a rejected invoice with the same number?",
+  Ultra added one uncited sentence from memory about e-Factura. Added a code check that flags
+  factual sentences without a valid [n] citation and shows them in the UI as unverified, plus a
+  prompt rule to ask when a question is ambiguous. With the rule, Ultra asked "rejected by the
+  client or by ANAF's validation?" instead of guessing.
+- Repeated Tavily queries returned in 0.14 to 0.42 s (versus 3 to 4 s first time), apparently
+  cached on Tavily's side.
+- Advanced search depth costs 2 credits per chat question; worth it for relevance.
+
 ## 2026-10-02 (Tavily + Nemotron on the hosted app)
 - Tavily search restricted to anaf.ro, mfinante.gov.ro and legislatie.just.ro: 3.5 to 4.4 s
   per search (basic depth). Results stayed on the official domains.
