@@ -30,9 +30,29 @@ Python. On those, use Python 3.12 or run via Docker.
 
 ## How Nebius and Nemotron are used
 - Nebius Token Factory, OpenAI-compatible API, through the `openai` SDK.
-- Nemotron (fast tier) for PDF field extraction and classification.
-- Nemotron (reasoning tier) for error explanations, XML repair proposals and chat.
+- Nemotron 3 Ultra (`MODEL_REASONING`) explains validator errors in English or Romanian and
+  proposes repairs as small edit operations (`facturaguard/explain.py`,
+  `facturaguard/repair/engine.py`).
+- Nemotron 3.5 Lightning (`MODEL_FAST`, thinking switched off) for PDF field extraction
+  (Milestone 5).
 - Roles map to model IDs in `.env` (`MODEL_FAST`, `MODEL_REASONING`, ...).
+
+## Explain and repair
+The model never decides validity and never rewrites the document:
+1. The validator finds the errors.
+2. Nemotron explains each one, given the validator message and the official rule text
+   (`facturaguard/rules/index.py`, extracted from ANAF's Schematron, Romanian and English).
+   If the model fails, the official text is shown instead.
+3. Nemotron proposes edit operations (set a value, insert or delete an element). Totals come
+   from code (`facturaguard/repair/facts.py`), not from the model. Missing business facts
+   (invoice number, CIF, names) become questions for the user, never invented values.
+4. Code applies the edits and re-validates. Edits are kept only if errors go down and no new
+   kind of error appears. Up to two rounds.
+
+```bash
+python scripts/try_assist.py data/synthetic/xml/SYN-037.xml --lang ro   # one invoice
+python scripts/eval_repair.py --limit 28 --out eval_repair.json        # fix rate on the set
+```
 
 ## Synthetic data
 `data/synthetic/` holds 100 labelled invoices (34 designed valid, 56 with one planted error,
@@ -40,7 +60,8 @@ Python. On those, use Python 3.12 or run via Docker.
 `python -m facturaguard.synthetic.generate --seed 2026`. Synthetic only, no real client data.
 
 ## Status
-Milestones 1 (scaffold, client), 2 (synthetic set) and 3 (validator) done. See `FEEDBACK.md` for platform notes.
+Milestones 1 (scaffold, client), 2 (synthetic set), 3 (validator) and 4 (explain and repair)
+done. See `FEEDBACK.md` for platform notes.
 
 ## Validation
 `facturaguard/validation/` runs three layers: UBL 2.1 XSD, the ANAF CIUS-RO 1.0.9 Schematron
