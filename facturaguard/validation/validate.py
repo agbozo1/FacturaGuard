@@ -6,6 +6,7 @@ from facturaguard.validation.identifiers import check_identifiers
 from facturaguard.validation.models import Issue, ValidationResult
 from facturaguard.validation.schematron import validate_schematron
 from facturaguard.validation.xsd import validate_xsd
+from facturaguard.xmlsafe import UnsafeXML, parse
 
 UBL_NS = {
     "Invoice": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
@@ -16,7 +17,10 @@ UBL_NS = {
 def validate_xml(data: bytes) -> ValidationResult:
     result = ValidationResult()
     try:
-        doc = etree.ElementTree(etree.fromstring(data))
+        doc = etree.ElementTree(parse(data))
+    except UnsafeXML as e:
+        result.issues.append(Issue("parse", "XML-WELLFORMED", "fatal", str(e)))
+        return result
     except etree.XMLSyntaxError as e:
         result.issues.append(
             Issue("parse", "XML-WELLFORMED", "fatal", str(e), f"line {e.lineno}")
@@ -26,7 +30,8 @@ def validate_xml(data: bytes) -> ValidationResult:
     kind = next((k for k, ns in UBL_NS.items() if root.tag == f"{{{ns}}}{k}"), None)
     if kind is None:
         result.issues.append(
-            Issue("xsd", "XSD-ROOT", "fatal", f"Unsupported root element {root.tag}, expected UBL Invoice or CreditNote.")
+            Issue("xsd", "XSD-ROOT", "fatal",
+                  f"Unsupported root element {root.tag}, expected UBL Invoice or CreditNote.")
         )
         return result
     result.kind = kind

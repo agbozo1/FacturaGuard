@@ -39,6 +39,8 @@ Hard rules:
 - Never invent business facts: invoice numbers, dates, party names, VAT/CUI/CNP identifiers, \
 addresses, bank accounts, quantities or prices. If a fix needs one, add an entry to needs_input \
 instead of guessing. Do not move an identifier into a different field to satisfy a check.
+- Exception: values in facts_provided_by_business were supplied by the business. Use them \
+exactly as given, in the field they are keyed by, and do not ask for them again.
 - Amounts: copy the computed facts exactly. Do no arithmetic yourself.
 - You may correct a code from an official code list when the intended value is unambiguous from \
 the invoice: country ISO 3166-1 alpha-2 ("ROU" -> "RO"), currency ISO 4217 ("LEI" -> "RON"), \

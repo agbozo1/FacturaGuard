@@ -8,8 +8,6 @@ import json
 from collections import Counter
 from dataclasses import dataclass, field
 
-from lxml import etree
-
 from facturaguard.explain import unique_issues
 from facturaguard.llm.ask import CallRecord, ask_json
 from facturaguard.llm.client import LLMClient
@@ -19,6 +17,7 @@ from facturaguard.repair.patch import apply_ops, unified_diff
 from facturaguard.rules.index import rule_text
 from facturaguard.validation.models import ValidationResult
 from facturaguard.validation.validate import validate_xml
+from facturaguard.xmlsafe import parse
 
 MAX_XML_CHARS = 40_000
 
@@ -62,7 +61,8 @@ def _improves(before: ValidationResult, after: ValidationResult) -> bool:
     return sum(a.values()) < sum(b.values()) and set(a) <= set(b)
 
 
-def _payload(xml: bytes, res: ValidationResult, feedback: str) -> str:
+def _payload(xml: bytes, res: ValidationResult, feedback: str,
+             user_facts: dict[str, str] | None = None) -> str:
     errors = []
     for i in unique_issues(res.issues):
         rt = rule_text(i.rule_id)
@@ -74,16 +74,20 @@ def _payload(xml: bytes, res: ValidationResult, feedback: str) -> str:
         })
     body = {
         "errors": errors,
-        "computed_facts": compute_facts(etree.fromstring(xml)),
+        "computed_facts": compute_facts(parse(xml)),
         "invoice_xml": xml.decode("utf-8", errors="replace")[:MAX_XML_CHARS],
     }
+    if user_facts:
+        body["facts_provided_by_business"] = user_facts
     if feedback:
         body["feedback_from_previous_attempt"] = feedback
     return json.dumps(body, ensure_ascii=False)
 
 
 def repair(xml: bytes, llm: LLMClient, lang: str = "en", role: str = "reasoning",
-           max_rounds: int = 2) -> RepairResult:
+           max_rounds: int = 2, user_facts: dict[str, str] | None = None) -> RepairResult:
+    """user_facts: answers the business gave to earlier needs_input questions, keyed by field
+    (e.g. {"BT-1": "FG-2026-0042"}). They are the only business facts the model may insert."""
     original = validate_xml(xml)
     if original.valid:
         return RepairResult("already_valid", original, original, xml)
@@ -101,7 +105,7 @@ def repair(xml: bytes, llm: LLMClient, lang: str = "en", role: str = "reasoning"
         out.rounds += 1
         messages = [
             {"role": "system", "content": repair_system(lang)},
-            {"role": "user", "content": _payload(current, current_res, feedback)},
+            {"role": "user", "content": _payload(current, current_res, feedback, user_facts)},
         ]
         try:
             data = ask_json(llm, role, messages, purpose="repair", max_tokens=8000,

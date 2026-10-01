@@ -56,6 +56,29 @@ python scripts/try_assist.py data/synthetic/xml/SYN-037.xml --lang ro   # one in
 python scripts/eval_repair.py --limit 28 --out eval_repair.json        # fix rate on the set
 ```
 
+## Run the web app
+```bash
+uvicorn facturaguard.api.app:app --reload    # then open http://127.0.0.1:8000
+```
+- Upload an XML or PDF, or click a sample in the sidebar. `/?sample=payable` opens a sample
+  directly (handy for demos).
+- Without `NEBIUS_API_KEY` the app still validates and shows official rule texts; AI buttons
+  are hidden and PDF upload is unavailable.
+- **Explain with AI**, **Propose a fix** (diff, download, questions for missing facts),
+  **Share with accountant** (Markdown summary, print to PDF), **Submit to ANAF (mock)** and a
+  chat assistant grounded in the current invoice. English and Romanian.
+- Sessions live in memory for one hour; nothing is written to disk. AI calls are rate-limited
+  per client (40 per 10 minutes).
+- Uploads are capped at 5 MB, and XML with a DOCTYPE or ENTITY declaration is refused
+  (blocks XXE and entity-expansion attacks).
+
+API: `POST /api/check`, `/api/explain`, `/api/repair`, `/api/chat`, `/api/submit`;
+`GET /api/summary/{id}`, `/api/download/{id}`, `/api/samples`, `/api/health`.
+
+Live ANAF submission is out of scope. `facturaguard/submission/base.py` defines the adapter
+interface; `MockAnafAdapter` re-validates and returns ANAF-style states (`ok`, `nok`,
+`XML cu erori nepreluat de sistem`), clearly marked as a simulation.
+
 ## Synthetic data
 `data/synthetic/` holds 100 labelled invoices (34 designed valid, 56 with one planted error,
 10 with two). Labels are in `manifest.json`. `data/synthetic/pdf/` holds 52 of them as
@@ -78,8 +101,8 @@ python scripts/eval_extraction.py --out eval_extraction.json         # accuracy 
 ```
 
 ## Status
-Milestones 1 (scaffold, client), 2 (synthetic set), 3 (validator), 4 (explain and repair) and
-5 (PDF extraction) done. See `FEEDBACK.md` for platform notes.
+Milestones 1 (scaffold, client), 2 (synthetic set), 3 (validator), 4 (explain and repair),
+5 (PDF extraction) and 6 (web UI, chat, accountant summary, mock ANAF) done. See `FEEDBACK.md` for platform notes.
 
 ## Validation
 `facturaguard/validation/` runs three layers: UBL 2.1 XSD, the ANAF CIUS-RO 1.0.9 Schematron

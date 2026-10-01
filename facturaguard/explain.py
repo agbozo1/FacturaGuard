@@ -28,6 +28,15 @@ class Explanation:
     official_rule: str
     validator_message: str
     source: str  # "model" | "rule_text"
+    # Both languages, so the UI can switch without a new request. ANAF publishes Romanian text
+    # only for its BR-RO rules; EN 16931 rules are English only (official_ro is then None).
+    official_en: str | None = None
+    official_ro: str | None = None
+
+    def __post_init__(self):
+        rt = rule_text(self.rule_id)
+        if rt and self.official_en is None:
+            self.official_en, self.official_ro = rt.en, rt.ro
 
 
 @dataclass

@@ -53,3 +53,8 @@ Dated notes for the hackathon submission feedback fields.
   cookbook but not on our key, so scanned PDFs are out of scope; we read text-based PDFs only
   and use Lightning (thinking off) for extraction.
 - Real-call numbers for extraction and repair are pending (no key on the dev machine).
+
+## 2026-10-01 (web app)
+- Not a Token Factory note: saxonche (GraalVM native) objects are bound to the creating
+  thread; using them from FastAPI worker threads crashed the process. All Schematron work now
+  runs on one dedicated thread.

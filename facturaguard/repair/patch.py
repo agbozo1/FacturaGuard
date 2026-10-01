@@ -17,6 +17,8 @@ from dataclasses import dataclass, field
 
 from lxml import etree
 
+from facturaguard.xmlsafe import UnsafeXML, parse
+
 NS = {
     "ubl": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
     "cn": "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2",
@@ -51,8 +53,8 @@ def _one(root, xpath: str):
 def _fragment(xml: str) -> list:
     decls = " ".join(f'xmlns:{p}="{u}"' for p, u in NS.items() if p in ("cac", "cbc"))
     try:
-        wrapper = etree.fromstring(f"<wrap {decls}>{xml}</wrap>".encode())
-    except etree.XMLSyntaxError as e:
+        wrapper = parse(f"<wrap {decls}>{xml}</wrap>".encode())
+    except (etree.XMLSyntaxError, UnsafeXML) as e:
         raise PatchError(f"fragment is not well-formed: {e}") from e
     kids = list(wrapper)
     if not kids:
@@ -89,7 +91,7 @@ def _apply_one(root, op: dict) -> None:
 
 def apply_ops(xml: bytes, ops: list[dict]) -> PatchOutcome:
     """Apply ops one by one; a failing op is rejected and the others still apply."""
-    root = etree.fromstring(xml)
+    root = parse(xml)
     outcome = PatchOutcome(xml=xml)
     for op in ops:
         snapshot = etree.tostring(root)
@@ -97,7 +99,7 @@ def apply_ops(xml: bytes, ops: list[dict]) -> PatchOutcome:
             _apply_one(root, op)
             outcome.applied.append(op)
         except (PatchError, KeyError, TypeError) as e:
-            root = etree.fromstring(snapshot)
+            root = parse(snapshot)
             outcome.rejected.append((op, str(e)))
     etree.indent(root, space="  ")
     outcome.xml = etree.tostring(root, xml_declaration=True, encoding="UTF-8") + b"\n"
@@ -106,7 +108,7 @@ def apply_ops(xml: bytes, ops: list[dict]) -> PatchOutcome:
 
 def unified_diff(before: bytes, after: bytes) -> str:
     def norm(b: bytes) -> list[str]:
-        root = etree.fromstring(b)
+        root = parse(b)
         etree.indent(root, space="  ")
         return etree.tostring(root, encoding="unicode").splitlines(keepends=True)
 
