@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Sigma Muster 13 GmbH</cbc:Name>
+        <cbc:Name>Sigma Test 13 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>ul. Probna 37</cbc:StreetName>
-        <cbc:CityName>Sofia</cbc:CityName>
-        <cbc:PostalZone>1000</cbc:PostalZone>
+        <cbc:StreetName>Str. Proba 1</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>BG</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>BG215897524</cbc:CompanyID>
+        <cbc:CompanyID>RO875732664</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Sigma Muster 13 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Sigma Test 13 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J7/4828/2016</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

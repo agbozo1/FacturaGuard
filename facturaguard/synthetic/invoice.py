@@ -62,7 +62,7 @@ def _ro_party(rng: random.Random, names: list[str]) -> dict:
     }
 
 
-def _eu_party(rng: random.Random) -> dict:
+def eu_party(rng: random.Random) -> dict:
     cc, city, postal, street, prefix = rng.choice(EU_BUYERS)
     return {
         "legal_name": f"{rng.choice(BUYER_NAMES)} Muster {rng.randint(1, 99)} GmbH",
@@ -96,7 +96,9 @@ def build_invoice(rng: random.Random, index: int) -> dict:
         )
     seller = _ro_party(rng, SELLER_NAMES)
     seller["iban"] = make_iban(rng)
-    buyer = _ro_party(rng, BUYER_NAMES) if rng.random() < 0.7 else _eu_party(rng)
+    # Designed-valid invoices use Romanian buyers. ANAF's validator rejects a buyer identified
+    # only by a foreign VAT id, so that case is a labelled mutation (foreign_buyer_no_ro_id).
+    buyer = _ro_party(rng, BUYER_NAMES)
     return {
         "customization": CUSTOMIZATION_ID,
         "number": f"FG-2026-{index:04d}",

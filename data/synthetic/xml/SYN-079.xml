@@ -34,26 +34,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Nova Test 93 SRL</cbc:Name>
+        <cbc:Name>Helios Test 88 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 56</cbc:StreetName>
-        <cbc:CityName>Timisoara</cbc:CityName>
-        <cbc:PostalZone>300001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Model 87</cbc:StreetName>
+        <cbc:CityName>Brasov</cbc:CityName>
+        <cbc:PostalZone>500001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO916927070</cbc:CompanyID>
+        <cbc:CompanyID>RO53715448</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Nova Test 93 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J6/8464/2016</cbc:CompanyID>
+        <cbc:RegistrationName>Helios Test 88 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J23/1423/2021</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

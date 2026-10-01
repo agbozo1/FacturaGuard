@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Kappa Test 6 SRL</cbc:Name>
+        <cbc:Name>Lotus Test 56 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Proba 71</cbc:StreetName>
-        <cbc:CityName>Iasi</cbc:CityName>
-        <cbc:PostalZone>700001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Test 72</cbc:StreetName>
+        <cbc:CityName>Cluj-Napoca</cbc:CityName>
+        <cbc:PostalZone>400001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO580642634</cbc:CompanyID>
+        <cbc:CompanyID>RO862242237</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Kappa Test 6 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J10/9188/2009</cbc:CompanyID>
+        <cbc:RegistrationName>Lotus Test 56 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J4/821/2009</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

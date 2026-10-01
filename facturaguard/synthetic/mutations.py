@@ -1,17 +1,19 @@
 """Planted errors. Each mutation declares the rules that MUST fire (expected_rules).
 
 Validators may report extra cascading findings; tests check recall on expected_rules.
-Rule IDs are EN 16931 / CIUS-RO IDs, confirmed against ro16931-ubl-1.0.9 in Milestone 3.
-FG-CUI-CHECKSUM is our own identifier check. XSD and parse mutations have no rule ID and are
+Rule IDs are EN 16931 / CIUS-RO IDs, confirmed against ro16931-ubl-1.0.9 and ANAF's offline
+validator. FG-* IDs are ANAF identifier checks that run outside the Schematron (see
+facturaguard/validation/identifiers.py). XSD and parse mutations have no rule ID and are
 identified by layer.
 """
 
+import random
 import re
 from collections.abc import Callable
 from dataclasses import dataclass
 
 from facturaguard.synthetic.identifiers import corrupt_cui
-from facturaguard.synthetic.invoice import shift
+from facturaguard.synthetic.invoice import eu_party, shift
 
 
 @dataclass(frozen=True)
@@ -43,6 +45,10 @@ def _strip_vat_prefix(m: dict) -> None:
 
 def _bad_cif(m: dict) -> None:
     m["seller"]["vat_id"] = "RO" + corrupt_cui(m["seller"]["vat_id"].removeprefix("RO"))
+
+
+def _foreign_buyer(m: dict) -> None:
+    m["buyer"] = eu_party(random.Random(m["number"] or "x"))
 
 
 def _xml_wrong_order(xml: str) -> str:
@@ -89,7 +95,7 @@ MUTATIONS: list[Mutation] = [
     Mutation("wrong_country_buyer", "schematron", ("BR-CL-14",),
              "Buyer country is 'GER' instead of ISO alpha-2.", "buyer_country",
              _set(("buyer", "country"), "GER")),
-    Mutation("bad_currency_code", "schematron", ("BR-CL-04",),
+    Mutation("bad_currency_code", "schematron", ("BR-CL-03", "BR-CL-04"),
              "Document currency is 'LEI' instead of ISO 4217 'RON'.", "currency",
              _set(("currency",), "LEI")),
     _missing("missing_customization_id", "BR-01", "Missing CustomizationID.",
@@ -111,9 +117,12 @@ MUTATIONS: list[Mutation] = [
              _set(("buyer", "country"), None), group="buyer_country"),
     Mutation("no_invoice_lines", "schematron", ("BR-16",), "Invoice has no lines.", "lines",
              _set(("lines",), []), combinable=False),
-    Mutation("bad_cif_checksum", "anaf_identifier", ("FG-CUI-CHECKSUM",),
+    Mutation("bad_cif_checksum", "anaf_identifier", ("FG-CUI-SELLER",),
              "Seller CIF fails the CUI control-digit checksum (checked outside Schematron).",
              "cif", _bad_cif),
+    Mutation("foreign_buyer_no_ro_id", "anaf_identifier", ("FG-BUYER-ID",),
+             "EU buyer identified only by its foreign VAT id; ANAF's validator finds no buyer CUI.",
+             "buyer_id", _foreign_buyer, combinable=False),
     Mutation("missing_ro_subdivision", "schematron", ("BR-RO-110",),
              "Romanian seller address lacks the RO-XX county code (CIUS-RO rule).",
              "subdivision", _set(("seller", "subdivision"), None)),

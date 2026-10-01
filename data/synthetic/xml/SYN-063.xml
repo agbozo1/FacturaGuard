@@ -4,7 +4,7 @@
   <cbc:ID>FG-2026-0063</cbc:ID>
   <cbc:IssueDate>2026-02-13</cbc:IssueDate>
   <cbc:DueDate>2026-03-15</cbc:DueDate>
-  <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>
+  <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
   <cac:AccountingSupplierParty>
     <cac:Party>
       <cac:PartyName>
@@ -34,10 +34,10 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Apex Test 97 SRL</cbc:Name>
+        <cbc:Name>Cedar Test 52 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Model 26</cbc:StreetName>
+        <cbc:StreetName>Str. Model 73</cbc:StreetName>
         <cbc:CityName>Brasov</cbc:CityName>
         <cbc:PostalZone>500001</cbc:PostalZone>
         <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
@@ -46,14 +46,14 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO544095999</cbc:CompanyID>
+        <cbc:CompanyID>RO727274448</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Apex Test 97 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J10/4221/2023</cbc:CompanyID>
+        <cbc:RegistrationName>Cedar Test 52 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J25/2430/2013</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

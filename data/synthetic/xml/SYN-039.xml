@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Sigma Test 22 SRL</cbc:Name>
+        <cbc:Name>Cedar Test 12 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Model 34</cbc:StreetName>
-        <cbc:CityName>Brasov</cbc:CityName>
-        <cbc:PostalZone>500001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Exemplu 98</cbc:StreetName>
+        <cbc:CityName>SECTOR3</cbc:CityName>
+        <cbc:PostalZone>030167</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO122181698</cbc:CompanyID>
+        <cbc:CompanyID>RO18688086</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Sigma Test 22 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J11/8079/2013</cbc:CompanyID>
+        <cbc:RegistrationName>Cedar Test 12 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J7/2897/2010</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -80,9 +80,9 @@
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
     <cbc:LineExtensionAmount currencyID="RON">17811.79</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">17811.79</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">21559.27</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">21559.27</cbc:PayableAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">17814.79</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">21555.27</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">21555.27</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

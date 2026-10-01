@@ -34,26 +34,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Sigma Test 41 SRL</cbc:Name>
+        <cbc:Name>Nova Test 15 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 3</cbc:StreetName>
-        <cbc:CityName>Timisoara</cbc:CityName>
-        <cbc:PostalZone>300001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Proba 48</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO152215164</cbc:CompanyID>
+        <cbc:CompanyID>RO13767065</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Sigma Test 41 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J16/6171/2021</cbc:CompanyID>
+        <cbc:RegistrationName>Nova Test 15 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J5/5228/2012</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

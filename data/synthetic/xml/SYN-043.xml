@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Omega Muster 68 GmbH</cbc:Name>
+        <cbc:Name>Cedar Test 24 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Rue de l'Exemple 24</cbc:StreetName>
-        <cbc:CityName>Paris</cbc:CityName>
-        <cbc:PostalZone>75001</cbc:PostalZone>
+        <cbc:StreetName>Str. Test 92</cbc:StreetName>
+        <cbc:CityName>Cluj-Napoca</cbc:CityName>
+        <cbc:PostalZone>400001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>FR</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>FR958435383</cbc:CompanyID>
+        <cbc:CompanyID>RO228842980</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Omega Muster 68 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Cedar Test 24 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J8/3453/2018</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -63,7 +65,7 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:TaxTotal>
-    <cbc:TaxAmount currencyID="RON">543.92</cbc:TaxAmount>
+    <cbc:TaxAmount currencyID="RON">556.92</cbc:TaxAmount>
     <cac:TaxSubtotal>
       <cbc:TaxableAmount currencyID="RON">4944.70</cbc:TaxableAmount>
       <cbc:TaxAmount currencyID="RON">543.92</cbc:TaxAmount>
@@ -77,10 +79,10 @@
     </cac:TaxSubtotal>
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
-    <cbc:LineExtensionAmount currencyID="RON">4955.70</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">4955.70</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">5499.62</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">5499.62</cbc:PayableAmount>
+    <cbc:LineExtensionAmount currencyID="RON">4944.70</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">4944.70</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">5501.62</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">5501.62</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

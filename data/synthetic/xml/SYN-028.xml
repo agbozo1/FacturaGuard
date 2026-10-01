@@ -38,16 +38,16 @@
         <cbc:Name>Nova Test 78 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Model 78</cbc:StreetName>
-        <cbc:CityName>Brasov</cbc:CityName>
-        <cbc:PostalZone>500001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Proba 78</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO855706270</cbc:CompanyID>
+        <cbc:CompanyID>RO679273016</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>

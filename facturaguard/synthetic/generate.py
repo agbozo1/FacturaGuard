@@ -14,7 +14,7 @@ from pathlib import Path
 from facturaguard.synthetic.invoice import build_invoice, render
 from facturaguard.synthetic.mutations import MUTATIONS, Mutation
 
-N_VALID = 36
+N_VALID = 34
 PER_MUTATION = 2
 N_COMBOS = 10
 

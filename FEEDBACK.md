@@ -41,3 +41,9 @@ Dated notes for the hackathon submission feedback fields.
 - Not a Token Factory note: the ANAF CIUS-RO package (ro16931-ubl-1.0.9) ships only Schematron
   source, no compiled XSLT, so the rules are compiled locally with the ISO Schematron XSLT and
   saxonche. Full run over 100 invoices takes about 1.4s including compile.
+
+## 2026-10-01 (validator, cross-checked with ANAF's offline tool)
+- Not a Token Factory note. ANAF's own validator found two gaps in ours: attribute-context
+  Schematron rules were skipped by the ISO compiler (fixed), and ANAF checks buyer and seller
+  identifiers outside the Schematron (reproduced). Now 100/100 verdicts agree.
+- ANAF's validator takes about 37s for 100 files; ours about 1.4s.

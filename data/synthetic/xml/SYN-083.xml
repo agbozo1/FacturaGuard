@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Omega Test 47 SRL</cbc:Name>
+        <cbc:Name>Cedar Test 85 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Model 7</cbc:StreetName>
-        <cbc:CityName>Brasov</cbc:CityName>
-        <cbc:PostalZone>500001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
+        <cbc:StreetName>Bd. Demo 84</cbc:StreetName>
+        <cbc:CityName>Timisoara</cbc:CityName>
+        <cbc:PostalZone>300001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO884604770</cbc:CompanyID>
+        <cbc:CompanyID>RO313485532</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Omega Test 47 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J21/4077/2010</cbc:CompanyID>
+        <cbc:RegistrationName>Cedar Test 85 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J12/6030/2015</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

@@ -17,7 +17,7 @@
         <cbc:PostalZone>030167</cbc:PostalZone>
         <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>ROU</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Lotus Muster 44 GmbH</cbc:Name>
+        <cbc:Name>Lotus Test 44 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teststrasse 75</cbc:StreetName>
-        <cbc:CityName>Berlin</cbc:CityName>
-        <cbc:PostalZone>10115</cbc:PostalZone>
+        <cbc:StreetName>Str. Proba 73</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+          <cbc:IdentificationCode>GER</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>DE134787792</cbc:CompanyID>
+        <cbc:CompanyID>RO55796775</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Lotus Muster 44 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Lotus Test 44 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J3/9581/2023</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

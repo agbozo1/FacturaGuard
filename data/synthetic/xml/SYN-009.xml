@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Cedar Muster 43 GmbH</cbc:Name>
+        <cbc:Name>Cedar Test 43 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teszt utca 79</cbc:StreetName>
-        <cbc:CityName>Budapest</cbc:CityName>
-        <cbc:PostalZone>1051</cbc:PostalZone>
+        <cbc:StreetName>Str. Model 39</cbc:StreetName>
+        <cbc:CityName>Brasov</cbc:CityName>
+        <cbc:PostalZone>500001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>HU</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>HU151466066</cbc:CompanyID>
+        <cbc:CompanyID>RO542252817</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Cedar Muster 43 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Cedar Test 43 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J4/7469/2010</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

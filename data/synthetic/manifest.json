@@ -351,26 +351,6 @@
     {
       "id": "SYN-035",
       "file": "xml/SYN-035.xml",
-      "designed_valid": true,
-      "mutations": [],
-      "layers": [],
-      "expected_rules": [],
-      "needs_rule_mapping": false,
-      "descriptions": []
-    },
-    {
-      "id": "SYN-036",
-      "file": "xml/SYN-036.xml",
-      "designed_valid": true,
-      "mutations": [],
-      "layers": [],
-      "expected_rules": [],
-      "needs_rule_mapping": false,
-      "descriptions": []
-    },
-    {
-      "id": "SYN-037",
-      "file": "xml/SYN-037.xml",
       "designed_valid": false,
       "mutations": [
         "bad_payable"
@@ -384,6 +364,42 @@
       "needs_rule_mapping": false,
       "descriptions": [
         "Payable amount does not match tax-inclusive total."
+      ]
+    },
+    {
+      "id": "SYN-036",
+      "file": "xml/SYN-036.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_payable"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-16"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Payable amount does not match tax-inclusive total."
+      ]
+    },
+    {
+      "id": "SYN-037",
+      "file": "xml/SYN-037.xml",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "layers": [
+        "schematron"
+      ],
+      "expected_rules": [
+        "BR-CO-15"
+      ],
+      "needs_rule_mapping": false,
+      "descriptions": [
+        "Tax-inclusive total is not tax-exclusive plus VAT."
       ]
     },
     {
@@ -391,17 +407,17 @@
       "file": "xml/SYN-038.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_payable"
+        "bad_tax_inclusive"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-16"
+        "BR-CO-15"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Payable amount does not match tax-inclusive total."
+        "Tax-inclusive total is not tax-exclusive plus VAT."
       ]
     },
     {
@@ -409,17 +425,17 @@
       "file": "xml/SYN-039.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_tax_inclusive"
+        "bad_tax_exclusive"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-15"
+        "BR-CO-13"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Tax-inclusive total is not tax-exclusive plus VAT."
+        "Tax-exclusive total does not match line sum."
       ]
     },
     {
@@ -427,17 +443,17 @@
       "file": "xml/SYN-040.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_tax_inclusive"
+        "bad_tax_exclusive"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-15"
+        "BR-CO-13"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Tax-inclusive total is not tax-exclusive plus VAT."
+        "Tax-exclusive total does not match line sum."
       ]
     },
     {
@@ -445,17 +461,17 @@
       "file": "xml/SYN-041.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_tax_exclusive"
+        "bad_line_sum"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-13"
+        "BR-CO-10"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Tax-exclusive total does not match line sum."
+        "Sum of lines in totals differs from the actual lines."
       ]
     },
     {
@@ -463,17 +479,17 @@
       "file": "xml/SYN-042.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_tax_exclusive"
+        "bad_line_sum"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-13"
+        "BR-CO-10"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Tax-exclusive total does not match line sum."
+        "Sum of lines in totals differs from the actual lines."
       ]
     },
     {
@@ -481,17 +497,17 @@
       "file": "xml/SYN-043.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_line_sum"
+        "bad_tax_total"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-10"
+        "BR-CO-14"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Sum of lines in totals differs from the actual lines."
+        "Invoice VAT total differs from sum of VAT subtotals."
       ]
     },
     {
@@ -499,17 +515,17 @@
       "file": "xml/SYN-044.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_line_sum"
+        "bad_tax_total"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-10"
+        "BR-CO-14"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Sum of lines in totals differs from the actual lines."
+        "Invoice VAT total differs from sum of VAT subtotals."
       ]
     },
     {
@@ -517,17 +533,17 @@
       "file": "xml/SYN-045.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_tax_total"
+        "bad_vat_amount"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-14"
+        "BR-CO-17"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Invoice VAT total differs from sum of VAT subtotals."
+        "VAT subtotal amount is not taxable amount x rate."
       ]
     },
     {
@@ -535,17 +551,17 @@
       "file": "xml/SYN-046.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_tax_total"
+        "bad_vat_amount"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-14"
+        "BR-CO-17"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Invoice VAT total differs from sum of VAT subtotals."
+        "VAT subtotal amount is not taxable amount x rate."
       ]
     },
     {
@@ -553,17 +569,17 @@
       "file": "xml/SYN-047.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_vat_amount"
+        "vat_no_country_prefix"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-17"
+        "BR-CO-09"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "VAT subtotal amount is not taxable amount x rate."
+        "Seller VAT id has no ISO country prefix."
       ]
     },
     {
@@ -571,17 +587,17 @@
       "file": "xml/SYN-048.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_vat_amount"
+        "vat_no_country_prefix"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-17"
+        "BR-CO-09"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "VAT subtotal amount is not taxable amount x rate."
+        "Seller VAT id has no ISO country prefix."
       ]
     },
     {
@@ -589,17 +605,17 @@
       "file": "xml/SYN-049.xml",
       "designed_valid": false,
       "mutations": [
-        "vat_no_country_prefix"
+        "wrong_country_seller"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-09"
+        "BR-CL-14"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Seller VAT id has no ISO country prefix."
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
       ]
     },
     {
@@ -607,17 +623,17 @@
       "file": "xml/SYN-050.xml",
       "designed_valid": false,
       "mutations": [
-        "vat_no_country_prefix"
+        "wrong_country_seller"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CO-09"
+        "BR-CL-14"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Seller VAT id has no ISO country prefix."
+        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
       ]
     },
     {
@@ -625,7 +641,7 @@
       "file": "xml/SYN-051.xml",
       "designed_valid": false,
       "mutations": [
-        "wrong_country_seller"
+        "wrong_country_buyer"
       ],
       "layers": [
         "schematron"
@@ -635,7 +651,7 @@
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
+        "Buyer country is 'GER' instead of ISO alpha-2."
       ]
     },
     {
@@ -643,7 +659,7 @@
       "file": "xml/SYN-052.xml",
       "designed_valid": false,
       "mutations": [
-        "wrong_country_seller"
+        "wrong_country_buyer"
       ],
       "layers": [
         "schematron"
@@ -653,7 +669,7 @@
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Seller country is 'ROU' instead of ISO alpha-2 'RO'."
+        "Buyer country is 'GER' instead of ISO alpha-2."
       ]
     },
     {
@@ -661,17 +677,18 @@
       "file": "xml/SYN-053.xml",
       "designed_valid": false,
       "mutations": [
-        "wrong_country_buyer"
+        "bad_currency_code"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CL-14"
+        "BR-CL-03",
+        "BR-CL-04"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Buyer country is 'GER' instead of ISO alpha-2."
+        "Document currency is 'LEI' instead of ISO 4217 'RON'."
       ]
     },
     {
@@ -679,17 +696,18 @@
       "file": "xml/SYN-054.xml",
       "designed_valid": false,
       "mutations": [
-        "wrong_country_buyer"
+        "bad_currency_code"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CL-14"
+        "BR-CL-03",
+        "BR-CL-04"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Buyer country is 'GER' instead of ISO alpha-2."
+        "Document currency is 'LEI' instead of ISO 4217 'RON'."
       ]
     },
     {
@@ -697,17 +715,17 @@
       "file": "xml/SYN-055.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_currency_code"
+        "missing_customization_id"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CL-04"
+        "BR-01"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Document currency is 'LEI' instead of ISO 4217 'RON'."
+        "Missing CustomizationID."
       ]
     },
     {
@@ -715,17 +733,17 @@
       "file": "xml/SYN-056.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_currency_code"
+        "missing_customization_id"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-CL-04"
+        "BR-01"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Document currency is 'LEI' instead of ISO 4217 'RON'."
+        "Missing CustomizationID."
       ]
     },
     {
@@ -733,17 +751,17 @@
       "file": "xml/SYN-057.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_customization_id"
+        "missing_invoice_number"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-01"
+        "BR-02"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing CustomizationID."
+        "Missing invoice number."
       ]
     },
     {
@@ -751,17 +769,17 @@
       "file": "xml/SYN-058.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_customization_id"
+        "missing_invoice_number"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-01"
+        "BR-02"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing CustomizationID."
+        "Missing invoice number."
       ]
     },
     {
@@ -769,17 +787,17 @@
       "file": "xml/SYN-059.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_invoice_number"
+        "missing_issue_date"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-02"
+        "BR-03"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing invoice number."
+        "Missing issue date."
       ]
     },
     {
@@ -787,17 +805,17 @@
       "file": "xml/SYN-060.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_invoice_number"
+        "missing_issue_date"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-02"
+        "BR-03"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing invoice number."
+        "Missing issue date."
       ]
     },
     {
@@ -805,17 +823,17 @@
       "file": "xml/SYN-061.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_issue_date"
+        "missing_type_code"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-03"
+        "BR-04"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing issue date."
+        "Missing invoice type code."
       ]
     },
     {
@@ -823,17 +841,17 @@
       "file": "xml/SYN-062.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_issue_date"
+        "missing_type_code"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-03"
+        "BR-04"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing issue date."
+        "Missing invoice type code."
       ]
     },
     {
@@ -841,17 +859,17 @@
       "file": "xml/SYN-063.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_type_code"
+        "missing_currency"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-04"
+        "BR-05"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing invoice type code."
+        "Missing document currency code."
       ]
     },
     {
@@ -859,17 +877,17 @@
       "file": "xml/SYN-064.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_type_code"
+        "missing_currency"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-04"
+        "BR-05"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing invoice type code."
+        "Missing document currency code."
       ]
     },
     {
@@ -877,17 +895,17 @@
       "file": "xml/SYN-065.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_currency"
+        "missing_seller_name"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-05"
+        "BR-06"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing document currency code."
+        "Missing seller legal name."
       ]
     },
     {
@@ -895,17 +913,17 @@
       "file": "xml/SYN-066.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_currency"
+        "missing_seller_name"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-05"
+        "BR-06"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing document currency code."
+        "Missing seller legal name."
       ]
     },
     {
@@ -913,17 +931,17 @@
       "file": "xml/SYN-067.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_seller_name"
+        "missing_buyer_name"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-06"
+        "BR-07"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing seller legal name."
+        "Missing buyer legal name."
       ]
     },
     {
@@ -931,17 +949,17 @@
       "file": "xml/SYN-068.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_seller_name"
+        "missing_buyer_name"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-06"
+        "BR-07"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing seller legal name."
+        "Missing buyer legal name."
       ]
     },
     {
@@ -949,17 +967,17 @@
       "file": "xml/SYN-069.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_buyer_name"
+        "missing_seller_country"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-07"
+        "BR-09"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing buyer legal name."
+        "Missing seller country code."
       ]
     },
     {
@@ -967,17 +985,17 @@
       "file": "xml/SYN-070.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_buyer_name"
+        "missing_seller_country"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-07"
+        "BR-09"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing buyer legal name."
+        "Missing seller country code."
       ]
     },
     {
@@ -985,17 +1003,17 @@
       "file": "xml/SYN-071.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_seller_country"
+        "missing_buyer_country"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-09"
+        "BR-11"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing seller country code."
+        "Missing buyer country code."
       ]
     },
     {
@@ -1003,17 +1021,17 @@
       "file": "xml/SYN-072.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_seller_country"
+        "missing_buyer_country"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-09"
+        "BR-11"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing seller country code."
+        "Missing buyer country code."
       ]
     },
     {
@@ -1021,17 +1039,17 @@
       "file": "xml/SYN-073.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_buyer_country"
+        "no_invoice_lines"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-11"
+        "BR-16"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing buyer country code."
+        "Invoice has no lines."
       ]
     },
     {
@@ -1039,17 +1057,17 @@
       "file": "xml/SYN-074.xml",
       "designed_valid": false,
       "mutations": [
-        "missing_buyer_country"
+        "no_invoice_lines"
       ],
       "layers": [
         "schematron"
       ],
       "expected_rules": [
-        "BR-11"
+        "BR-16"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Missing buyer country code."
+        "Invoice has no lines."
       ]
     },
     {
@@ -1057,17 +1075,17 @@
       "file": "xml/SYN-075.xml",
       "designed_valid": false,
       "mutations": [
-        "no_invoice_lines"
+        "bad_cif_checksum"
       ],
       "layers": [
-        "schematron"
+        "anaf_identifier"
       ],
       "expected_rules": [
-        "BR-16"
+        "FG-CUI-SELLER"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Invoice has no lines."
+        "Seller CIF fails the CUI control-digit checksum (checked outside Schematron)."
       ]
     },
     {
@@ -1075,17 +1093,17 @@
       "file": "xml/SYN-076.xml",
       "designed_valid": false,
       "mutations": [
-        "no_invoice_lines"
+        "bad_cif_checksum"
       ],
       "layers": [
-        "schematron"
+        "anaf_identifier"
       ],
       "expected_rules": [
-        "BR-16"
+        "FG-CUI-SELLER"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Invoice has no lines."
+        "Seller CIF fails the CUI control-digit checksum (checked outside Schematron)."
       ]
     },
     {
@@ -1093,17 +1111,17 @@
       "file": "xml/SYN-077.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_cif_checksum"
+        "foreign_buyer_no_ro_id"
       ],
       "layers": [
         "anaf_identifier"
       ],
       "expected_rules": [
-        "FG-CUI-CHECKSUM"
+        "FG-BUYER-ID"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Seller CIF fails the CUI control-digit checksum (checked outside Schematron)."
+        "EU buyer identified only by its foreign VAT id; ANAF's validator finds no buyer CUI."
       ]
     },
     {
@@ -1111,17 +1129,17 @@
       "file": "xml/SYN-078.xml",
       "designed_valid": false,
       "mutations": [
-        "bad_cif_checksum"
+        "foreign_buyer_no_ro_id"
       ],
       "layers": [
         "anaf_identifier"
       ],
       "expected_rules": [
-        "FG-CUI-CHECKSUM"
+        "FG-BUYER-ID"
       ],
       "needs_rule_mapping": false,
       "descriptions": [
-        "Seller CIF fails the CUI control-digit checksum (checked outside Schematron)."
+        "EU buyer identified only by its foreign VAT id; ANAF's validator finds no buyer CUI."
       ]
     },
     {
@@ -1357,6 +1375,7 @@
         "schematron"
       ],
       "expected_rules": [
+        "BR-CL-03",
         "BR-CL-04",
         "BR-CO-10"
       ],
@@ -1505,6 +1524,7 @@
       ],
       "expected_rules": [
         "BR-01",
+        "BR-CL-03",
         "BR-CL-04"
       ],
       "needs_rule_mapping": false,

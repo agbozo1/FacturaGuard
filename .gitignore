@@ -10,3 +10,6 @@ node_modules/
 .netlify/
 dist/
 *.egg-info/
+# Large ANAF downloads stay local. GitHub rejects files over 100 MB.
+# The four zips committed earlier remain tracked; vendor/ holds what the app uses.
+download-packages/*

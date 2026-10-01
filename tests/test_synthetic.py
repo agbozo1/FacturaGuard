@@ -44,7 +44,7 @@ def test_set_size_and_manifest(out):
     assert len(list((out / "xml").glob("*.xml"))) == 100
     assert any(e["designed_valid"] for e in manifest["invoices"])
     for e in manifest["invoices"]:
-        assert all(re.fullmatch(r"(BR-[A-Z]{0,3}-?[A-Z]*\d{1,4}|FG-CUI-CHECKSUM)", r) for r in e["expected_rules"])
+        assert all(re.fullmatch(r"(BR-[A-Z]{0,3}-?[A-Z]*\d{1,4}|FG-[A-Z]+-[A-Z]+)", r) for r in e["expected_rules"])
         assert e["designed_valid"] == (not e["mutations"])
 
 

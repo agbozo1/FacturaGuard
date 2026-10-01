@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Helios Muster 62 GmbH</cbc:Name>
+        <cbc:Name>Lotus Test 77 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Via di Prova 107</cbc:StreetName>
-        <cbc:CityName>Milano</cbc:CityName>
-        <cbc:PostalZone>20100</cbc:PostalZone>
+        <cbc:StreetName>Bd. Demo 81</cbc:StreetName>
+        <cbc:CityName>Timisoara</cbc:CityName>
+        <cbc:PostalZone>300001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>IT745646584</cbc:CompanyID>
+        <cbc:CompanyID>RO400082800</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Helios Muster 62 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Lotus Test 77 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J21/1867/2009</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

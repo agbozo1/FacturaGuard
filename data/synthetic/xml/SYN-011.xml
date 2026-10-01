@@ -35,10 +35,10 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Lotus Test 12 SRL</cbc:Name>
+        <cbc:Name>Nova Test 74 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 101</cbc:StreetName>
+        <cbc:StreetName>Bd. Demo 63</cbc:StreetName>
         <cbc:CityName>Timisoara</cbc:CityName>
         <cbc:PostalZone>300001</cbc:PostalZone>
         <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
@@ -47,14 +47,14 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO765740770</cbc:CompanyID>
+        <cbc:CompanyID>RO932422517</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Lotus Test 12 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J5/8070/2006</cbc:CompanyID>
+        <cbc:RegistrationName>Nova Test 74 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J32/1534/2007</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

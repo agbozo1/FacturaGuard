@@ -5,11 +5,9 @@
   <cbc:IssueDate>2026-05-23</cbc:IssueDate>
   <cbc:DueDate>2026-06-22</cbc:DueDate>
   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+  <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>
   <cac:AccountingSupplierParty>
     <cac:Party>
-      <cac:PartyName>
-        <cbc:Name>Vega Test 36 SRL</cbc:Name>
-      </cac:PartyName>
       <cac:PostalAddress>
         <cbc:StreetName>Str. Test 63</cbc:StreetName>
         <cbc:CityName>Cluj-Napoca</cbc:CityName>
@@ -26,7 +24,6 @@
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Vega Test 36 SRL</cbc:RegistrationName>
         <cbc:CompanyID>J9/2522/2008</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
@@ -34,24 +31,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Lotus Muster 92 GmbH</cbc:Name>
+        <cbc:Name>Sigma Test 94 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Via di Prova 94</cbc:StreetName>
-        <cbc:CityName>Milano</cbc:CityName>
-        <cbc:PostalZone>20100</cbc:PostalZone>
+        <cbc:StreetName>Bd. Demo 94</cbc:StreetName>
+        <cbc:CityName>Timisoara</cbc:CityName>
+        <cbc:PostalZone>300001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>IT201725708</cbc:CompanyID>
+        <cbc:CompanyID>RO628993969</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Lotus Muster 92 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Sigma Test 94 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J24/8612/2015</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

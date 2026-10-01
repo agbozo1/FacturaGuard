@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Kappa Muster 27 GmbH</cbc:Name>
+        <cbc:Name>Kappa Test 27 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teszt utca 25</cbc:StreetName>
-        <cbc:CityName>Budapest</cbc:CityName>
-        <cbc:PostalZone>1051</cbc:PostalZone>
+        <cbc:StreetName>Str. Test 88</cbc:StreetName>
+        <cbc:CityName>Cluj-Napoca</cbc:CityName>
+        <cbc:PostalZone>400001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>HU</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>HU845023569</cbc:CompanyID>
+        <cbc:CompanyID>RO563097201</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Kappa Muster 27 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Kappa Test 27 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J13/4812/2022</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -78,9 +80,9 @@
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
     <cbc:LineExtensionAmount currencyID="RON">1434.15</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">1434.15</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">1598.91</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">1598.91</cbc:PayableAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">1437.15</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">1594.91</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">1594.91</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

@@ -21,7 +21,7 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO416437943</cbc:CompanyID>
+        <cbc:CompanyID>RO416437942</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
@@ -35,26 +35,24 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Nova Test 59 SRL</cbc:Name>
+        <cbc:Name>Sigma Muster 17 GmbH</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 83</cbc:StreetName>
-        <cbc:CityName>Timisoara</cbc:CityName>
-        <cbc:PostalZone>300001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
+        <cbc:StreetName>Teszt utca 52</cbc:StreetName>
+        <cbc:CityName>Budapest</cbc:CityName>
+        <cbc:PostalZone>1051</cbc:PostalZone>
         <cac:Country>
-          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+          <cbc:IdentificationCode>HU</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO621568260</cbc:CompanyID>
+        <cbc:CompanyID>HU305405591</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Nova Test 59 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J34/3476/2011</cbc:CompanyID>
+        <cbc:RegistrationName>Sigma Muster 17 GmbH</cbc:RegistrationName>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

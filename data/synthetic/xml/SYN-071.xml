@@ -16,6 +16,9 @@
         <cbc:CityName>Brasov</cbc:CityName>
         <cbc:PostalZone>500001</cbc:PostalZone>
         <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
+        <cac:Country>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+        </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
         <cbc:CompanyID>RO78796731</cbc:CompanyID>
@@ -32,26 +35,23 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Omega Test 36 SRL</cbc:Name>
+        <cbc:Name>Helios Test 41 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 10</cbc:StreetName>
-        <cbc:CityName>Timisoara</cbc:CityName>
-        <cbc:PostalZone>300001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
-        <cac:Country>
-          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
-        </cac:Country>
+        <cbc:StreetName>Str. Proba 59</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO421890752</cbc:CompanyID>
+        <cbc:CompanyID>RO977011619</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Omega Test 36 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J30/2655/2014</cbc:CompanyID>
+        <cbc:RegistrationName>Helios Test 41 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J38/2994/2013</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

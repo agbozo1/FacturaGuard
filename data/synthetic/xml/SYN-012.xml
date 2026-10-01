@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Helios Test 72 SRL</cbc:Name>
+        <cbc:Name>Omega Test 93 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Test 3</cbc:StreetName>
-        <cbc:CityName>Cluj-Napoca</cbc:CityName>
-        <cbc:PostalZone>400001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Model 112</cbc:StreetName>
+        <cbc:CityName>Brasov</cbc:CityName>
+        <cbc:PostalZone>500001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO969858176</cbc:CompanyID>
+        <cbc:CompanyID>RO960690639</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Helios Test 72 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J19/4970/2011</cbc:CompanyID>
+        <cbc:RegistrationName>Omega Test 93 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J17/9191/2014</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

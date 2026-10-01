@@ -35,7 +35,7 @@ Python. On those, use Python 3.12 or run via Docker.
 - Roles map to model IDs in `.env` (`MODEL_FAST`, `MODEL_REASONING`, ...).
 
 ## Synthetic data
-`data/synthetic/` holds 100 labelled invoices (36 designed valid, 54 with one planted error,
+`data/synthetic/` holds 100 labelled invoices (34 designed valid, 56 with one planted error,
 10 with two). Labels are in `manifest.json`. Regenerate with
 `python -m facturaguard.synthetic.generate --seed 2026`. Synthetic only, no real client data.
 
@@ -44,6 +44,11 @@ Milestones 1 (scaffold, client), 2 (synthetic set) and 3 (validator) done. See `
 
 ## Validation
 `facturaguard/validation/` runs three layers: UBL 2.1 XSD, the ANAF CIUS-RO 1.0.9 Schematron
-(compiled with `scripts/build_schematron.py`, output committed) and a CUI checksum.
-Rule sources and versions are in `vendor/SOURCES.md`. Check the synthetic set with
-`python scripts/validate_set.py`. Installing the Schematron runtime: `pip install -e ".[schematron]"`.
+(compiled with `scripts/build_schematron.py`, output committed) and ANAF's seller/buyer
+identifier checks (CUI, CNP/NIF). Rule sources and versions are in `vendor/SOURCES.md`.
+Check the synthetic set with `python scripts/validate_set.py`. Installing the Schematron
+runtime: `pip install -e ".[schematron]"`.
+
+Cross-checked against ANAF's own offline validator (ROeFacturaValidator 1.3.0): same verdict on
+100/100 synthetic invoices. To repeat on Windows, run ANAF's tool on a copy of
+`data/synthetic/xml` and then `python scripts/compare_with_anaf.py <that folder>`.

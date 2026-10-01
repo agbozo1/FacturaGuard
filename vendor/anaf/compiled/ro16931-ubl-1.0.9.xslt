@@ -243,7 +243,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount "
@@ -266,7 +266,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"
@@ -288,7 +288,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress"
@@ -311,7 +311,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PaymentMeans/cac:CardAccount" priority="1062" mode="M12">
@@ -332,7 +332,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:Delivery/cac:DeliveryLocation/cac:Address"
@@ -355,7 +355,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = false()]"
@@ -466,7 +466,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = true()]"
@@ -577,7 +577,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:LegalMonetaryTotal" priority="1058" mode="M12">
@@ -838,7 +838,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1057" mode="M12">
@@ -1772,7 +1772,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine | cac:CreditNoteLine"
@@ -1914,7 +1914,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()]"
@@ -2010,7 +2010,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()]"
@@ -2106,7 +2106,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod"
@@ -2144,7 +2144,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoicePeriod" priority="1052" mode="M12">
@@ -2179,7 +2179,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:AdditionalItemProperty" priority="1051" mode="M12">
@@ -2200,7 +2200,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode "
@@ -2222,7 +2222,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID | cac:CreditNoteLine/cac:Item/cac:StandardItemIdentification/cbc:ID"
@@ -2244,7 +2244,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cbc:Note | /cn:CreditNote/cbc:Note"
@@ -2267,7 +2267,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PayeeParty" priority="1047" mode="M12">
@@ -2287,7 +2287,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PaymentMeans[cbc:PaymentMeansCode='30' or cbc:PaymentMeansCode='58']/cac:PayeeFinancialAccount"
@@ -2309,7 +2309,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PaymentMeans" priority="1045" mode="M12">
@@ -2344,7 +2344,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:BillingReference" priority="1044" mode="M12">
@@ -2364,7 +2364,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AccountingSupplierParty" priority="1043" mode="M12">
@@ -2385,7 +2385,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AccountingSupplierParty/cac:Party/cbc:EndpointID"
@@ -2407,7 +2407,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress"
@@ -2430,7 +2430,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxRepresentativeParty" priority="1040" mode="M12">
@@ -2481,7 +2481,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxRepresentativeParty/cac:PostalAddress"
@@ -2504,7 +2504,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:TaxTotal | /cn:CreditNote/cac:TaxTotal"
@@ -2527,7 +2527,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxTotal/cac:TaxSubtotal" priority="1037" mode="M12">
@@ -2637,7 +2637,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2660,7 +2660,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2713,7 +2713,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2736,7 +2736,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2759,7 +2759,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2782,7 +2782,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2835,7 +2835,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2858,7 +2858,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2881,7 +2881,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2904,7 +2904,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2957,7 +2957,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -2980,7 +2980,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3003,7 +3003,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3026,7 +3026,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3079,7 +3079,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3102,7 +3102,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3125,7 +3125,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3148,7 +3148,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3201,7 +3201,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3223,7 +3223,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3245,7 +3245,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3267,7 +3267,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3320,7 +3320,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3342,7 +3342,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3364,7 +3364,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3386,7 +3386,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3439,7 +3439,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3461,7 +3461,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3483,7 +3483,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3505,7 +3505,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3558,7 +3558,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3580,7 +3580,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3602,7 +3602,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3624,7 +3624,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3677,7 +3677,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3700,7 +3700,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3723,7 +3723,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"
@@ -3746,11 +3746,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <xsl:template match="text()" priority="-1" mode="M12"/>
    <xsl:template match="@*|node()" priority="-2" mode="M12">
-      <xsl:apply-templates select="*" mode="M12"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
    <!--PATTERN UBL-syntax-->
 
@@ -3775,7 +3775,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AdditionalDocumentReference" priority="1012" mode="M13">
@@ -3811,7 +3811,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]"
@@ -3834,7 +3834,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//*[ends-with(name(), 'BinaryObject')]"
@@ -3870,7 +3870,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:Delivery" priority="1009" mode="M13">
@@ -3890,7 +3890,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = false()]"
@@ -3913,7 +3913,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = true()]"
@@ -3936,7 +3936,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1006" mode="M13">
@@ -14790,7 +14790,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine | cac:CreditNoteLine"
@@ -14887,7 +14887,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PayeeParty" priority="1004" mode="M13">
@@ -14937,7 +14937,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PaymentMeans" priority="1003" mode="M13">
@@ -14987,7 +14987,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:BillingReference" priority="1002" mode="M13">
@@ -15022,7 +15022,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxRepresentativeParty" priority="1001" mode="M13">
@@ -15058,7 +15058,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxSubtotal" priority="1000" mode="M13">
@@ -15078,11 +15078,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <xsl:template match="text()" priority="-1" mode="M13"/>
    <xsl:template match="@*|node()" priority="-2" mode="M13">
-      <xsl:apply-templates select="*" mode="M13"/>
+      <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
    <!--PATTERN Codesmodel-->
 
@@ -15107,7 +15107,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//@currencyID" priority="1020" mode="M14">
@@ -15127,7 +15127,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:DocumentCurrencyCode" priority="1019" mode="M14">
@@ -15148,7 +15148,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:TaxCurrencyCode" priority="1018" mode="M14">
@@ -15168,7 +15168,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoicePeriod/cbc:DescriptionCode"
@@ -15191,7 +15191,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID] | cac:DocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID]"
@@ -15214,7 +15214,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PartyIdentification/cbc:ID[@schemeID]"
@@ -15237,7 +15237,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PartyLegalEntity/cbc:CompanyID[@schemeID]"
@@ -15260,7 +15260,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:CommodityClassification/cbc:ItemClassificationCode[@listID]"
@@ -15284,7 +15284,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:Country/cbc:IdentificationCode"
@@ -15307,7 +15307,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:OriginCountry/cbc:IdentificationCode"
@@ -15330,7 +15330,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:PaymentMeans/cbc:PaymentMeansCode"
@@ -15353,7 +15353,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxCategory/cbc:ID" priority="1009" mode="M14">
@@ -15374,7 +15374,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:ClassifiedTaxCategory/cbc:ID" priority="1008" mode="M14">
@@ -15395,7 +15395,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = false()]/cbc:AllowanceChargeReasonCode"
@@ -15418,7 +15418,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = true()]/cbc:AllowanceChargeReasonCode"
@@ -15441,7 +15441,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:StandardItemIdentification/cbc:ID[@schemeID]"
@@ -15464,7 +15464,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:TaxExemptionReasonCode" priority="1004" mode="M14">
@@ -15485,7 +15485,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//@unitCode" priority="1003" mode="M14">
@@ -15505,7 +15505,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:EmbeddedDocumentBinaryObject[@mimeCode]"
@@ -15528,7 +15528,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:EndpointID[@schemeID]" priority="1001" mode="M14">
@@ -15549,7 +15549,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:DeliveryLocation/cbc:ID[@schemeID]"
@@ -15572,11 +15572,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <xsl:template match="text()" priority="-1" mode="M14"/>
    <xsl:template match="@*|node()" priority="-2" mode="M14">
-      <xsl:apply-templates select="*" mode="M14"/>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
    </xsl:template>
    <!--PATTERN ROmodel-->
    <xsl:variable name="RO-MAJOR-MINOR-PATCH-VERSION" select="'1.0.1'"/>
@@ -15612,7 +15612,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:TaxPointDate" priority="1027" mode="M15">
@@ -15637,7 +15637,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:DueDate" priority="1026" mode="M15">
@@ -15662,7 +15662,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:PaymentDueDate" priority="1025" mode="M15">
@@ -15687,7 +15687,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:ActualDeliveryDate" priority="1024" mode="M15">
@@ -15713,7 +15713,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:StartDate" priority="1023" mode="M15">
@@ -15738,7 +15738,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:EndDate" priority="1022" mode="M15">
@@ -15763,7 +15763,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:PriceAmount" priority="1021" mode="M15">
@@ -15787,7 +15787,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:InvoiceTypeCode" priority="1020" mode="M15">
@@ -15808,7 +15808,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:CreditNoteTypeCode" priority="1019" mode="M15">
@@ -15835,7 +15835,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1018" mode="M15">
@@ -16742,7 +16742,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:TaxRepresentativeParty/cac:PostalAddress | /ubl:CreditNote/cac:TaxRepresentativeParty/cac:PostalAddress"
@@ -16808,7 +16808,7 @@
 				#If the Seller's tax representative country code (BT-69) is RO, then the Seller's tax representative country subdivision (BT-68) must be coded using the ISO 3166-2: RO code list (ex. RO-B for Bucharest, RO-AB for Alba County...).</svrl:text>
          </svrl:successful-report>
       </xsl:if>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:PaymentMeans" priority="1016" mode="M15">
@@ -16877,7 +16877,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address | /ubl:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address"
@@ -16959,7 +16959,7 @@
 				#If Delivery country code (BT-80) is "RO", then Delivery country subdivision (BT-79) must be coded using the ISO 3166-2: RO code list (ex. "RO-B" for Bucharest, "RO-AB" for Alba County...).</svrl:text>
          </svrl:successful-report>
       </xsl:if>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoicePeriod/cbc:DescriptionCode"
@@ -16983,7 +16983,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine | cac:CreditNoteLine"
@@ -17055,7 +17055,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:Item/cac:AdditionalItemProperty"
@@ -17110,7 +17110,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | /ubl:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = false()]"
@@ -17168,7 +17168,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | /ubl:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = true()]"
@@ -17226,7 +17226,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:LegalMonetaryTotal" priority="1009" mode="M15">
@@ -17368,7 +17368,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice | cac:CreditNote" priority="1008" mode="M15">
@@ -17408,7 +17408,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:TaxTotal/cac:TaxSubtotal" priority="1007" mode="M15">
@@ -17448,7 +17448,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cac:InvoiceLine | cac:CreditNoteLine"
@@ -17473,7 +17473,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()]"
@@ -17531,7 +17531,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()]"
@@ -17589,7 +17589,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="cbc:Note" priority="1003" mode="M15">
@@ -17610,7 +17610,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:AdditionalDocumentReference"
@@ -17697,7 +17697,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="//cac:BillingReference" priority="1001" mode="M15">
@@ -17735,7 +17735,7 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal | /ubl:CreditNote/cac:TaxTotal/cac:TaxSubtotal"
@@ -17759,10 +17759,10 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
    <xsl:template match="text()" priority="-1" mode="M15"/>
    <xsl:template match="@*|node()" priority="-2" mode="M15">
-      <xsl:apply-templates select="*" mode="M15"/>
+      <xsl:apply-templates select="@*|*" mode="M15"/>
    </xsl:template>
 </xsl:stylesheet>

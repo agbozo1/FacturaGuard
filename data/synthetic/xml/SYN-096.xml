@@ -34,24 +34,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Cedar Muster 78 GmbH</cbc:Name>
+        <cbc:Name>Cedar Test 78 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Rue de l'Exemple 60</cbc:StreetName>
-        <cbc:CityName>Paris</cbc:CityName>
-        <cbc:PostalZone>75001</cbc:PostalZone>
+        <cbc:StreetName>Str. Model 74</cbc:StreetName>
+        <cbc:CityName>Brasov</cbc:CityName>
+        <cbc:PostalZone>500001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>FR</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>FR450507335</cbc:CompanyID>
+        <cbc:CompanyID>RO289421649</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Cedar Muster 78 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Cedar Test 78 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J21/7759/2018</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

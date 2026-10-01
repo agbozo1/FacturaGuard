@@ -8,6 +8,9 @@
   <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>
   <cac:AccountingSupplierParty>
     <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>Bravo Test 47 SRL</cbc:Name>
+      </cac:PartyName>
       <cac:PostalAddress>
         <cbc:StreetName>Bd. Demo 56</cbc:StreetName>
         <cbc:CityName>Timisoara</cbc:CityName>
@@ -24,17 +27,15 @@
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
+        <cbc:RegistrationName>Bravo Test 47 SRL</cbc:RegistrationName>
         <cbc:CompanyID>J22/6524/2021</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingSupplierParty>
   <cac:AccountingCustomerParty>
     <cac:Party>
-      <cac:PartyName>
-        <cbc:Name>Helios Test 63 SRL</cbc:Name>
-      </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 93</cbc:StreetName>
+        <cbc:StreetName>Bd. Demo 13</cbc:StreetName>
         <cbc:CityName>Timisoara</cbc:CityName>
         <cbc:PostalZone>300001</cbc:PostalZone>
         <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
@@ -43,14 +44,13 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO224821128</cbc:CompanyID>
+        <cbc:CompanyID>RO382373230</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Helios Test 63 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J17/1719/2021</cbc:CompanyID>
+        <cbc:CompanyID>J18/8135/2013</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

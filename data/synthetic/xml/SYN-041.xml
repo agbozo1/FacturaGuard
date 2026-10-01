@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Omega Muster 79 GmbH</cbc:Name>
+        <cbc:Name>Helios Test 78 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teszt utca 118</cbc:StreetName>
-        <cbc:CityName>Budapest</cbc:CityName>
-        <cbc:PostalZone>1051</cbc:PostalZone>
+        <cbc:StreetName>Str. Proba 85</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>HU</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>HU404992608</cbc:CompanyID>
+        <cbc:CompanyID>RO171701977</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Omega Muster 79 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Helios Test 78 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J11/5638/2006</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -77,10 +79,10 @@
     </cac:TaxSubtotal>
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
-    <cbc:LineExtensionAmount currencyID="RON">6841.70</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">6844.70</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">8281.46</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">8281.46</cbc:PayableAmount>
+    <cbc:LineExtensionAmount currencyID="RON">6852.70</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">6852.70</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">8289.46</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">8289.46</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

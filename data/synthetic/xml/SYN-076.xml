@@ -21,7 +21,7 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO865464289</cbc:CompanyID>
+        <cbc:CompanyID>RO865464280</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
@@ -35,10 +35,10 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Kappa Test 56 SRL</cbc:Name>
+        <cbc:Name>Helios Test 62 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 80</cbc:StreetName>
+        <cbc:StreetName>Bd. Demo 3</cbc:StreetName>
         <cbc:CityName>Timisoara</cbc:CityName>
         <cbc:PostalZone>300001</cbc:PostalZone>
         <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
@@ -47,14 +47,14 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO644760051</cbc:CompanyID>
+        <cbc:CompanyID>RO59137629</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Kappa Test 56 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J21/439/2013</cbc:CompanyID>
+        <cbc:RegistrationName>Helios Test 62 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J1/7164/2015</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -65,12 +65,95 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:TaxTotal>
-    <cbc:TaxAmount currencyID="RON">0.00</cbc:TaxAmount>
+    <cbc:TaxAmount currencyID="RON">3082.20</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="RON">14677.12</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="RON">3082.20</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>21.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
-    <cbc:LineExtensionAmount currencyID="RON">0.00</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">0.00</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">0.00</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">0.00</cbc:PayableAmount>
+    <cbc:LineExtensionAmount currencyID="RON">14677.12</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">14677.12</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">17759.32</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">17759.32</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
+  <cac:InvoiceLine>
+    <cbc:ID>1</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="C62">1.00</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="RON">1055.34</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Name>Cafea boabe 1kg</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>21.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="RON">1055.34</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
+  <cac:InvoiceLine>
+    <cbc:ID>2</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="HUR">10.00</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="RON">801.60</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Name>Mentenanta website</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>21.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="RON">80.16</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
+  <cac:InvoiceLine>
+    <cbc:ID>3</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="C62">5.00</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="RON">10386.35</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Name>Transport marfa</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>21.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="RON">2077.27</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
+  <cac:InvoiceLine>
+    <cbc:ID>4</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="C62">1.00</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="RON">2433.83</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Name>Cafea boabe 1kg</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>21.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="RON">2433.83</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
 </Invoice>

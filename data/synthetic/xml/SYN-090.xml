@@ -35,26 +35,27 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Kappa Muster 61 GmbH</cbc:Name>
+        <cbc:Name>Kappa Test 61 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teszt utca 99</cbc:StreetName>
-        <cbc:CityName>Budapest</cbc:CityName>
-        <cbc:PostalZone>1051</cbc:PostalZone>
+        <cbc:StreetName>Bd. Demo 56</cbc:StreetName>
+        <cbc:CityName>Timisoara</cbc:CityName>
+        <cbc:PostalZone>300001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>HU</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>HU997024294</cbc:CompanyID>
+        <cbc:CompanyID>RO603012002</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Kappa Muster 61 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Kappa Test 61 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J3/9014/2016</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
-  <cac:PaymentMeans>
-    <cbc:PaymentMeansCode>
+  <ca

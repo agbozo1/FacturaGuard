@@ -35,23 +35,23 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Kappa Test 33 SRL</cbc:Name>
+        <cbc:Name>Sigma Test 70 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Exemplu 58</cbc:StreetName>
-        <cbc:CityName>SECTOR3</cbc:CityName>
-        <cbc:PostalZone>030167</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Proba 97</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO733985305</cbc:CompanyID>
+        <cbc:CompanyID>RO469039069</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Kappa Test 33 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J16/5680/2020</cbc:CompanyID>
+        <cbc:RegistrationName>Sigma Test 70 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J1/4310/2012</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

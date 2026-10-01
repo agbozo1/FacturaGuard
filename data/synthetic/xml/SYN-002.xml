@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Cedar Muster 97 GmbH</cbc:Name>
+        <cbc:Name>Cedar Test 97 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>ul. Probna 43</cbc:StreetName>
-        <cbc:CityName>Sofia</cbc:CityName>
-        <cbc:PostalZone>1000</cbc:PostalZone>
+        <cbc:StreetName>Str. Model 36</cbc:StreetName>
+        <cbc:CityName>Brasov</cbc:CityName>
+        <cbc:PostalZone>500001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>BG</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>BG761562388</cbc:CompanyID>
+        <cbc:CompanyID>RO949996000</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Cedar Muster 97 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Cedar Test 97 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J40/5496/2006</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

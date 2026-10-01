@@ -31,26 +31,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Lotus Test 10 SRL</cbc:Name>
+        <cbc:Name>Titan Test 74 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Test 44</cbc:StreetName>
-        <cbc:CityName>Cluj-Napoca</cbc:CityName>
-        <cbc:PostalZone>400001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Model 80</cbc:StreetName>
+        <cbc:CityName>Brasov</cbc:CityName>
+        <cbc:PostalZone>500001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO771043181</cbc:CompanyID>
+        <cbc:CompanyID>RO875972616</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Lotus Test 10 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J33/4184/2015</cbc:CompanyID>
+        <cbc:RegistrationName>Titan Test 74 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J29/1351/2021</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

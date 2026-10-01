@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Sigma Test 54 SRL</cbc:Name>
+        <cbc:Name>Kappa Test 72 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Exemplu 53</cbc:StreetName>
-        <cbc:CityName>SECTOR3</cbc:CityName>
-        <cbc:PostalZone>030167</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Test 119</cbc:StreetName>
+        <cbc:CityName>Cluj-Napoca</cbc:CityName>
+        <cbc:PostalZone>400001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO750449420</cbc:CompanyID>
+        <cbc:CompanyID>RO494651580</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Sigma Test 54 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J3/8934/2006</cbc:CompanyID>
+        <cbc:RegistrationName>Kappa Test 72 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J6/7001/2006</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

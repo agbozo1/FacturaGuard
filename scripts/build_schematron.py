@@ -6,6 +6,7 @@ Pipeline: iso_dsdl_include -> iso_abstract_expand -> iso_svrl_for_xslt2.
 Output is committed so deployments do not need to compile.
 """
 
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -33,7 +34,18 @@ def main() -> int:
                 print(f"{name} failed: {e}", file=sys.stderr)
                 return 1
             current = target
-    print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB)")
+    # The ISO skeleton only visits attributes when `parent::node()` holds for a global
+    # variable, which is never true, so rules with attribute contexts (BR-CL-03 on
+    # //@currencyID, BR-CL-23 on //@unitCode) never fire. ANAF's validator does fire them.
+    # Make every rule walk attributes as well as elements.
+    text = OUT.read_text(encoding="utf-8")
+    text, n = re.subn(r'<xsl:apply-templates select="\*" mode="(M\d+)"/>',
+                      r'<xsl:apply-templates select="@*|*" mode="\1"/>', text)
+    if n == 0:
+        print("attribute patch matched nothing; skeleton output changed?", file=sys.stderr)
+        return 1
+    OUT.write_text(text, encoding="utf-8", newline="\n")
+    print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB, {n} walks patched)")
     return 0
 
 

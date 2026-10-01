@@ -5,11 +5,9 @@
   <cbc:IssueDate>2026-02-26</cbc:IssueDate>
   <cbc:DueDate>2026-03-28</cbc:DueDate>
   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+  <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>
   <cac:AccountingSupplierParty>
     <cac:Party>
-      <cac:PartyName>
-        <cbc:Name>Nord Test 55 SRL</cbc:Name>
-      </cac:PartyName>
       <cac:PostalAddress>
         <cbc:StreetName>Str. Proba 90</cbc:StreetName>
         <cbc:CityName>Iasi</cbc:CityName>
@@ -26,7 +24,6 @@
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Nord Test 55 SRL</cbc:RegistrationName>
         <cbc:CompanyID>J33/7973/2019</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
@@ -34,26 +31,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Titan Test 83 SRL</cbc:Name>
+        <cbc:Name>Cedar Test 37 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Model 45</cbc:StreetName>
-        <cbc:CityName>Brasov</cbc:CityName>
-        <cbc:PostalZone>500001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Exemplu 42</cbc:StreetName>
+        <cbc:CityName>SECTOR3</cbc:CityName>
+        <cbc:PostalZone>030167</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO380405556</cbc:CompanyID>
+        <cbc:CompanyID>RO707978163</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Titan Test 83 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J14/2102/2015</cbc:CompanyID>
+        <cbc:RegistrationName>Cedar Test 37 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J15/3669/2008</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

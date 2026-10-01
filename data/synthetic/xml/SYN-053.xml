@@ -5,7 +5,7 @@
   <cbc:IssueDate>2026-05-07</cbc:IssueDate>
   <cbc:DueDate>2026-06-06</cbc:DueDate>
   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
-  <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>
+  <cbc:DocumentCurrencyCode>LEI</cbc:DocumentCurrencyCode>
   <cac:AccountingSupplierParty>
     <cac:Party>
       <cac:PartyName>
@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Titan Muster 34 GmbH</cbc:Name>
+        <cbc:Name>Helios Test 2 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Via di Prova 28</cbc:StreetName>
-        <cbc:CityName>Milano</cbc:CityName>
-        <cbc:PostalZone>20100</cbc:PostalZone>
+        <cbc:StreetName>Bd. Demo 10</cbc:StreetName>
+        <cbc:CityName>Timisoara</cbc:CityName>
+        <cbc:PostalZone>300001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>GER</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>IT112378453</cbc:CompanyID>
+        <cbc:CompanyID>RO322729849</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Titan Muster 34 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Helios Test 2 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J14/4354/2016</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -63,10 +65,10 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:TaxTotal>
-    <cbc:TaxAmount currencyID="RON">3642.06</cbc:TaxAmount>
+    <cbc:TaxAmount currencyID="LEI">3642.06</cbc:TaxAmount>
     <cac:TaxSubtotal>
-      <cbc:TaxableAmount currencyID="RON">17343.15</cbc:TaxableAmount>
-      <cbc:TaxAmount currencyID="RON">3642.06</cbc:TaxAmount>
+      <cbc:TaxableAmount currencyID="LEI">17343.15</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="LEI">3642.06</cbc:TaxAmount>
       <cac:TaxCategory>
         <cbc:ID>S</cbc:ID>
         <cbc:Percent>21.00</cbc:Percent>
@@ -77,15 +79,15 @@
     </cac:TaxSubtotal>
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
-    <cbc:LineExtensionAmount currencyID="RON">17343.15</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">17343.15</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">20985.21</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">20985.21</cbc:PayableAmount>
+    <cbc:LineExtensionAmount currencyID="LEI">17343.15</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="LEI">17343.15</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="LEI">20985.21</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="LEI">20985.21</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>
     <cbc:InvoicedQuantity unitCode="C62">3.00</cbc:InvoicedQuantity>
-    <cbc:LineExtensionAmount currencyID="RON">2058.24</cbc:LineExtensionAmount>
+    <cbc:LineExtensionAmount currencyID="LEI">2058.24</cbc:LineExtensionAmount>
     <cac:Item>
       <cbc:Name>Licenta software anuala</cbc:Name>
       <cac:ClassifiedTaxCategory>
@@ -97,13 +99,13 @@
       </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-      <cbc:PriceAmount currencyID="RON">686.08</cbc:PriceAmount>
+      <cbc:PriceAmount currencyID="LEI">686.08</cbc:PriceAmount>
     </cac:Price>
   </cac:InvoiceLine>
   <cac:InvoiceLine>
     <cbc:ID>2</cbc:ID>
     <cbc:InvoicedQuantity unitCode="HUR">1.00</cbc:InvoicedQuantity>
-    <cbc:LineExtensionAmount currencyID="RON">119.18</cbc:LineExtensionAmount>
+    <cbc:LineExtensionAmount currencyID="LEI">119.18</cbc:LineExtensionAmount>
     <cac:Item>
       <cbc:Name>Servicii consultanta</cbc:Name>
       <cac:ClassifiedTaxCategory>
@@ -115,13 +117,13 @@
       </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-      <cbc:PriceAmount currencyID="RON">119.18</cbc:PriceAmount>
+      <cbc:PriceAmount currencyID="LEI">119.18</cbc:PriceAmount>
     </cac:Price>
   </cac:InvoiceLine>
   <cac:InvoiceLine>
     <cbc:ID>3</cbc:ID>
     <cbc:InvoicedQuantity unitCode="C62">1.00</cbc:InvoicedQuantity>
-    <cbc:LineExtensionAmount currencyID="RON">1521.69</cbc:LineExtensionAmount>
+    <cbc:LineExtensionAmount currencyID="LEI">1521.69</cbc:LineExtensionAmount>
     <cac:Item>
       <cbc:Name>Cafea boabe 1kg</cbc:Name>
       <cac:ClassifiedTaxCategory>
@@ -133,13 +135,13 @@
       </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-      <cbc:PriceAmount currencyID="RON">1521.69</cbc:PriceAmount>
+      <cbc:PriceAmount currencyID="LEI">1521.69</cbc:PriceAmount>
     </cac:Price>
   </cac:InvoiceLine>
   <cac:InvoiceLine>
     <cbc:ID>4</cbc:ID>
     <cbc:InvoicedQuantity unitCode="C62">5.00</cbc:InvoicedQuantity>
-    <cbc:LineExtensionAmount currencyID="RON">8864.50</cbc:LineExtensionAmount>
+    <cbc:LineExtensionAmount currencyID="LEI">8864.50</cbc:LineExtensionAmount>
     <cac:Item>
       <cbc:Name>Licenta software anuala</cbc:Name>
       <cac:ClassifiedTaxCategory>
@@ -151,13 +153,13 @@
       </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-      <cbc:PriceAmount currencyID="RON">1772.90</cbc:PriceAmount>
+      <cbc:PriceAmount currencyID="LEI">1772.90</cbc:PriceAmount>
     </cac:Price>
   </cac:InvoiceLine>
   <cac:InvoiceLine>
     <cbc:ID>5</cbc:ID>
     <cbc:InvoicedQuantity unitCode="HUR">3.00</cbc:InvoicedQuantity>
-    <cbc:LineExtensionAmount currencyID="RON">4779.54</cbc:LineExtensionAmount>
+    <cbc:LineExtensionAmount currencyID="LEI">4779.54</cbc:LineExtensionAmount>
     <cac:Item>
       <cbc:Name>Mentenanta website</cbc:Name>
       <cac:ClassifiedTaxCategory>
@@ -169,7 +171,7 @@
       </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-      <cbc:PriceAmount currencyID="RON">1593.18</cbc:PriceAmount>
+      <cbc:PriceAmount currencyID="LEI">1593.18</cbc:PriceAmount>
     </cac:Price>
   </cac:InvoiceLine>
 </Invoice>

@@ -21,7 +21,7 @@
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO606251020</cbc:CompanyID>
+        <cbc:CompanyID>606251020</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
@@ -35,24 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Nova Muster 5 GmbH</cbc:Name>
+        <cbc:Name>Kappa Test 77 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teszt utca 30</cbc:StreetName>
-        <cbc:CityName>Budapest</cbc:CityName>
-        <cbc:PostalZone>1051</cbc:PostalZone>
+        <cbc:StreetName>Str. Proba 60</cbc:StreetName>
+        <cbc:CityName>Iasi</cbc:CityName>
+        <cbc:PostalZone>700001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-IS</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>HU</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>HU745358375</cbc:CompanyID>
+        <cbc:CompanyID>RO490199050</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Nova Muster 5 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Kappa Test 77 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J15/3415/2019</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -63,10 +65,10 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:TaxTotal>
-    <cbc:TaxAmount currencyID="RON">2165.78</cbc:TaxAmount>
+    <cbc:TaxAmount currencyID="RON">2164.78</cbc:TaxAmount>
     <cac:TaxSubtotal>
       <cbc:TaxableAmount currencyID="RON">2225.92</cbc:TaxableAmount>
-      <cbc:TaxAmount currencyID="RON">245.85</cbc:TaxAmount>
+      <cbc:TaxAmount currencyID="RON">244.85</cbc:TaxAmount>
       <cac:TaxCategory>
         <cbc:ID>S</cbc:ID>
         <cbc:Percent>11.00</cbc:Percent>
@@ -90,8 +92,8 @@
   <cac:LegalMonetaryTotal>
     <cbc:LineExtensionAmount currencyID="RON">11368.46</cbc:LineExtensionAmount>
     <cbc:TaxExclusiveAmount currencyID="RON">11368.46</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">13534.24</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">13534.24</cbc:PayableAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">13533.24</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">13533.24</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

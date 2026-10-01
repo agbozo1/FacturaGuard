@@ -34,24 +34,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Sigma Muster 56 GmbH</cbc:Name>
+        <cbc:Name>Apex Test 91 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Teststrasse 75</cbc:StreetName>
-        <cbc:CityName>Berlin</cbc:CityName>
-        <cbc:PostalZone>10115</cbc:PostalZone>
+        <cbc:StreetName>Str. Exemplu 88</cbc:StreetName>
+        <cbc:CityName>SECTOR3</cbc:CityName>
+        <cbc:PostalZone>030167</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
         <cac:Country>
-          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>DE859989978</cbc:CompanyID>
+        <cbc:CompanyID>RO132068930</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Sigma Muster 56 GmbH</cbc:RegistrationName>
+        <cbc:RegistrationName>Apex Test 91 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J38/6894/2013</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

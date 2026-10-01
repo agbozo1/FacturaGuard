@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Lotus Test 89 SRL</cbc:Name>
+        <cbc:Name>Nova Test 98 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Bd. Demo 3</cbc:StreetName>
-        <cbc:CityName>Timisoara</cbc:CityName>
-        <cbc:PostalZone>300001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Test 77</cbc:StreetName>
+        <cbc:CityName>Cluj-Napoca</cbc:CityName>
+        <cbc:PostalZone>400001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO896739797</cbc:CompanyID>
+        <cbc:CompanyID>RO59175380</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Lotus Test 89 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J9/3864/2024</cbc:CompanyID>
+        <cbc:RegistrationName>Nova Test 98 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J32/2266/2012</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -65,7 +65,7 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:TaxTotal>
-    <cbc:TaxAmount currencyID="RON">7823.74</cbc:TaxAmount>
+    <cbc:TaxAmount currencyID="RON">7836.74</cbc:TaxAmount>
     <cac:TaxSubtotal>
       <cbc:TaxableAmount currencyID="RON">19247.20</cbc:TaxableAmount>
       <cbc:TaxAmount currencyID="RON">2117.19</cbc:TaxAmount>
@@ -90,10 +90,10 @@
     </cac:TaxSubtotal>
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
-    <cbc:LineExtensionAmount currencyID="RON">46432.24</cbc:LineExtensionAmount>
-    <cbc:TaxExclusiveAmount currencyID="RON">46432.24</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">54255.98</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">54255.98</cbc:PayableAmount>
+    <cbc:LineExtensionAmount currencyID="RON">46421.24</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">46421.24</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">54257.98</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">54257.98</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Kappa Test 12 SRL</cbc:Name>
+        <cbc:Name>Sigma Test 1 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Model 52</cbc:StreetName>
-        <cbc:CityName>Brasov</cbc:CityName>
-        <cbc:PostalZone>500001</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-BV</cbc:CountrySubentity>
+        <cbc:StreetName>Str. Test 41</cbc:StreetName>
+        <cbc:CityName>Cluj-Napoca</cbc:CityName>
+        <cbc:PostalZone>400001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-CJ</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO165782004</cbc:CompanyID>
+        <cbc:CompanyID>RO818810917</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Kappa Test 12 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J1/417/2015</cbc:CompanyID>
+        <cbc:RegistrationName>Sigma Test 1 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J6/109/2005</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
@@ -81,8 +81,8 @@
   <cac:LegalMonetaryTotal>
     <cbc:LineExtensionAmount currencyID="RON">5556.82</cbc:LineExtensionAmount>
     <cbc:TaxExclusiveAmount currencyID="RON">5556.82</cbc:TaxExclusiveAmount>
-    <cbc:TaxInclusiveAmount currencyID="RON">6723.75</cbc:TaxInclusiveAmount>
-    <cbc:PayableAmount currencyID="RON">6728.75</cbc:PayableAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">6730.75</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">6730.75</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID>

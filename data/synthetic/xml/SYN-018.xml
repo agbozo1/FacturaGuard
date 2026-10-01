@@ -35,26 +35,26 @@
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyName>
-        <cbc:Name>Helios Test 6 SRL</cbc:Name>
+        <cbc:Name>Sigma Test 57 SRL</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Str. Exemplu 69</cbc:StreetName>
-        <cbc:CityName>SECTOR3</cbc:CityName>
-        <cbc:PostalZone>030167</cbc:PostalZone>
-        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
+        <cbc:StreetName>Bd. Demo 112</cbc:StreetName>
+        <cbc:CityName>Timisoara</cbc:CityName>
+        <cbc:PostalZone>300001</cbc:PostalZone>
+        <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode>RO</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>RO587640193</cbc:CompanyID>
+        <cbc:CompanyID>RO782960236</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>Helios Test 6 SRL</cbc:RegistrationName>
-        <cbc:CompanyID>J40/1244/2006</cbc:CompanyID>
+        <cbc:RegistrationName>Sigma Test 57 SRL</cbc:RegistrationName>
+        <cbc:CompanyID>J18/742/2024</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>

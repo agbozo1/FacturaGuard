@@ -1,0 +1,4 @@
+# Keep LF everywhere so vendored rule files stay byte-identical to upstream on Windows.
+* text=auto eol=lf
+*.zip binary
+*.bat text eol=crlf

@@ -16,9 +16,6 @@
         <cbc:CityName>Timisoara</cbc:CityName>
         <cbc:PostalZone>300001</cbc:PostalZone>
         <cbc:CountrySubentity>RO-TM</cbc:CountrySubentity>
-        <cac:Country>
-          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
-        </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
         <cbc:CompanyID>RO711098485</cbc:CompanyID>
@@ -34,6 +31,9 @@
   </cac:AccountingSupplierParty>
   <cac:AccountingCustomerParty>
     <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>Titan Test 47 SRL</cbc:Name>
+      </cac:PartyName>
       <cac:PostalAddress>
         <cbc:StreetName>Str. Proba 49</cbc:StreetName>
         <cbc:CityName>Iasi</cbc:CityName>
@@ -50,6 +50,7 @@
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
+        <cbc:RegistrationName>Titan Test 47 SRL</cbc:RegistrationName>
         <cbc:CompanyID>J22/3548/2008</cbc:CompanyID>
       </cac:PartyLegalEntity>
     </cac:Party>
