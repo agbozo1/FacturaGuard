@@ -47,3 +47,9 @@ Dated notes for the hackathon submission feedback fields.
   Schematron rules were skipped by the ISO compiler (fixed), and ANAF checks buyer and seller
   identifiers outside the Schematron (reproduced). Now 100/100 verdicts agree.
 - ANAF's validator takes about 37s for 100 files; ours about 1.4s.
+
+## 2026-10-01 (PDF extraction design)
+- Feature wish: a Nemotron vision model on Token Factory. `nemotron-3-nano-omni` is in the
+  cookbook but not on our key, so scanned PDFs are out of scope; we read text-based PDFs only
+  and use Lightning (thinking off) for extraction.
+- Real-call numbers for extraction and repair are pending (no key on the dev machine).

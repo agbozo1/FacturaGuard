@@ -33,8 +33,8 @@ Python. On those, use Python 3.12 or run via Docker.
 - Nemotron 3 Ultra (`MODEL_REASONING`) explains validator errors in English or Romanian and
   proposes repairs as small edit operations (`facturaguard/explain.py`,
   `facturaguard/repair/engine.py`).
-- Nemotron 3.5 Lightning (`MODEL_FAST`, thinking switched off) for PDF field extraction
-  (Milestone 5).
+- Nemotron 3.5 Lightning (`MODEL_FAST`, thinking switched off) extracts invoice fields from
+  PDF text (`facturaguard/extraction/`).
 - Roles map to model IDs in `.env` (`MODEL_FAST`, `MODEL_REASONING`, ...).
 
 ## Explain and repair
@@ -56,12 +56,28 @@ python scripts/eval_repair.py --limit 28 --out eval_repair.json        # fix rat
 
 ## Synthetic data
 `data/synthetic/` holds 100 labelled invoices (34 designed valid, 56 with one planted error,
-10 with two). Labels are in `manifest.json`. Regenerate with
+10 with two). Labels are in `manifest.json`. `data/synthetic/pdf/` holds 52 of them as
+Romanian-style PDFs, with the exact printed fields in `pdf/manifest.json`. Regenerate with
 `python -m facturaguard.synthetic.generate --seed 2026`. Synthetic only, no real client data.
 
+## PDF invoices
+1. `pypdf` reads the PDF text layer. Scanned PDFs are reported as unsupported (no Nemotron
+   vision model was available on our key).
+2. Nemotron copies the fields into JSON. It is told not to compute, correct or guess.
+3. A grounding check confirms every extracted value appears in the PDF text and flags any
+   that do not.
+4. Code builds the UBL (county and unit codes from fixed tables). Printed totals are kept,
+   so arithmetic mistakes on the PDF show up as validator errors.
+5. The same validator, explainer and repair loop as for XML.
+
+```bash
+python scripts/try_pdf.py data/synthetic/pdf/SYN-037.pdf --assist   # one PDF
+python scripts/eval_extraction.py --out eval_extraction.json         # accuracy on 52 PDFs
+```
+
 ## Status
-Milestones 1 (scaffold, client), 2 (synthetic set), 3 (validator) and 4 (explain and repair)
-done. See `FEEDBACK.md` for platform notes.
+Milestones 1 (scaffold, client), 2 (synthetic set), 3 (validator), 4 (explain and repair) and
+5 (PDF extraction) done. See `FEEDBACK.md` for platform notes.
 
 ## Validation
 `facturaguard/validation/` runs three layers: UBL 2.1 XSD, the ANAF CIUS-RO 1.0.9 Schematron

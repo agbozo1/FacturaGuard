@@ -2,8 +2,9 @@
 
     python -m facturaguard.synthetic.generate --out data/synthetic --seed 2026
 
-Output: <out>/xml/SYN-NNN.xml and <out>/manifest.json (ground-truth labels).
-Deterministic for a given seed. All data is synthetic.
+Output: <out>/xml/SYN-NNN.xml and <out>/manifest.json (ground-truth labels), plus
+<out>/pdf/SYN-NNN.pdf and <out>/pdf/manifest.json (printed fields) for the invoices that can be
+drawn on paper. Deterministic for a given seed. All data is synthetic.
 """
 
 import argparse
@@ -17,6 +18,11 @@ from facturaguard.synthetic.mutations import MUTATIONS, Mutation
 N_VALID = 34
 PER_MUTATION = 2
 N_COMBOS = 10
+# Errors that survive being printed on a PDF (XML-only errors such as element order do not).
+PDF_MUTATIONS = {
+    "bad_payable", "bad_tax_inclusive", "bad_tax_exclusive", "bad_line_sum", "bad_tax_total",
+    "bad_vat_amount", "bad_cif_checksum", "missing_ro_subdivision", "foreign_buyer_no_ro_id",
+}
 
 NOTES = [
     (
@@ -46,11 +52,18 @@ def plan(rng: random.Random) -> list[list[Mutation]]:
     return plans
 
 
-def generate(out: Path, seed: int) -> dict:
+def generate(out: Path, seed: int, pdf: bool = False) -> dict:
     xml_dir = out / "xml"
     xml_dir.mkdir(parents=True, exist_ok=True)
     for old in xml_dir.glob("*.xml"):
         old.unlink()
+    pdf_dir, pdf_entries = out / "pdf", []
+    if pdf:
+        from facturaguard.synthetic.pdf import printed_fields, render_pdf  # dev dependency
+
+        pdf_dir.mkdir(parents=True, exist_ok=True)
+        for old in pdf_dir.glob("*.pdf"):
+            old.unlink()
     plans = plan(random.Random(f"{seed}-plan"))
     entries = []
     for i, muts in enumerate(plans, start=1):
@@ -63,7 +76,12 @@ def generate(out: Path, seed: int) -> dict:
             if mut.xml_fn:
                 xml = mut.xml_fn(xml)
         sid = f"SYN-{i:03d}"
-        (xml_dir / f"{sid}.xml").write_text(xml, encoding="utf-8")
+        (xml_dir / f"{sid}.xml").write_text(xml, encoding="utf-8", newline="\n")
+        if pdf and all(x.name in PDF_MUTATIONS for x in muts):
+            (pdf_dir / f"{sid}.pdf").write_bytes(render_pdf(m))
+            pdf_entries.append({"id": sid, "file": f"pdf/{sid}.pdf", "designed_valid": not muts,
+                                "mutations": [x.name for x in muts],
+                                "fields": printed_fields(m)})
         entries.append(
             {
                 "id": sid,
@@ -77,7 +95,14 @@ def generate(out: Path, seed: int) -> dict:
             }
         )
     manifest = {"seed": seed, "count": len(entries), "notes": NOTES, "invoices": entries}
-    (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8",
+                                       newline="\n")
+    if pdf:
+        pdf_manifest = {"seed": seed, "count": len(pdf_entries), "invoices": pdf_entries,
+                        "note": "fields = exactly what the PDF prints (ground truth for extraction)"}
+        (pdf_dir / "manifest.json").write_text(json.dumps(pdf_manifest, indent=2) + "\n",
+                                               encoding="utf-8", newline="\n")
+    manifest["pdf_count"] = len(pdf_entries)
     return manifest
 
 
@@ -85,10 +110,12 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("data/synthetic"))
     ap.add_argument("--seed", type=int, default=2026)
+    ap.add_argument("--no-pdf", action="store_true", help="skip PDFs (no fpdf2 needed)")
     args = ap.parse_args()
-    manifest = generate(args.out, args.seed)
+    manifest = generate(args.out, args.seed, pdf=not args.no_pdf)
     valid = sum(e["designed_valid"] for e in manifest["invoices"])
-    print(f"wrote {manifest['count']} invoices ({valid} valid) to {args.out}")
+    print(f"wrote {manifest['count']} invoices ({valid} valid) and {manifest['pdf_count']} PDFs "
+          f"to {args.out}")
 
 
 if __name__ == "__main__":
