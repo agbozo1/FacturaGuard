@@ -1,7 +1,8 @@
 # Vendored rule files
 
-Downloaded by the project owner on 2026-09-30 and committed in `download-packages/`.
-Extracted files live in `vendor/`. Hashes are SHA-256 of the original zips.
+Downloaded by the project owner on 2026-09-30 into `download-packages/`, which is kept local
+and git-ignored. The files the app uses are extracted into `vendor/`. Hashes are SHA-256 of the
+original zips, so anyone can re-download and verify them.
 
 | Package | Version | Source | SHA-256 | License |
 |---|---|---|---|---|
