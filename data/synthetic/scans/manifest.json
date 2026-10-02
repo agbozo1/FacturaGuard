@@ -1,0 +1,972 @@
+{
+  "count": 13,
+  "invoices": [
+    {
+      "id": "SYN-001",
+      "file": "scans/SYN-001-scan.pdf",
+      "designed_valid": true,
+      "mutations": [],
+      "fields": {
+        "invoice_number": "FG-2026-0001",
+        "issue_date": "2026-06-11",
+        "due_date": "2026-07-11",
+        "currency": "RON",
+        "seller": {
+          "name": "Pixel Test 3 SRL",
+          "vat_id": "RO556490908",
+          "registration_number": "J32/9667/2011",
+          "street": "Str. Proba 37",
+          "city": "Iasi",
+          "county": "Iasi",
+          "postal_code": "700001",
+          "country": "Romania",
+          "iban": "RO70TEST7825067066805211"
+        },
+        "buyer": {
+          "name": "Helios Test 50 SRL",
+          "vat_id": "RO856067670",
+          "registration_number": "J7/918/2021",
+          "street": "Str. Test 74",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Mentenanta website",
+            "unit": "ora",
+            "quantity": "3.00",
+            "unit_price": "662.62",
+            "line_total": "1987.86",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "1987.86",
+            "vat_amount": "417.45"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "1987.86",
+          "total_vat": "417.45",
+          "total_with_vat": "2405.31",
+          "amount_due": "2405.31"
+        }
+      }
+    },
+    {
+      "id": "SYN-002",
+      "file": "scans/SYN-002-scan.pdf",
+      "designed_valid": true,
+      "mutations": [],
+      "fields": {
+        "invoice_number": "FG-2026-0002",
+        "issue_date": "2026-08-03",
+        "due_date": "2026-09-02",
+        "currency": "RON",
+        "seller": {
+          "name": "Luna Test 35 SRL",
+          "vat_id": "RO33389517",
+          "registration_number": "J9/7922/2021",
+          "street": "Bd. Demo 46",
+          "city": "Timisoara",
+          "county": "Timis",
+          "postal_code": "300001",
+          "country": "Romania",
+          "iban": "RO88TEST8031357493782122"
+        },
+        "buyer": {
+          "name": "Cedar Test 97 SRL",
+          "vat_id": "RO949996000",
+          "registration_number": "J40/5496/2006",
+          "street": "Str. Model 36",
+          "city": "Brasov",
+          "county": "Brasov",
+          "postal_code": "500001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "3.00",
+            "unit_price": "1238.62",
+            "line_total": "3715.86",
+            "vat_rate": "11.00"
+          },
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "58.75",
+            "line_total": "117.50",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "841.74",
+            "line_total": "841.74",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Echipament birou",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "650.17",
+            "line_total": "1300.34",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "11.00",
+            "taxable_amount": "3715.86",
+            "vat_amount": "408.74"
+          },
+          {
+            "rate": "21.00",
+            "taxable_amount": "2259.58",
+            "vat_amount": "474.51"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "5975.44",
+          "total_vat": "883.25",
+          "total_with_vat": "6858.69",
+          "amount_due": "6858.69"
+        }
+      }
+    },
+    {
+      "id": "SYN-003",
+      "file": "scans/SYN-003-scan.pdf",
+      "designed_valid": true,
+      "mutations": [],
+      "fields": {
+        "invoice_number": "FG-2026-0003",
+        "issue_date": "2026-04-12",
+        "due_date": "2026-05-12",
+        "currency": "RON",
+        "seller": {
+          "name": "Alfa Test 76 SRL",
+          "vat_id": "RO349537640",
+          "registration_number": "J14/5226/2015",
+          "street": "Str. Exemplu 81",
+          "city": "Bucuresti Sector 3",
+          "county": "Bucuresti",
+          "postal_code": "030167",
+          "country": "Romania",
+          "iban": "RO96TEST0914775103202364"
+        },
+        "buyer": {
+          "name": "Apex Test 75 SRL",
+          "vat_id": "RO370152472",
+          "registration_number": "J33/9602/2024",
+          "street": "Str. Model 59",
+          "city": "Brasov",
+          "county": "Brasov",
+          "postal_code": "500001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "1.00",
+            "unit_price": "1278.28",
+            "line_total": "1278.28",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Echipament birou",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "307.07",
+            "line_total": "307.07",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "2232.62",
+            "line_total": "2232.62",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "10.00",
+            "unit_price": "2107.53",
+            "line_total": "21075.30",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "2.00",
+            "unit_price": "1666.20",
+            "line_total": "3332.40",
+            "vat_rate": "11.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "11.00",
+            "taxable_amount": "3332.40",
+            "vat_amount": "366.56"
+          },
+          {
+            "rate": "21.00",
+            "taxable_amount": "24893.27",
+            "vat_amount": "5227.59"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "28225.67",
+          "total_vat": "5594.15",
+          "total_with_vat": "33819.82",
+          "amount_due": "33819.82"
+        }
+      }
+    },
+    {
+      "id": "SYN-007",
+      "file": "scans/SYN-007-scan.pdf",
+      "designed_valid": true,
+      "mutations": [],
+      "fields": {
+        "invoice_number": "FG-2026-0007",
+        "issue_date": "2026-01-08",
+        "due_date": "2026-02-07",
+        "currency": "RON",
+        "seller": {
+          "name": "Bravo Test 11 SRL",
+          "vat_id": "RO106851370",
+          "registration_number": "J14/3860/2013",
+          "street": "Str. Test 78",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania",
+          "iban": "RO62TEST2833933777873909"
+        },
+        "buyer": {
+          "name": "Omega Test 75 SRL",
+          "vat_id": "RO455534490",
+          "registration_number": "J34/7869/2023",
+          "street": "Bd. Demo 108",
+          "city": "Timisoara",
+          "county": "Timis",
+          "postal_code": "300001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "1027.33",
+            "line_total": "2054.66",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "3.00",
+            "unit_price": "2472.09",
+            "line_total": "7416.27",
+            "vat_rate": "11.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "1687.20",
+            "line_total": "3374.40",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "3.00",
+            "unit_price": "1187.08",
+            "line_total": "3561.24",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "1.00",
+            "unit_price": "1710.96",
+            "line_total": "1710.96",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "11.00",
+            "taxable_amount": "7416.27",
+            "vat_amount": "815.79"
+          },
+          {
+            "rate": "21.00",
+            "taxable_amount": "10701.26",
+            "vat_amount": "2247.26"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "18117.53",
+          "total_vat": "3063.05",
+          "total_with_vat": "21180.58",
+          "amount_due": "21180.58"
+        }
+      }
+    },
+    {
+      "id": "SYN-035",
+      "file": "scans/SYN-035-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_payable"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0035",
+        "issue_date": "2026-08-25",
+        "due_date": "2026-09-24",
+        "currency": "RON",
+        "seller": {
+          "name": "Zenit Test 64 SRL",
+          "vat_id": "RO90504011",
+          "registration_number": "J40/4351/2024",
+          "street": "Str. Test 81",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania",
+          "iban": "RO80TEST5091947926562477"
+        },
+        "buyer": {
+          "name": "Apex Test 31 SRL",
+          "vat_id": "RO597825610",
+          "registration_number": "J25/6940/2023",
+          "street": "Str. Exemplu 3",
+          "city": "Bucuresti Sector 3",
+          "county": "Bucuresti",
+          "postal_code": "030167",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "10.00",
+            "unit_price": "1567.29",
+            "line_total": "15672.90",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Transport marfa",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "486.41",
+            "line_total": "972.82",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Transport marfa",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "281.78",
+            "line_total": "281.78",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Cafea boabe 1kg",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "1810.78",
+            "line_total": "1810.78",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Echipament birou",
+            "unit": "buc",
+            "quantity": "5.00",
+            "unit_price": "251.46",
+            "line_total": "1257.30",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "19995.58",
+            "vat_amount": "4199.07"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "19995.58",
+          "total_vat": "4199.07",
+          "total_with_vat": "24194.65",
+          "amount_due": "24199.65"
+        }
+      }
+    },
+    {
+      "id": "SYN-037",
+      "file": "scans/SYN-037-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0037",
+        "issue_date": "2026-02-15",
+        "due_date": "2026-03-17",
+        "currency": "RON",
+        "seller": {
+          "name": "Delta Test 43 SRL",
+          "vat_id": "RO337202005",
+          "registration_number": "J8/5319/2005",
+          "street": "Str. Model 74",
+          "city": "Brasov",
+          "county": "Brasov",
+          "postal_code": "500001",
+          "country": "Romania",
+          "iban": "RO74TEST6177898631706484"
+        },
+        "buyer": {
+          "name": "Apex Test 36 SRL",
+          "vat_id": "RO673159269",
+          "registration_number": "J20/3234/2023",
+          "street": "Str. Test 86",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Echipament birou",
+            "unit": "buc",
+            "quantity": "5.00",
+            "unit_price": "440.96",
+            "line_total": "2204.80",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "2204.80",
+            "vat_amount": "463.01"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "2204.80",
+          "total_vat": "463.01",
+          "total_with_vat": "2674.81",
+          "amount_due": "2674.81"
+        }
+      }
+    },
+    {
+      "id": "SYN-039",
+      "file": "scans/SYN-039-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0039",
+        "issue_date": "2026-06-07",
+        "due_date": "2026-07-07",
+        "currency": "RON",
+        "seller": {
+          "name": "Bravo Test 91 SRL",
+          "vat_id": "RO991032382",
+          "registration_number": "J8/5996/2005",
+          "street": "Bd. Demo 114",
+          "city": "Timisoara",
+          "county": "Timis",
+          "postal_code": "300001",
+          "country": "Romania",
+          "iban": "RO31TEST4200151377434165"
+        },
+        "buyer": {
+          "name": "Cedar Test 12 SRL",
+          "vat_id": "RO18688086",
+          "registration_number": "J7/2897/2010",
+          "street": "Str. Exemplu 98",
+          "city": "Bucuresti Sector 3",
+          "county": "Bucuresti",
+          "postal_code": "030167",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "853.23",
+            "line_total": "853.23",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "5.00",
+            "unit_price": "2389.75",
+            "line_total": "11948.75",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Cafea boabe 1kg",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "1896.43",
+            "line_total": "1896.43",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Cafea boabe 1kg",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "1556.69",
+            "line_total": "3113.38",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "17811.79",
+            "vat_amount": "3740.48"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "17814.79",
+          "total_vat": "3740.48",
+          "total_with_vat": "21555.27",
+          "amount_due": "21555.27"
+        }
+      }
+    },
+    {
+      "id": "SYN-041",
+      "file": "scans/SYN-041-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0041",
+        "issue_date": "2026-06-12",
+        "due_date": "2026-07-12",
+        "currency": "RON",
+        "seller": {
+          "name": "Pixel Test 36 SRL",
+          "vat_id": "RO18734484",
+          "registration_number": "J16/8708/2019",
+          "street": "Str. Test 27",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania",
+          "iban": "RO17TEST9739176321029022"
+        },
+        "buyer": {
+          "name": "Helios Test 78 SRL",
+          "vat_id": "RO171701977",
+          "registration_number": "J11/5638/2006",
+          "street": "Str. Proba 85",
+          "city": "Iasi",
+          "county": "Iasi",
+          "postal_code": "700001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "2.00",
+            "unit_price": "2349.60",
+            "line_total": "4699.20",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Cafea boabe 1kg",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "1071.25",
+            "line_total": "2142.50",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "6841.70",
+            "vat_amount": "1436.76"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "6852.70",
+          "total_vat": "1436.76",
+          "total_with_vat": "8289.46",
+          "amount_due": "8289.46"
+        }
+      }
+    },
+    {
+      "id": "SYN-043",
+      "file": "scans/SYN-043-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0043",
+        "issue_date": "2026-03-06",
+        "due_date": "2026-04-05",
+        "currency": "RON",
+        "seller": {
+          "name": "Pixel Test 18 SRL",
+          "vat_id": "RO103449698",
+          "registration_number": "J3/5987/2014",
+          "street": "Bd. Demo 11",
+          "city": "Timisoara",
+          "county": "Timis",
+          "postal_code": "300001",
+          "country": "Romania",
+          "iban": "RO26TEST1797958494926940"
+        },
+        "buyer": {
+          "name": "Cedar Test 24 SRL",
+          "vat_id": "RO228842980",
+          "registration_number": "J8/3453/2018",
+          "street": "Str. Test 92",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "10.00",
+            "unit_price": "494.47",
+            "line_total": "4944.70",
+            "vat_rate": "11.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "11.00",
+            "taxable_amount": "4944.70",
+            "vat_amount": "543.92"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "4944.70",
+          "total_vat": "556.92",
+          "total_with_vat": "5501.62",
+          "amount_due": "5501.62"
+        }
+      }
+    },
+    {
+      "id": "SYN-045",
+      "file": "scans/SYN-045-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0045",
+        "issue_date": "2026-08-09",
+        "due_date": "2026-09-08",
+        "currency": "RON",
+        "seller": {
+          "name": "Pixel Test 43 SRL",
+          "vat_id": "RO399024404",
+          "registration_number": "J32/3689/2009",
+          "street": "Str. Proba 83",
+          "city": "Iasi",
+          "county": "Iasi",
+          "postal_code": "700001",
+          "country": "Romania",
+          "iban": "RO47TEST1139024315701656"
+        },
+        "buyer": {
+          "name": "Cedar Test 89 SRL",
+          "vat_id": "RO708632345",
+          "registration_number": "J7/3407/2020",
+          "street": "Bd. Demo 36",
+          "city": "Timisoara",
+          "county": "Timis",
+          "postal_code": "300001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Hartie A4 (top)",
+            "unit": "buc",
+            "quantity": "10.00",
+            "unit_price": "908.29",
+            "line_total": "9082.90",
+            "vat_rate": "11.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "2274.51",
+            "line_total": "2274.51",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Mentenanta website",
+            "unit": "ora",
+            "quantity": "5.00",
+            "unit_price": "1263.41",
+            "line_total": "6317.05",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "1.00",
+            "unit_price": "2456.77",
+            "line_total": "2456.77",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "11.00",
+            "taxable_amount": "9082.90",
+            "vat_amount": "1000.12"
+          },
+          {
+            "rate": "21.00",
+            "taxable_amount": "11048.33",
+            "vat_amount": "2320.15"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "20131.23",
+          "total_vat": "3320.27",
+          "total_with_vat": "23451.50",
+          "amount_due": "23451.50"
+        }
+      }
+    },
+    {
+      "id": "SYN-075",
+      "file": "scans/SYN-075-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0075",
+        "issue_date": "2026-02-05",
+        "due_date": "2026-03-07",
+        "currency": "RON",
+        "seller": {
+          "name": "Pixel Test 4 SRL",
+          "vat_id": "RO372582990",
+          "registration_number": "J32/8941/2016",
+          "street": "Str. Exemplu 12",
+          "city": "Bucuresti Sector 3",
+          "county": "Bucuresti",
+          "postal_code": "030167",
+          "country": "Romania",
+          "iban": "RO95TEST3300774883694884"
+        },
+        "buyer": {
+          "name": "Nova Test 91 SRL",
+          "vat_id": "RO884514839",
+          "registration_number": "J32/3661/2011",
+          "street": "Str. Test 34",
+          "city": "Cluj-Napoca",
+          "county": "Cluj",
+          "postal_code": "400001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Cafea boabe 1kg",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "535.55",
+            "line_total": "1071.10",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "1071.10",
+            "vat_amount": "224.93"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "1071.10",
+          "total_vat": "224.93",
+          "total_with_vat": "1296.03",
+          "amount_due": "1296.03"
+        }
+      }
+    },
+    {
+      "id": "SYN-077",
+      "file": "scans/SYN-077-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0077",
+        "issue_date": "2026-01-12",
+        "due_date": "2026-02-11",
+        "currency": "RON",
+        "seller": {
+          "name": "Alfa Test 54 SRL",
+          "vat_id": "RO494394118",
+          "registration_number": "J16/1766/2021",
+          "street": "Str. Exemplu 93",
+          "city": "Bucuresti Sector 3",
+          "county": "Bucuresti",
+          "postal_code": "030167",
+          "country": "Romania",
+          "iban": "RO21TEST4246519301297231"
+        },
+        "buyer": {
+          "name": "Lotus Muster 65 GmbH",
+          "vat_id": "DE276645296",
+          "registration_number": null,
+          "street": "Teststrasse 92",
+          "city": "Berlin",
+          "county": null,
+          "postal_code": "10115",
+          "country": "DE"
+        },
+        "lines": [
+          {
+            "description": "Transport marfa",
+            "unit": "buc",
+            "quantity": "3.00",
+            "unit_price": "2135.57",
+            "line_total": "6406.71",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Licenta software anuala",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "164.39",
+            "line_total": "328.78",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "6735.49",
+            "vat_amount": "1414.45"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "6735.49",
+          "total_vat": "1414.45",
+          "total_with_vat": "8149.94",
+          "amount_due": "8149.94"
+        }
+      }
+    },
+    {
+      "id": "SYN-079",
+      "file": "scans/SYN-079-scan.pdf",
+      "designed_valid": false,
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "fields": {
+        "invoice_number": "FG-2026-0079",
+        "issue_date": "2026-04-12",
+        "due_date": "2026-05-12",
+        "currency": "RON",
+        "seller": {
+          "name": "Atlas Test 95 SRL",
+          "vat_id": "RO579630636",
+          "registration_number": "J16/2797/2024",
+          "street": "Str. Proba 73",
+          "city": "Iasi",
+          "county": null,
+          "postal_code": "700001",
+          "country": "Romania",
+          "iban": "RO43TEST5069488230735023"
+        },
+        "buyer": {
+          "name": "Helios Test 88 SRL",
+          "vat_id": "RO53715448",
+          "registration_number": "J23/1423/2021",
+          "street": "Str. Model 87",
+          "city": "Brasov",
+          "county": "Brasov",
+          "postal_code": "500001",
+          "country": "Romania"
+        },
+        "lines": [
+          {
+            "description": "Cafea boabe 1kg",
+            "unit": "buc",
+            "quantity": "2.00",
+            "unit_price": "831.42",
+            "line_total": "1662.84",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "5.00",
+            "unit_price": "379.63",
+            "line_total": "1898.15",
+            "vat_rate": "21.00"
+          },
+          {
+            "description": "Servicii consultanta",
+            "unit": "ora",
+            "quantity": "1.00",
+            "unit_price": "1788.03",
+            "line_total": "1788.03",
+            "vat_rate": "21.00"
+          }
+        ],
+        "vat_breakdown": [
+          {
+            "rate": "21.00",
+            "taxable_amount": "5349.02",
+            "vat_amount": "1123.29"
+          }
+        ],
+        "totals": {
+          "total_without_vat": "5349.02",
+          "total_vat": "1123.29",
+          "total_with_vat": "6472.31",
+          "amount_due": "6472.31"
+        }
+      }
+    }
+  ],
+  "note": "Image-only PDFs (no text layer); fields = what the page prints."
+}

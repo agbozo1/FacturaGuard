@@ -1,6 +1,7 @@
-"""Measure PDF extraction against the printed ground truth, with real Nemotron calls.
+"""Measure PDF extraction against the printed ground truth, with real model calls.
 
     python scripts/eval_extraction.py --limit 20 --out eval_extraction.json
+    python scripts/eval_extraction.py --scans --out eval_scans.json   # scanned PDFs (vision model)
 
 Per PDF: field accuracy (exact match after normalising numbers and whitespace), values the
 grounding check could not find in the PDF, and whether the built UBL gets the same validator
@@ -56,6 +57,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--out", type=Path, default=Path("eval_extraction.json"))
+    ap.add_argument("--scans", action="store_true", help="evaluate data/synthetic/scans instead")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     try:
@@ -63,13 +65,16 @@ def main() -> int:
     except LLMNotConfigured as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
-    entries = json.loads((DATA / "pdf" / "manifest.json").read_text())["invoices"]
+    folder = "scans" if args.scans else "pdf"
+    entries = json.loads((DATA / folder / "manifest.json").read_text())["invoices"]
     if args.limit:
         entries = entries[: args.limit]
-    rows, correct, total, verdicts, latencies = [], 0, 0, 0, []
+    rows, correct, total, verdicts, latencies = [], 0, 0, 0, {}
     for n, e in enumerate(entries, 1):
         r = pdf_to_invoice((DATA / e["file"]).read_bytes(), llm)
-        latencies += [c.latency_s for c in r.calls if c.ok]
+        for c in r.calls:
+            if c.ok:
+                latencies.setdefault(c.purpose, []).append(c.latency_s)
         truth = dict(_leaves(_by_rate(e["fields"])))
         got = dict(_leaves(_by_rate(r.fields))) if r.ok else {}
         wrong = [{"field": k, "truth": v, "got": got.get(k)} for k, v in truth.items()
@@ -88,9 +93,8 @@ def main() -> int:
               f"{' ' + r.error[:80] if r.error else ''}", flush=True)
     print(f"\nfield accuracy: {correct}/{total} ({100 * correct / max(total, 1):.1f}%)")
     print(f"same validator verdict as the original: {verdicts}/{len(entries)}")
-    if latencies:
-        print(f"extraction latency: median {statistics.median(latencies):.2f}s, "
-              f"max {max(latencies):.2f}s")
+    for purpose, lat in latencies.items():
+        print(f"{purpose} latency: median {statistics.median(lat):.2f}s, max {max(lat):.2f}s")
     args.out.write_text(json.dumps({"field_accuracy": [correct, total], "verdicts":
                                     [verdicts, len(entries)], "rows": rows}, indent=2,
                                    ensure_ascii=False), encoding="utf-8")

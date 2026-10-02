@@ -16,6 +16,8 @@ T = {
         "fix": "Proposed correction", "status": "Status", "after": "After the correction",
         "remaining": "Remaining errors", "none": "none",
         "questions": "Questions for the business",
+        "scan_note": "Built from a scanned image: the text was read by an AI vision model and the "
+        "fields extracted by AI. Please check every value against the original scan.",
         "diff": "Changes made to the XML", "pdf_note": "Built from a PDF; fields were extracted "
         "by AI and checked against the PDF text.", "ungrounded": "Values not found in the PDF "
         "text (please verify)",
@@ -33,6 +35,8 @@ T = {
         "fix": "Corectură propusă", "status": "Stare", "after": "După corectură",
         "remaining": "Erori rămase", "none": "niciuna",
         "questions": "Întrebări pentru firmă",
+        "scan_note": "Generat dintr-o imagine scanată: textul a fost citit de un model AI de "
+        "viziune, iar câmpurile extrase cu AI. Verificați fiecare valoare față de scanarea originală.",
         "diff": "Modificări în XML", "pdf_note": "Generat dintr-un PDF; câmpurile au fost "
         "extrase cu AI și verificate față de textul PDF.", "ungrounded": "Valori negăsite în "
         "textul PDF (vă rugăm verificați)",
@@ -55,11 +59,13 @@ def accountant_summary(session: dict, lang: str = "en") -> str:
         f"- **{t['source']}:** {session.get('source', 'xml').upper()}",
         f"- **{t['verdict']}:** {t['valid'] if v.get('valid') else t['invalid']}", "",
     ]
-    if session.get("source") == "pdf":
-        lines += [f"_{t['pdf_note']}_", ""]
+    if session.get("source") in ("pdf", "scan"):
+        lines += [f"_{t['scan_note' if session.get('source') == 'scan' else 'pdf_note']}_", ""]
         if session.get("ungrounded"):
             lines.append(f"**{t['ungrounded']}:**")
-            lines += [f"- `{u['field']}` = {u['value']}" for u in session["ungrounded"]]
+            lines += [f"- `{u['field']}` = {u['value']}"
+                      + (f" ({u['reason']})" if u.get("reason") else "")
+                      for u in session["ungrounded"]]
             lines.append("")
 
     seen, errors = set(), []

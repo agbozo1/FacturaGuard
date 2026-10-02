@@ -12,8 +12,9 @@ class Settings(BaseSettings):
     model_fast: str = "nvidia/Nemotron-3_5-Lightning"
     model_reasoning: str = "nvidia/Nemotron-3-Ultra-550b-a55b"
     model_balanced: str = "nvidia/nemotron-3-super-120b-a12b"
-    # Empty = no vision model. nemotron-3-nano-omni was not in the model list of our key.
-    model_vision: str = ""
+    # Reads scanned invoices (image to text only; Nemotron does the rest). No Nemotron vision model
+    # was on our key, so this is MiniCPM-V, verified on Token Factory 2026-10-02. Empty = scans off.
+    model_vision: str = "openbmb/MiniCPM-V-4_5"
 
     llm_timeout_seconds: float = 60.0
     # Optional JSON merged into every request body, e.g. to switch off thinking.

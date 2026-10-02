@@ -22,3 +22,5 @@ services:
         value: nvidia/Nemotron-3-Ultra-550b-a55b
       - key: MODEL_BALANCED
         value: nvidia/nemotron-3-super-120b-a12b
+      - key: MODEL_VISION   # reads scanned invoices; no Nemotron vision model was available
+        value: openbmb/MiniCPM-V-4_5

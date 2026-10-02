@@ -37,14 +37,18 @@ qualified signature, an invented "CIUS-PT" profile), see [FEEDBACK.md](FEEDBACK.
    re-validates; edits are kept only if errors go down. Totals are computed by code, and
    missing business facts become questions for the user, never invented values.
 4. For PDFs, Nemotron 3.5 Lightning copies fields from the text, code checks each value
-   appears in the PDF, and code builds the UBL.
+   appears in the PDF, and code builds the UBL. Scans and photos are first transcribed by a
+   vision model; values whose own check digits fail (IBAN, CUI, postal code) are flagged as
+   likely misreads.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    U["Invoice: UBL XML or PDF"] --> API["FastAPI + web UI"]
+    U["Invoice: UBL XML, PDF or scan"] --> API["FastAPI + web UI"]
     API -- PDF --> TXT["pypdf text layer"]
+    API -- "scan or photo" --> VIS["MiniCPM-V on Token Factory<br/>transcribe the page to text"]
+    VIS --> TXT
     TXT --> EX["Nemotron 3.5 Lightning<br/>copy fields to JSON"]
     EX --> GR["Grounding check<br/>every value must appear in the PDF"]
     GR --> BLD["UBL builder (code)<br/>county and unit tables"]
@@ -61,7 +65,7 @@ flowchart LR
 ```
 
 All model calls go through one module, `facturaguard/llm/client.py`, using the OpenAI-compatible
-Token Factory API. Code asks for a role (`fast`, `reasoning`, `balanced`); `.env` maps roles to
+Token Factory API. Code asks for a role (`fast`, `reasoning`, `balanced`, `vision`); `.env` maps roles to
 model IDs, so models can be swapped without code changes.
 
 ## How Nebius Token Factory and NVIDIA Nemotron are used
@@ -71,6 +75,7 @@ model IDs, so models can be swapped without code changes.
 | `reasoning` | `nvidia/Nemotron-3-Ultra-550b-a55b` | Explanations, repair operations, chat | Grounded in validator output and official rule text |
 | `fast` | `nvidia/Nemotron-3_5-Lightning` | PDF field extraction | Thinking switched off via `chat_template_kwargs` (verified: 1.3 s instead of a truncated 800-token monologue) |
 | `balanced` | `nvidia/nemotron-3-super-120b-a12b` | Configured alternative | Swap in via `.env` |
+| `vision` | `openbmb/MiniCPM-V-4_5` | Transcribing scanned invoices to text | The one non-NVIDIA step: no Nemotron vision model was on our key. It only reads the page; Nemotron extracts the fields. Set `MODEL_VISION=` (empty) to switch scans off |
 
 - **Token Factory** is the only inference provider. Base URL and model IDs are configuration.
 - **Where it helped:** one OpenAI-compatible endpoint for every Nemotron size, so the same client
@@ -117,14 +122,15 @@ Code: `facturaguard/search/`. Without a key both features are hidden.
 | Our verdict vs ANAF's offline validator (ROeFacturaValidator 1.3.0), 100 synthetic invoices | **100 / 100 same verdict**, every ANAF finding also reported by us |
 | Planted errors detected (27 error types, 66 invalid invoices) | 100% of expected rules fire |
 | PDF to UBL rebuild with correct fields (52 PDFs) | 50 byte-identical to the original XML; 2 differ only where paper cannot distinguish BT-106 from BT-109 |
-| Automated tests | 110 passing (fake model; no key needed) |
+| Automated tests | 165 passing (fake model; no key needed) |
 | Docker image under a 512 MB memory cap | 100 / 100 invoices validated, about 200 MB used |
 | **Repair with Nemotron 3 Ultra** (28 invoices, one per error type) | **18 fixed** and re-validated as valid; **8 correctly asked** the user for a missing fact instead of inventing it; 1 asked for the invoice type code where we expected a fix (arguably right: 380, 384 and 389 mean different things); 1 truncated file declined by design. Median 2.7 s per call |
 | **PDF extraction with Nemotron 3.5 Lightning** (52 PDFs) | **97.2% of fields correct** (2,377 of 2,446); **51 of 52** PDFs get the same validator verdict as the original invoice. Median 2.8 s per PDF |
+| **Scanned PDFs, MiniCPM-V transcription + Nemotron 3.5 Lightning extraction** (13 synthetic scans: greyscale, tilted, blurred, speckled, JPEG-compressed) | **97.4% of fields correct** (588 of 604); **12 of 13** same verdict (the other: a county the model inferred, flagged for the user). Of 11 misread values, **8 were flagged** by IBAN, CUI and postal-code checks; the other 3 were two totals (the arithmetic rules then report an error) and one registration number. About 13 s per scan (transcription 9.7 s, extraction 3.4 s median) |
 | Hosted app, real calls (Render to Token Factory) | Explain 4.5 s, repair 2.5 s, fix re-validated as valid |
 
 Eval details: `docs/eval/` (raw per-invoice results; reproduce with `scripts/eval_repair.py`
-and `scripts/eval_extraction.py`). The first extraction run scored 89.7%: most misses were
+and `scripts/eval_extraction.py`; `--scans` for scans, made by `scripts/make_scans.py`). The first extraction run scored 89.7%: most misses were
 Lightning returning Romanian number formats ("2.054,66") despite instructions, and full address
 lines in the street field. We fixed this in deterministic code (number parsing, address
 splitting, a quantity x price check) rather than trusting the model to convert, and the
@@ -205,8 +211,10 @@ request after a pause takes longer. The key never goes into git.
 
 ## Limitations
 
-- Text PDFs only. Scanned PDFs need a vision model, and no Nemotron vision model was available
-  on our Token Factory key.
+- Scans are read by a vision model, which can misread a digit. Grounding cannot catch that (the
+  transcription is the only text there is), so every value from a scan is marked "please verify",
+  the scan is shown next to the fields, and IBAN, CUI and postal-code check failures are flagged.
+  Account names and registration numbers have no check digit: compare them with the scan.
 - Invoices with standard-rated VAT lines (category S). Exempt, reverse-charge and zero-rated
   categories, allowances and charges are validated but not generated or rebuilt from PDFs.
 - Credit notes are validated but not generated from PDFs.

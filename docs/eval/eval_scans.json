@@ -1,0 +1,589 @@
+{
+  "field_accuracy": [
+    588,
+    604
+  ],
+  "verdicts": [
+    12,
+    13
+  ],
+  "rows": [
+    {
+      "id": "SYN-001",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.iban",
+          "truth": "RO70TEST7825067066805211",
+          "got": "RO70TEST782506706680521"
+        },
+        {
+          "field": "buyer.postal_code",
+          "truth": "400001",
+          "got": "40001"
+        },
+        {
+          "field": "lines[0].description",
+          "truth": "Mentenanta website",
+          "got": "Mantenanta website"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "seller.iban",
+          "value": "RO70TEST782506706680521",
+          "reason": "IBAN check digits do not match"
+        },
+        {
+          "field": "buyer.postal_code",
+          "value": "40001",
+          "reason": "Romanian postal codes have 6 digits"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 9.76,
+          "prompt_tokens": 750,
+          "completion_tokens": 933,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.82,
+          "prompt_tokens": 1115,
+          "completion_tokens": 446,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-002",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 9.87,
+          "prompt_tokens": 750,
+          "completion_tokens": 1319,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.36,
+          "prompt_tokens": 1266,
+          "completion_tokens": 673,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-003",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 10.49,
+          "prompt_tokens": 750,
+          "completion_tokens": 1446,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 4.05,
+          "prompt_tokens": 1312,
+          "completion_tokens": 748,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-007",
+      "mutations": [],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [
+        {
+          "field": "totals.total_without_vat",
+          "value": "18117.53"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 10.29,
+          "prompt_tokens": 750,
+          "completion_tokens": 1437,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 4.46,
+          "prompt_tokens": 1302,
+          "completion_tokens": 750,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-035",
+      "mutations": [
+        "bad_payable"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.postal_code",
+          "truth": "400001",
+          "got": "40001"
+        },
+        {
+          "field": "buyer.vat_id",
+          "truth": "RO597825610",
+          "got": "RO59782610"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "seller.postal_code",
+          "value": "40001",
+          "reason": "Romanian postal codes have 6 digits"
+        },
+        {
+          "field": "buyer.vat_id",
+          "value": "RO59782610",
+          "reason": "CUI control digit does not match"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 9.57,
+          "prompt_tokens": 750,
+          "completion_tokens": 1365,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.8,
+          "prompt_tokens": 1273,
+          "completion_tokens": 708,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-037",
+      "mutations": [
+        "bad_tax_inclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 9.8,
+          "prompt_tokens": 750,
+          "completion_tokens": 1422,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.63,
+          "prompt_tokens": 1120,
+          "completion_tokens": 451,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-039",
+      "mutations": [
+        "bad_tax_exclusive"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.iban",
+          "truth": "RO31TEST4200151377434165",
+          "got": "RO31TEST42001514377341465"
+        },
+        {
+          "field": "buyer.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "seller.iban",
+          "value": "RO31TEST42001514377341465",
+          "reason": "IBAN check digits do not match"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 9.65,
+          "prompt_tokens": 750,
+          "completion_tokens": 1325,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.95,
+          "prompt_tokens": 1249,
+          "completion_tokens": 658,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-041",
+      "mutations": [
+        "bad_line_sum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [],
+      "ungrounded": [],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 8.1,
+          "prompt_tokens": 750,
+          "completion_tokens": 1097,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.95,
+          "prompt_tokens": 1168,
+          "completion_tokens": 519,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-043",
+      "mutations": [
+        "bad_tax_total"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.iban",
+          "truth": "RO26TEST1797958494926940",
+          "got": "RO26TEST1797589494926940"
+        },
+        {
+          "field": "totals.total_vat",
+          "truth": "556.92",
+          "got": "543.92"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "seller.iban",
+          "value": "RO26TEST1797589494926940",
+          "reason": "IBAN check digits do not match"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 10.31,
+          "prompt_tokens": 750,
+          "completion_tokens": 1437,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 2.9,
+          "prompt_tokens": 1120,
+          "completion_tokens": 452,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-045",
+      "mutations": [
+        "bad_vat_amount"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "lines[2].description",
+          "truth": "Mentenanta website",
+          "got": "Mantenanta website"
+        },
+        {
+          "field": "vat_breakdown[0].taxable_amount",
+          "truth": "9082.90",
+          "got": "9.082.48"
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 9.72,
+          "prompt_tokens": 750,
+          "completion_tokens": 1342,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 4.04,
+          "prompt_tokens": 1278,
+          "completion_tokens": 699,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-075",
+      "mutations": [
+        "bad_cif_checksum"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "buyer.postal_code",
+          "truth": "400001",
+          "got": "40001"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "seller.vat_id",
+          "value": "RO372582990",
+          "reason": "CUI control digit does not match"
+        },
+        {
+          "field": "buyer.postal_code",
+          "value": "40001",
+          "reason": "Romanian postal codes have 6 digits"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 6.91,
+          "prompt_tokens": 750,
+          "completion_tokens": 949,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.15,
+          "prompt_tokens": 1119,
+          "completion_tokens": 460,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-077",
+      "mutations": [
+        "foreign_buyer_no_ro_id"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.county",
+          "truth": "Bucuresti",
+          "got": null
+        }
+      ],
+      "ungrounded": [],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": true,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 8.09,
+          "prompt_tokens": 750,
+          "completion_tokens": 1095,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.65,
+          "prompt_tokens": 1138,
+          "completion_tokens": 507,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "SYN-079",
+      "mutations": [
+        "missing_ro_subdivision"
+      ],
+      "ok": true,
+      "error": "",
+      "wrong_fields": [
+        {
+          "field": "seller.registration_number",
+          "truth": "J16/2797/2024",
+          "got": "J16/279/2024"
+        },
+        {
+          "field": "seller.county",
+          "truth": null,
+          "got": "Iasi"
+        }
+      ],
+      "ungrounded": [
+        {
+          "field": "seller.county",
+          "value": "Iasi"
+        }
+      ],
+      "build_warnings": [
+        "Read from a scanned image by an AI vision model. Please check every value against the original before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error rather than an error on the invoice."
+      ],
+      "same_verdict": false,
+      "calls": [
+        {
+          "purpose": "transcribe",
+          "model": "openbmb/MiniCPM-V-4_5",
+          "latency_s": 8.59,
+          "prompt_tokens": 750,
+          "completion_tokens": 1170,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "purpose": "extract",
+          "model": "nvidia/Nemotron-3_5-Lightning",
+          "latency_s": 3.34,
+          "prompt_tokens": 1195,
+          "completion_tokens": 573,
+          "ok": true,
+          "error": ""
+        }
+      ]
+    }
+  ]
+}

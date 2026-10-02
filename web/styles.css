@@ -106,6 +106,12 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   padding: 1px 6px; border-radius: 6px; background: var(--teal); color: var(--lime);
 }
 .samples .kind.pdf { background: var(--sun); color: var(--teal); }
+.samples .kind.scan { background: var(--leaf); color: var(--teal); }
+.scan-wrap { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 18px; align-items: start; }
+.scan-img { width: 100%; border-radius: 10px; border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; cursor: zoom-in; }
+.scan-wrap.zoom { grid-template-columns: minmax(0, 1fr); }
+.scan-wrap.zoom .scan-img { max-width: none; cursor: zoom-out; }
+@media (max-width: 760px) { .scan-wrap { grid-template-columns: minmax(0, 1fr); } .scan-img { max-width: 260px; } }
 .side-foot { margin-top: auto; display: grid; gap: 8px; }
 .ai-status { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; color: var(--muted); }
 .ai-status .dot { width: 8px; height: 8px; border-radius: 50%; background: #A0A7AD; }

@@ -122,6 +122,24 @@ Dated notes for the hackathon submission feedback fields.
 - Lightning, asked directly what an e-Factura needs, again claimed a digital signature is
   required (third model to make this mistake).
 
+## 2026-10-02 (scanned invoices)
+- A user uploaded a scanned invoice; text PDFs only were supported. The model list on our key
+  still has no Nemotron vision model (Lightning, Nano, Super, Ultra are text-only), so scans
+  are transcribed by `openbmb/MiniCPM-V-4_5` on Token Factory and Nemotron does the rest.
+  Image input works through the same OpenAI-compatible endpoint (`image_url` with a base64
+  data URL); no client changes were needed.
+- MiniCPM-V on a degraded A4 scan (greyscale, tilt, blur, speckle, JPEG 62): 9.7 s median,
+  about 1,400 output tokens. It answered tables as HTML `<table>` markup despite asking for
+  ' | ' rows; we convert that in code.
+- 13 synthetic scans: 97.4% of fields right after Lightning extraction (text PDFs: 97.2%).
+  But the misreads are the dangerous kind: dropped or swapped digits in IBANs, a CUI and postal
+  codes, values that look plausible. Grounding cannot catch them (the transcription is the
+  only text). IBAN mod 97, the CUI control digit and 6-digit postal codes flagged 8 of 11.
+- Found on the way: Lightning sometimes drops a printed county ("Jud. Brasov") from the
+  fields; code now recovers it from the party's address line in the source text.
+- Wish: a Nemotron vision (or OCR) model on Token Factory, and per-token confidence
+  (logprobs) for vision output, so uncertain digits could be flagged directly.
+
 ## 2026-10-02 (first real calls from the hosted app, Render Frankfurt to Token Factory us-central1)
 - Explain, Nemotron 3 Ultra, English, one BR-CO-16 error: 4.47 s, 3,282 prompt and 1,557
   completion tokens. JSON mode accepted. Output accurate and grounded: quoted the invoice's

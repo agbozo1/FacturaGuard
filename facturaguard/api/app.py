@@ -24,6 +24,7 @@ from facturaguard.chat import chat_reply
 from facturaguard.config import get_settings
 from facturaguard.explain import explain
 from facturaguard.extraction.pipeline import pdf_to_invoice
+from facturaguard.extraction.scan import is_image
 from facturaguard.llm.client import LLMClient, LLMNotConfigured
 from facturaguard.repair.engine import repair
 from facturaguard.repair.patch import unified_diff
@@ -123,11 +124,14 @@ SAMPLES = [
      "Client UE fără cod românesc"),
     ("pdf-valid", "pdf", None, "PDF invoice (valid)", "Factură PDF (validă)"),
     ("pdf-payable", "pdf", ["bad_payable"], "PDF with wrong total", "PDF cu total greșit"),
+    ("scan-payable", "scan", ["bad_payable"], "Scanned PDF with wrong total",
+     "PDF scanat cu total greșit"),
 ]
 
 
 def _sample_entry(kind: str, mutations):
-    manifest = DATA / ("pdf/manifest.json" if kind == "pdf" else "manifest.json")
+    manifest = DATA / {"pdf": "pdf/manifest.json", "scan": "scans/manifest.json"}.get(
+        kind, "manifest.json")
     for e in json.loads(manifest.read_text(encoding="utf-8"))["invoices"]:
         if (mutations is None and e["designed_valid"]) or e["mutations"] == mutations:
             return e
@@ -149,7 +153,7 @@ def samples() -> list[dict]:
 def sample_file(key: str):
     for k, kind, muts, *_ in SAMPLES:
         if k == key and (e := _sample_entry(kind, muts)):
-            media = "application/pdf" if kind == "pdf" else "application/xml"
+            media = "application/xml" if kind == "xml" else "application/pdf"
             return FileResponse(DATA / e["file"], media_type=media,
                                 filename=Path(e["file"]).name)
     raise HTTPException(404, "Unknown sample")
@@ -189,15 +193,16 @@ async def check(request: Request, file: Annotated[UploadFile, File()],
     name = Path(file.filename or "invoice").name[:120]
     session: dict = {"file_name": name, "lang": lang}
     calls = []
-    if data.lstrip()[:5] == b"%PDF-":
+    if data.lstrip()[:5] == b"%PDF-" or is_image(data):
+        # Text PDF, scanned PDF or photo: all need the model to read the invoice.
         llm = require_llm()
         app.state.ai_limit.check(request)
         r = pdf_to_invoice(data, llm)
         calls = r.calls
         if not r.ok:
             raise HTTPException(422, r.error)
-        session.update(source="pdf", pdf_fields=r.fields, ungrounded=r.ungrounded,
-                       build_warnings=r.build.warnings, original_xml=r.xml)
+        session.update(source=r.source, pdf_fields=r.fields, ungrounded=r.ungrounded,
+                       build_warnings=r.build.warnings, original_xml=r.xml, preview=r.preview)
         xml = r.xml
     else:
         session.update(source="xml", original_xml=data)
@@ -213,7 +218,8 @@ async def check(request: Request, file: Annotated[UploadFile, File()],
         "validation": session["validation"],
         "explain": session["explain"],
         "pdf": {"fields": session.get("pdf_fields"), "ungrounded": session.get("ungrounded"),
-                "warnings": session.get("build_warnings")} if session["source"] == "pdf"
+                "warnings": session.get("build_warnings"), "scan": session["source"] == "scan",
+                "preview": session.get("preview")} if session["source"] in ("pdf", "scan")
         else None,
         "calls": _calls(calls),
     }

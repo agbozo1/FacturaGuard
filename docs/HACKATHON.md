@@ -7,10 +7,10 @@ Deadline Oct 30, 2026. Our target: submit by Oct 27.
 | # | Requirement | Status |
 |---|---|---|
 | 1 | Runs on Nebius Token Factory or Nebius AI Cloud | Token Factory client verified on a real key. Hosted run pending (Render) |
-| 2 | Uses at least one NVIDIA open source model | Nemotron 3 Ultra (explain, repair, chat), 3.5 Lightning (PDF extraction) |
+| 2 | Uses at least one NVIDIA open source model | Nemotron 3 Ultra (explain, repair, chat), 3.5 Lightning (PDF extraction). Scans: MiniCPM-V on Token Factory only transcribes the page (no Nemotron vision model on our key) |
 | 3 | Public repo with OSI license, visible at the top of the repo page | Done: AGPL-3.0-only `LICENSE` (OSI-approved), `NOTICE` with copyright and commercial licensing. Repo must be made public; check the official rules accept any OSI licence (not only permissive) |
 | 4 | README with setup and run instructions | Done: quick start, Docker, Render |
-| 5 | README highlights Nemotron use, where Token Factory helped, other Nebius services | Done, with real eval numbers: repair 18/28 fixed + 8/28 correctly asked; extraction 97.2% fields, 51/52 verdicts (`docs/eval/`) |
+| 5 | README highlights Nemotron use, where Token Factory helped, other Nebius services | Done, with real eval numbers: repair 18/28 fixed + 8/28 correctly asked; extraction 97.2% fields, 51/52 verdicts; scans 97.4% fields, 12/13 verdicts (`docs/eval/`) |
 | 6 | Working demo URL (hosted app) | Live: https://facturaguard.onrender.com (Render free tier, Frankfurt). Validation verified on the hosted app; AI pending until NEBIUS_API_KEY is set |
 | 7 | Public YouTube demo video, 3 minutes or shorter, shows Token Factory and Nemotron | Script ready: `docs/DEMO.md`. Recording pending |
 | 8 | Project description: what, why, how | Draft in README "What, why, how" |

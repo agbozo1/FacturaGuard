@@ -8,7 +8,11 @@ const I18N = {
     synthetic: "Synthetic demo data only. Do not upload real client invoices.",
     tagline: "Check your Romanian e-Factura before ANAF does.",
     sub: "Upload a UBL XML or a PDF invoice. We validate it against ANAF's official RO_CIUS rules, explain every error in plain words and propose a corrected XML.",
-    drop: "Drop an invoice here, or browse (XML or PDF, max 5 MB)",
+    drop: "Drop an invoice here, or browse (XML, PDF or a scan, max 5 MB)",
+    pdfTitleScan: "Read from the scan", scanAlt: "The uploaded scan", scanZoom: "Click to enlarge",
+    scanSuspect: "Please check these values against the scan (possibly misread):",
+    scanNote: "Read from a scanned image by an AI vision model. Please check every value against the scan before relying on it. If a total does not add up, compare it with the scan first: it may be a reading error.",
+    scanOk: "All extracted values match the text read from the scan. Still compare them with the image.",
     p1t: "Official rules", p1: "ANAF CIUS-RO 1.0.9 Schematron and UBL 2.1, cross-checked with ANAF's own validator.",
     p2t: "Plain explanations", p2: "NVIDIA Nemotron explains each error in English or Romanian, grounded in the official rule text.",
     p3t: "Checked fixes", p3: "Every proposed fix is re-validated. Missing business facts are asked, never invented.",
@@ -20,10 +24,12 @@ const I18N = {
     ask: "Ask about this invoice", summaryTitle: "Summary for your accountant",
     copy: "Copy text", download: "Download .md", print: "Print or save as PDF",
     aiOn: "AI connected (NVIDIA Nemotron on Nebius)", aiOff: "Validation only (AI not configured)",
-    checking: "Checking the invoice...", readingPdf: "Reading the PDF with Nemotron and checking it...",
+    checking: "Checking the invoice...", readingPdf: "Reading the document with AI and checking it (scans take about 15 seconds)...",
     explaining: "Nemotron is explaining the errors...", fixing: "Nemotron is proposing a fix; every change is re-validated...",
     valid: "Valid", invalid: "Invalid",
     validSub: "Passes ANAF's RO_CIUS 1.0.9 checks. Ready to send.",
+    validSubScan: (n) => `Passes ANAF's RO_CIUS 1.0.9 checks, but ${n} value${n === 1 ? "" : "s"} may have been misread from the scan. Check ${n === 1 ? "it" : "them"} before sending.`,
+    exportedValidScan: (n) => `Exported the XML. It passes all checks, but ${n} value${n === 1 ? "" : "s"} may have been misread from the scan: check ${n === 1 ? "it" : "them"} before sending.`,
     invalidSub: (n) => `${n} error${n === 1 ? "" : "s"} that ANAF would reject.`,
     warnings: (n) => `${n} warning${n === 1 ? "" : "s"} (not blocking).`,
     whatWrong: "What is wrong", whyMatters: "Why it matters", howFix: "How to fix",
@@ -61,7 +67,11 @@ const I18N = {
     synthetic: "Doar date sintetice de demonstrație. Nu încărcați facturi reale ale clienților.",
     tagline: "Verifică-ți e-Factura înainte s-o verifice ANAF.",
     sub: "Încarcă o factură UBL XML sau PDF. O validăm după regulile oficiale RO_CIUS ale ANAF, explicăm fiecare eroare pe înțeles și propunem un XML corectat.",
-    drop: "Trage factura aici sau alege fișierul (XML sau PDF, max. 5 MB)",
+    drop: "Trage factura aici sau alege fișierul (XML, PDF sau o scanare, max. 5 MB)",
+    pdfTitleScan: "Citit din scanare", scanAlt: "Scanarea încărcată", scanZoom: "Clic pentru mărire",
+    scanSuspect: "Verificați aceste valori față de scanare (posibil citite greșit):",
+    scanNote: "Citit dintr-o imagine scanată de un model AI de viziune. Verificați fiecare valoare față de scanare înainte de a vă baza pe ea. Dacă un total nu se potrivește, comparați-l întâi cu scanarea: poate fi o eroare de citire.",
+    scanOk: "Toate valorile extrase se regăsesc în textul citit din scanare. Comparați-le totuși cu imaginea.",
     p1t: "Reguli oficiale", p1: "Schematron ANAF CIUS-RO 1.0.9 și UBL 2.1, verificate încrucișat cu validatorul ANAF.",
     p2t: "Explicații clare", p2: "NVIDIA Nemotron explică fiecare eroare în română sau engleză, pe baza textului oficial al regulii.",
     p3t: "Corecturi verificate", p3: "Fiecare corectură propusă este revalidată. Datele firmei care lipsesc sunt cerute, nu inventate.",
@@ -73,10 +83,12 @@ const I18N = {
     ask: "Întreabă despre această factură", summaryTitle: "Rezumat pentru contabil",
     copy: "Copiază textul", download: "Descarcă .md", print: "Tipărește sau salvează PDF",
     aiOn: "AI conectat (NVIDIA Nemotron pe Nebius)", aiOff: "Doar validare (AI neconfigurat)",
-    checking: "Se verifică factura...", readingPdf: "Nemotron citește PDF-ul și îl verificăm...",
+    checking: "Se verifică factura...", readingPdf: "Citim documentul cu AI și îl verificăm (scanările durează circa 15 secunde)...",
     explaining: "Nemotron explică erorile...", fixing: "Nemotron propune o corectură; fiecare modificare este revalidată...",
     valid: "Validă", invalid: "Invalidă",
     validSub: "Trece verificările RO_CIUS 1.0.9 ale ANAF. Gata de trimis.",
+    validSubScan: (n) => `Trece verificările RO_CIUS 1.0.9 ale ANAF, dar ${n === 1 ? "o valoare poate fi citită greșit" : `${n} valori pot fi citite greșit`} din scanare. Verificați înainte de trimitere.`,
+    exportedValidScan: (n) => `Ați exportat XML-ul. Trece toate verificările, dar ${n === 1 ? "o valoare poate fi citită greșit" : `${n} valori pot fi citite greșit`} din scanare: verificați înainte de trimitere.`,
     invalidSub: (n) => `${n} ${n === 1 ? "eroare" : "erori"} pentru care ANAF ar respinge factura.`,
     warnings: (n) => `${n} ${n === 1 ? "avertisment" : "avertismente"} (nu blochează).`,
     whatWrong: "Ce este greșit", whyMatters: "De ce contează", howFix: "Cum se corectează",
@@ -233,7 +245,7 @@ async function checkFile(file) {
   $("#file-name").textContent = file.name;
   $("#verdict").textContent = "";
   $("#verdict-sub").textContent = "";
-  const isPdf = file.name.toLowerCase().endsWith(".pdf") || file.type === "application/pdf";
+  const isPdf = /\.(pdf|jpe?g|png)$/i.test(file.name) || /^(application\/pdf|image\/)/.test(file.type);
   const fd = new FormData();
   fd.append("file", file);
   fd.append("lang", state.lang);
@@ -273,7 +285,9 @@ function renderResults() {
   // replaceChildren would print "null", so only pass real nodes.
   v.replaceChildren(...[el("span", { class: "pill" }, valid ? t("valid") : t("invalid")),
     fixed ? el("span", { class: "pill fixed" }, `✓ ${t("correctedValid")}`) : null].filter(Boolean));
-  $("#verdict-sub").textContent = (valid ? t("validSub") : t("invalidSub", n)) + (warn ? " " + t("warnings", warn) : "");
+  const suspect = c.pdf?.scan ? (c.pdf.ungrounded || []).length : 0;
+  $("#verdict-sub").textContent = (valid ? (suspect ? t("validSubScan", suspect) : t("validSub")) : t("invalidSub", n))
+    + (warn ? " " + t("warnings", warn) : "");
   renderPdf();
   renderErrors();
   renderFix();
@@ -292,15 +306,27 @@ function renderPdf() {
     ["Total", `${f.totals?.amount_due ?? ""} ${f.currency ?? ""}`],
     ["Lines", (f.lines || []).length],
   ];
+  const isScan = !!pdf.scan;
+  $("#pdf-panel h3").textContent = isScan ? t("pdfTitleScan") : t("pdfTitle");
   const body = [el("dl", { class: "kv" }, rows.flatMap(([k, val]) => [el("dt", {}, k), el("dd", {}, val ?? "")]))];
   if (pdf.ungrounded?.length) {
-    body.push(el("div", { class: "note bad" }, t("ungrounded"),
-      el("ul", {}, pdf.ungrounded.map((u) => el("li", {}, `${u.field} = ${u.value}`)))));
+    body.push(el("div", { class: "note bad" }, isScan ? t("scanSuspect") : t("ungrounded"),
+      el("ul", {}, pdf.ungrounded.map((u) => el("li", {}, `${u.field} = ${u.value}${u.reason ? ` (${u.reason})` : ""}`)))));
   } else {
-    body.push(el("p", { class: "note ok" }, t("pdfOk")));
+    body.push(el("p", { class: "note ok" }, isScan ? t("scanOk") : t("pdfOk")));
   }
-  if (pdf.warnings?.length) body.push(el("ul", { class: "note" }, pdf.warnings.map((w) => el("li", {}, w))));
-  $("#pdf-body").replaceChildren(...body);
+  // For scans the server's first warning is the "please verify" note, shown translated instead.
+  const warnings = (pdf.warnings || []).filter((_, i) => !(isScan && i === 0));
+  if (warnings.length) body.push(el("ul", { class: "note" }, warnings.map((w) => el("li", {}, w))));
+  if (isScan && /^data:image\/jpeg;base64,/.test(pdf.preview || "")) {
+    $("#pdf-body").replaceChildren(el("div", { class: "scan-wrap" },
+      el("img", { class: "scan-img", src: pdf.preview, alt: t("scanAlt"), title: t("scanZoom"),
+        tabindex: "0", onclick: (e) => e.currentTarget.closest(".scan-wrap").classList.toggle("zoom"),
+        onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.currentTarget.click(); } } }),
+      el("div", {}, el("p", { class: "note" }, t("scanNote")), ...body)));
+  } else {
+    $("#pdf-body").replaceChildren(...body);
+  }
 }
 
 function renderErrors() {
@@ -401,7 +427,8 @@ function doExport() {
   const errors = new Set((result?.issues || []).filter((i) => i.severity === "fatal")
     .map((i) => `${i.rule_id}|${i.message}`)).size;
   window.location.href = `/api/download/${state.check.session_id}?which=final`;
-  if (result?.valid) setStatus(t("exportedValid", fixed));
+  const suspect = state.check?.pdf?.scan ? (state.check.pdf.ungrounded || []).length : 0;
+  if (result?.valid) setStatus(suspect ? t("exportedValidScan", suspect) : t("exportedValid", fixed));
   else setStatus(t("exportedInvalid", fixed, errors), "error");
 }
 

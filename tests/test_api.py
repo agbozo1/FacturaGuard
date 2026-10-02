@@ -80,7 +80,8 @@ def test_ui_and_health(client, monkeypatch):
     assert "FacturaGuard" in client.get("/").text
     assert client.get("/api/health").json()["ai"] is False
     samples = client.get("/api/samples").json()
-    assert {s["kind"] for s in samples} == {"xml", "pdf"}
+    assert {s["kind"] for s in samples} == {"xml", "pdf", "scan"}
+    assert all(client.get(s["url"]).status_code == 200 for s in samples)
     assert client.get(samples[0]["url"]).status_code == 200
 
 

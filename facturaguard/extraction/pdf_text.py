@@ -1,5 +1,5 @@
-"""Text layer of a PDF. Scanned (image-only) PDFs are out of scope: no Nemotron vision model was
-available on our Token Factory key, so they are reported instead of guessed."""
+"""Text layer of a PDF. Image-only PDFs (scans) raise NoTextLayer so the pipeline can send them to
+the scan reader (facturaguard/extraction/scan.py) instead."""
 
 import io
 
@@ -14,6 +14,10 @@ class PdfTextError(ValueError):
     pass
 
 
+class NoTextLayer(PdfTextError):
+    """A readable PDF with (almost) no text: most likely a scan or a photo saved as PDF."""
+
+
 def extract_text(data: bytes) -> str:
     try:
         reader = PdfReader(io.BytesIO(data))
@@ -22,8 +26,8 @@ def extract_text(data: bytes) -> str:
     except (PdfReadError, ValueError) as e:
         raise PdfTextError(f"Could not read the PDF: {e}") from e
     if len("".join(text.split())) < MIN_TEXT_CHARS:
-        raise PdfTextError(
-            "The PDF has no readable text layer (it is probably a scan). FacturaGuard reads "
-            "text-based PDFs exported from invoicing software; scans are not supported yet."
+        raise NoTextLayer(
+            "The PDF has no readable text layer (it is probably a scan), and scan reading is not "
+            "configured on this server. Upload the PDF exported from your invoicing software."
         )
     return text
